@@ -2,6 +2,6 @@
 
 use Test::More tests => 1;
 
-BEGIN { use_ok '' }
+BEGIN { use_ok 'Dist::Zilla::PluginBundle::RSRCHBOY' }
 
-diag("Testing Dist-Zilla-PluginBundle-RSRCHBOY $Dist::Zilla::Plugin::lib/Dist/Zilla/PluginBundle/RSRCHBOY.pm::VERSION, Perl $], $^X");
+diag("Testing Dist::Zilla::PluginBundle::RSRCHBOY $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION, Perl $], $^X");

@@ -1,10 +1,96 @@
 package Dist::Zilla::PluginBundle::RSRCHBOY;
 
-# ABSTRACT: The great new Dist::Zilla::PluginBundle::RSRCHBOY!
+# ABSTRACT: Zilla your Dists like RSRCHBOY!
 
 use Moose;
 use namespace::autoclean;
-use common::sense;
 
+use Dist::Zilla;
+with 'Dist::Zilla::Role::PluginBundle::Easy';
+
+sub configure {
+    my $self = shift @_;
+
+    $self->add_bundle(Git => {
+        allow_dirty => 'dist.ini',
+        allow_dirty => 'README.pod',
+        allow_dirty => 'Changes',
+        tag_format  => '%v',
+    });
+
+    $self->add_plugins([ 'Git::NextVersion' =>
+        #;first_version = 0.001       ; this is the default
+        #;version_regexp  = ^v(.+)$   ; this is the default
+        version_regexp => '^(\d.\d+)$',
+    ]);
+
+
+    $self->add_plugins(
+        qw{
+            NextRelease
+            GatherDir
+            PruneCruft
+            License
+            ExecDir
+            ShareDir
+            MakeMaker
+            InstallGuide
+            Manifest
+            PkgVersion
+            PodWeaver
+            ReadmeFromPod
+            AutoPrereqs
+
+            ConsistentVersionTest
+            PodCoverageTests
+            PodSyntaxTests
+            NoTabsTests
+            EOLTests
+            CompileTests
+            HasVersionTests
+            PortabilityTests
+            ExtraTests
+            MinimumPerl
+            ReportVersions
+            Prepender
+
+            Authority
+
+            MetaConfig
+            MetaJSON
+            MetaYAML
+
+            TestRelease
+            ConfirmRelease
+            UploadToCPAN
+            CheckPrereqsIndexed
+
+            GitHub::Meta
+            GitHub::Update
+        },
+
+        [ ReadmeAnyFromPod  => ReadmePodInRoot => {
+            type     => 'pod',
+            filename => 'README.pod',
+            location => 'root',
+        }],
+
+        [ ArchiveRelease => {
+            directory => 'releases',
+        }],
+
+        [ InstallRelease => {
+            install_command => 'cpanm . ||:',
+        }],
+    );
+
+    return;
+}
 
 __PACKAGE__->meta->make_immutable;
+
+1;
+
+__END__
+
+=for Pod::Coverage configure
