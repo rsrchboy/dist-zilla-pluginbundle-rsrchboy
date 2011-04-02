@@ -21,7 +21,7 @@ sub configure {
     $self->add_plugins([ 'Git::NextVersion' =>
         #;first_version = 0.001       ; this is the default
         #;version_regexp  = ^v(.+)$   ; this is the default
-        version_regexp => '^(\d.\d+)$',
+        { version_regexp => '^(\d.\d+)$' },
     ]);
 
 
