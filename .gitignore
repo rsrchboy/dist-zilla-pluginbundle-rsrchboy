@@ -15,3 +15,5 @@ META.yml
 *.bak
 MYMETA.*
 .build
+Dist-Zilla-PluginBundle-RSRCHBOY-*
+releases/
