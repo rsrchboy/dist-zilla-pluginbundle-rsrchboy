@@ -78,7 +78,7 @@ sub configure {
         }],
 
         [ InstallRelease => {
-            install_command => 'cpanm . ||:',
+            install_command => 'cpanm .',
         }],
     );
 
