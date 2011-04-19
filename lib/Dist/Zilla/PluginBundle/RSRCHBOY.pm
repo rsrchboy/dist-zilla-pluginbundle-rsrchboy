@@ -12,9 +12,7 @@ sub configure {
     my $self = shift @_;
 
     $self->add_bundle(Git => {
-        allow_dirty => 'dist.ini',
-        allow_dirty => 'README.pod',
-        allow_dirty => 'Changes',
+        allow_dirty => [ qw{ dist.ini README.pod Changes } ],
         tag_format  => '%v',
     });
 
