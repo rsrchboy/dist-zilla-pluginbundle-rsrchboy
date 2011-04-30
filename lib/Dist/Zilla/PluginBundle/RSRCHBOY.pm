@@ -11,6 +11,8 @@ with 'Dist::Zilla::Role::PluginBundle::Easy';
 sub configure {
     my $self = shift @_;
 
+    $self->add_plugins(qw{ NextRelease });
+
     $self->add_bundle(Git => {
         allow_dirty => [ qw{ dist.ini README.pod Changes } ],
         tag_format  => '%v',
@@ -25,7 +27,6 @@ sub configure {
 
     $self->add_plugins(
         qw{
-            NextRelease
             GatherDir
             PruneCruft
             License
@@ -51,6 +52,7 @@ sub configure {
             MinimumPerl
             ReportVersions
             Prepender
+            NoSmartCommentsTests
 
             Authority
 
