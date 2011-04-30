@@ -1,6 +1,11 @@
-Revision history for {{$dist->name}}
+Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
+    - Add NoSmartCommentsTests to plugin list
+    - Reorder NextRelease w.r.t. @Git, so hopefully our
+      stub Changes will get committed on release as well
+
+0.002     2011-04-18 20:35:25 America/Los_Angeles
     - Correctly specify "files to ignore in root" to @Git
     - Don't use shell syntax in install command
 
