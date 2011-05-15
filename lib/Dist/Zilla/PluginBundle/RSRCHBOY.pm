@@ -8,6 +8,13 @@ use namespace::autoclean;
 use Dist::Zilla;
 with 'Dist::Zilla::Role::PluginBundle::Easy';
 
+has is_task => (
+    is      => 'ro',
+    isa     => 'Bool',
+    lazy    => 1,
+    default => sub { shift->payload->{task} },
+);
+
 sub configure {
     my $self = shift @_;
 
@@ -24,7 +31,6 @@ sub configure {
         { version_regexp => '^(\d.\d+)$' },
     ]);
 
-
     $self->add_plugins(
         qw{
             GatherDir
@@ -36,7 +42,6 @@ sub configure {
             InstallGuide
             Manifest
             PkgVersion
-            PodWeaver
             ReadmeFromPod
             AutoPrereqs
 
@@ -68,6 +73,8 @@ sub configure {
             GitHub::Meta
             GitHub::Update
         },
+
+        ($self->is_task ? 'TaskWeaver' : 'PodWeaver'),
 
         [ ReadmeAnyFromPod  => ReadmePodInRoot => {
             type     => 'pod',
