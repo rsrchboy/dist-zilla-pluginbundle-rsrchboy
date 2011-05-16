@@ -8,6 +8,36 @@ use namespace::autoclean;
 use Dist::Zilla;
 with 'Dist::Zilla::Role::PluginBundle::Easy';
 
+use Dist::Zilla::PluginBundle::Git;
+
+use Dist::Zilla::Plugin::Authority;
+use Dist::Zilla::Plugin::CheckPrereqsIndexed;
+use Dist::Zilla::Plugin::CompileTests;
+use Dist::Zilla::Plugin::ConfirmRelease;
+use Dist::Zilla::Plugin::ConsistentVersionTest;
+use Dist::Zilla::Plugin::EOLTests;
+use Dist::Zilla::Plugin::ExtraTests;
+use Dist::Zilla::Plugin::Git::NextVersion;
+use Dist::Zilla::Plugin::GitHub::Meta;
+use Dist::Zilla::Plugin::GitHub::Update;
+use Dist::Zilla::Plugin::HasVersionTests;
+use Dist::Zilla::Plugin::MetaConfig;
+use Dist::Zilla::Plugin::MetaJSON;
+use Dist::Zilla::Plugin::MetaYAML;
+use Dist::Zilla::Plugin::MinimumPerl;
+use Dist::Zilla::Plugin::NoSmartCommentsTests;
+use Dist::Zilla::Plugin::NoTabsTests;
+use Dist::Zilla::Plugin::PodWeaver;
+use Dist::Zilla::Plugin::PodCoverageTests;
+use Dist::Zilla::Plugin::PodSyntaxTests;
+use Dist::Zilla::Plugin::PortabilityTests;
+use Dist::Zilla::Plugin::Prepender;
+use Dist::Zilla::Plugin::ReadmeFromPod;
+use Dist::Zilla::Plugin::ReportVersions;
+use Dist::Zilla::Plugin::TaskWeaver;
+use Dist::Zilla::Plugin::TestRelease;
+use Dist::Zilla::Plugin::UploadToCPAN;
+
 has is_task => (
     is      => 'ro',
     isa     => 'Bool',
