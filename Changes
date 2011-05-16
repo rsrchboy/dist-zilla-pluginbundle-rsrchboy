@@ -1,6 +1,10 @@
 Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
+    - add initial task support
+    - "use" all our plugins so they're listed as prereqs
+
+0.003     2011-04-29 19:07:44 America/Los_Angeles
     - Add NoSmartCommentsTests to plugin list
     - Reorder NextRelease w.r.t. @Git, so hopefully our
       stub Changes will get committed on release as well
