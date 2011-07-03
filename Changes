@@ -1,6 +1,8 @@
 Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
+
+0.004     2011-05-15 18:50:41 America/Los_Angeles
     - add initial task support
     - "use" all our plugins so they're listed as prereqs
 
