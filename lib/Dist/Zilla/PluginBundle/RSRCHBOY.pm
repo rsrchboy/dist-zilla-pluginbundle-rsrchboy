@@ -52,6 +52,8 @@ has is_task => (
 sub configure {
     my $self = shift @_;
 
+    my $autoprereq_opts = $self->config_slice({ autoprereqs_skip => 'skip' });
+
     $self->add_plugins(qw{ NextRelease });
 
     $self->add_bundle(Git => {
@@ -77,8 +79,9 @@ sub configure {
             Manifest
             PkgVersion
             ReadmeFromPod
-            AutoPrereqs
-
+        },
+        [ AutoPrereqs => $autoprereq_opts ],
+        qw{
             ConsistentVersionTest
             PodCoverageTests
             PodSyntaxTests
