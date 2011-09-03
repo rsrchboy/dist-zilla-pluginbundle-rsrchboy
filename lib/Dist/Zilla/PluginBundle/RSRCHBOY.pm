@@ -13,7 +13,6 @@ use Dist::Zilla::PluginBundle::Git;
 use Dist::Zilla::Plugin::Authority;
 use Dist::Zilla::Plugin::ArchiveRelease;
 use Dist::Zilla::Plugin::CheckPrereqsIndexed;
-use Dist::Zilla::Plugin::CompileTests;
 use Dist::Zilla::Plugin::ConfirmRelease;
 use Dist::Zilla::Plugin::ConsistentVersionTest;
 use Dist::Zilla::Plugin::EOLTests;
@@ -39,6 +38,7 @@ use Dist::Zilla::Plugin::ReadmeFromPod;
 use Dist::Zilla::Plugin::ReadmeAnyFromPod;
 use Dist::Zilla::Plugin::ReportVersions;
 use Dist::Zilla::Plugin::TaskWeaver;
+use Dist::Zilla::Plugin::Test::Compile;
 use Dist::Zilla::Plugin::TestRelease;
 use Dist::Zilla::Plugin::UploadToCPAN;
 
