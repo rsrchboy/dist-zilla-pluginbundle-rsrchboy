@@ -1,6 +1,9 @@
 Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
+    - replace CompileTests with Test::Compile
+
+0.005     2011-07-03 16:33:51 America/Los_Angeles
     - add a bunch of missing prereqs
     - initial provision for passing in opts to autoprereqs
 
