@@ -87,7 +87,6 @@ sub configure {
             PodSyntaxTests
             NoTabsTests
             EOLTests
-            CompileTests
             HasVersionTests
             Test::Portability
             ExtraTests
