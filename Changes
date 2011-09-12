@@ -1,6 +1,9 @@
 Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
+    - replace PortabilityTests with Test::Portability
+
+0.006     2011-09-02 21:49:50 America/Los_Angeles
     - replace CompileTests with Test::Compile
 
 0.005     2011-07-03 16:33:51 America/Los_Angeles
