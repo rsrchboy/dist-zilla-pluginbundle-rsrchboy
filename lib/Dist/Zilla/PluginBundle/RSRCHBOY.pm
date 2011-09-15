@@ -10,7 +10,7 @@ with 'Dist::Zilla::Role::PluginBundle::Easy';
 
 use Dist::Zilla::PluginBundle::Git;
 
-use Dist::Zilla::Plugin::Authority;
+#use Dist::Zilla::Plugin::Authority;
 use Dist::Zilla::Plugin::ArchiveRelease;
 use Dist::Zilla::Plugin::CheckPrereqsIndexed;
 use Dist::Zilla::Plugin::ConfirmRelease;
@@ -36,6 +36,7 @@ use Dist::Zilla::Plugin::Prepender;
 use Dist::Zilla::Plugin::ReadmeFromPod;
 use Dist::Zilla::Plugin::ReadmeAnyFromPod;
 use Dist::Zilla::Plugin::ReportVersions;
+use Dist::Zilla::Plugin::SurgicalPkgVersion;
 use Dist::Zilla::Plugin::TaskWeaver;
 use Dist::Zilla::Plugin::Test::Compile;
 use Dist::Zilla::Plugin::Test::Portability;
@@ -79,7 +80,7 @@ sub configure {
             MakeMaker
             InstallGuide
             Manifest
-            PkgVersion
+            SurgicalPkgVersion
             ReadmeFromPod
         },
         [ AutoPrereqs => $autoprereq_opts ],
@@ -98,8 +99,6 @@ sub configure {
             MinimumPerl
             ReportVersions
             NoSmartCommentsTests
-
-            Authority
 
             MetaConfig
             MetaJSON
