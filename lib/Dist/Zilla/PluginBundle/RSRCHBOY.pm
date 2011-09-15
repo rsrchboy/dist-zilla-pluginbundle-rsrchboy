@@ -39,6 +39,7 @@ use Dist::Zilla::Plugin::ReportVersions;
 use Dist::Zilla::Plugin::TaskWeaver;
 use Dist::Zilla::Plugin::Test::Compile;
 use Dist::Zilla::Plugin::Test::Portability;
+use Dist::Zilla::Plugin::Test::UseAllModules;
 use Dist::Zilla::Plugin::TestRelease;
 use Dist::Zilla::Plugin::UploadToCPAN;
 
@@ -53,6 +54,7 @@ sub configure {
     my $self = shift @_;
 
     my $autoprereq_opts = $self->config_slice({ autoprereqs_skip => 'skip' });
+    my $prepender_opts  = $self->config_slice({ prepender_skip   => 'skip' });
 
     $self->add_plugins(qw{ NextRelease });
 
@@ -81,6 +83,7 @@ sub configure {
             ReadmeFromPod
         },
         [ AutoPrereqs => $autoprereq_opts ],
+        [ Prepender   => $prepender_opts  ],
         qw{
             ConsistentVersionTest
             PodCoverageTests
@@ -88,11 +91,12 @@ sub configure {
             NoTabsTests
             EOLTests
             HasVersionTests
+            Test::Compile
             Test::Portability
+            Test::UseAllModules
             ExtraTests
             MinimumPerl
             ReportVersions
-            Prepender
             NoSmartCommentsTests
 
             Authority
@@ -107,8 +111,9 @@ sub configure {
             CheckPrereqsIndexed
 
             GitHub::Meta
-            GitHub::Update
         },
+
+        [ 'GitHub::Update' => { metacpan => 1 } ],
 
         ($self->is_task ? 'TaskWeaver' : 'PodWeaver'),
 
