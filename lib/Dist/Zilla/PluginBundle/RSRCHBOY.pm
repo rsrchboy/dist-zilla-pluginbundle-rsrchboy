@@ -4,15 +4,24 @@ package Dist::Zilla::PluginBundle::RSRCHBOY;
 
 use Moose;
 use namespace::autoclean;
+use MooseX::AttributeShortcuts;
 
 use Dist::Zilla;
 with 'Dist::Zilla::Role::PluginBundle::Easy';
+
+# additional deps
+use Archive::Tar::Wrapper ( );
+use Test::NoSmartComments ( );
+use Test::Pod::Coverage   ( );
+use Test::Pod             ( );
+use Test::Pod::Content    ( );
 
 use Dist::Zilla::PluginBundle::Git;
 
 #use Dist::Zilla::Plugin::Authority;
 use Dist::Zilla::Plugin::ArchiveRelease;
 use Dist::Zilla::Plugin::CheckPrereqsIndexed;
+use Dist::Zilla::Plugin::CopyFilesFromBuild;
 use Dist::Zilla::Plugin::ConfirmRelease;
 use Dist::Zilla::Plugin::ConsistentVersionTest;
 use Dist::Zilla::Plugin::EOLTests;
@@ -33,6 +42,7 @@ use Dist::Zilla::Plugin::PodWeaver;
 use Dist::Zilla::Plugin::PodCoverageTests;
 use Dist::Zilla::Plugin::PodSyntaxTests;
 use Dist::Zilla::Plugin::Prepender;
+use Dist::Zilla::Plugin::PruneFiles;
 use Dist::Zilla::Plugin::ReadmeFromPod;
 use Dist::Zilla::Plugin::ReadmeAnyFromPod;
 use Dist::Zilla::Plugin::ReportVersions;
@@ -44,12 +54,11 @@ use Dist::Zilla::Plugin::Test::UseAllModules;
 use Dist::Zilla::Plugin::TestRelease;
 use Dist::Zilla::Plugin::UploadToCPAN;
 
-has is_task => (
-    is      => 'ro',
-    isa     => 'Bool',
-    lazy    => 1,
-    default => sub { shift->payload->{task} },
-);
+has is_task    => (is => 'lazy', isa => 'Bool');
+has is_cat_app => (is => 'lazy', isa => 'Bool');
+
+sub _build_is_task    { shift->payload->{task}    }
+sub _build_is_cat_app { shift->payload->{cat_app} }
 
 sub configure {
     my $self = shift @_;
@@ -115,6 +124,15 @@ sub configure {
         [ 'GitHub::Update' => { metacpan => 1 } ],
 
         ($self->is_task ? 'TaskWeaver' : 'PodWeaver'),
+
+
+        ($self->is_cat_app ?
+            (
+               [ PruneFiles         => { filenames => 'Makefile.PL' } ],
+               [ CopyFilesFromBuild => { copy      => 'Makefile.PL' } ],
+            )
+            : ()
+        ),
 
         [ ReadmeAnyFromPod  => ReadmePodInRoot => {
             type     => 'pod',
