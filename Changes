@@ -1,6 +1,12 @@
 Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
+	- additional prereqs (generally Test:: modules that the invoking DZ plugin
+	  doesn't explicitly require
+	- add is_cat_app option + specifc plugins (e.g. copy Makefile.PL back into
+	  repo root so Cat doesn't freak out :))
+
+0.009     2011-09-14 17:35:58 America/Los_Angeles
     - switch homepage url set on github to metacpan
     - add Test::UseAllModules
     - add prepender_skip
