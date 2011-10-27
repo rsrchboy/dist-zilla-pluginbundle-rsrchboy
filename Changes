@@ -1,6 +1,11 @@
 Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
+	- switch to ReportVersions::Tiny
+	- drop Test::UseAllModules for the moment, as it dies horribly when
+	  trying to use a role
+
+0.010     2011-09-29 12:03:52 America/Los_Angeles
 	- additional prereqs (generally Test:: modules that the invoking DZ plugin
 	  doesn't explicitly require
 	- add is_cat_app option + specifc plugins (e.g. copy Makefile.PL back into
