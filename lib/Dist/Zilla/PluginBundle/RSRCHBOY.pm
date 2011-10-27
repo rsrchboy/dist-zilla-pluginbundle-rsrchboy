@@ -45,12 +45,11 @@ use Dist::Zilla::Plugin::Prepender;
 use Dist::Zilla::Plugin::PruneFiles;
 use Dist::Zilla::Plugin::ReadmeFromPod;
 use Dist::Zilla::Plugin::ReadmeAnyFromPod;
-use Dist::Zilla::Plugin::ReportVersions;
+use Dist::Zilla::Plugin::ReportVersions::Tiny;
 use Dist::Zilla::Plugin::SurgicalPkgVersion;
 use Dist::Zilla::Plugin::TaskWeaver;
 use Dist::Zilla::Plugin::Test::Compile;
 use Dist::Zilla::Plugin::Test::Portability;
-use Dist::Zilla::Plugin::Test::UseAllModules;
 use Dist::Zilla::Plugin::TestRelease;
 use Dist::Zilla::Plugin::UploadToCPAN;
 
@@ -103,10 +102,9 @@ sub configure {
             HasVersionTests
             Test::Compile
             Test::Portability
-            Test::UseAllModules
             ExtraTests
             MinimumPerl
-            ReportVersions
+            ReportVersions::Tiny
             NoSmartCommentsTests
 
             MetaConfig
