@@ -10,11 +10,12 @@ use Dist::Zilla;
 with 'Dist::Zilla::Role::PluginBundle::Easy';
 
 # additional deps
-use Archive::Tar::Wrapper ( );
-use Test::NoSmartComments ( );
-use Test::Pod::Coverage   ( );
-use Test::Pod             ( );
-use Test::Pod::Content    ( );
+use Archive::Tar::Wrapper   ( );
+use Test::NoSmartComments   ( );
+use Test::Pod::Coverage     ( );
+use Test::Pod               ( );
+use Test::Pod::Content      ( );
+use Pod::Coverage::TrustPod ( );
 
 use Dist::Zilla::PluginBundle::Git;
 
