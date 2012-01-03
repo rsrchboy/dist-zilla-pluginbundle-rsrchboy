@@ -56,15 +56,26 @@ use Dist::Zilla::Plugin::UploadToCPAN;
 
 has is_task    => (is => 'lazy', isa => 'Bool');
 has is_cat_app => (is => 'lazy', isa => 'Bool');
+has is_private => (is => 'lazy', isa => 'Bool');
 
 sub _build_is_task    { shift->payload->{task}    }
 sub _build_is_cat_app { shift->payload->{cat_app} }
+sub _build_is_private { shift->payload->{private} }
 
 sub configure {
     my $self = shift @_;
 
     my $autoprereq_opts = $self->config_slice({ autoprereqs_skip => 'skip' });
     my $prepender_opts  = $self->config_slice({ prepender_skip   => 'skip' });
+
+    my @private_or_public
+        = $self->is_private
+        ? ()
+        : (
+            qw{ UploadToCPAN GitHub::Meta } ,
+            [ 'GitHub::Update' => { metacpan => 1 } ],
+        )
+        ;
 
     $self->add_plugins(qw{ NextRelease });
 
@@ -114,16 +125,12 @@ sub configure {
 
             TestRelease
             ConfirmRelease
-            UploadToCPAN
             CheckPrereqsIndexed
-
-            GitHub::Meta
         },
 
-        [ 'GitHub::Update' => { metacpan => 1 } ],
+        @private_or_public,
 
         ($self->is_task ? 'TaskWeaver' : 'PodWeaver'),
-
 
         ($self->is_cat_app ?
             (
