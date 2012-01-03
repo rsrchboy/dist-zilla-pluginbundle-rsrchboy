@@ -55,12 +55,12 @@ use Dist::Zilla::Plugin::TestRelease;
 use Dist::Zilla::Plugin::UploadToCPAN;
 
 has is_task    => (is => 'lazy', isa => 'Bool');
-has is_cat_app => (is => 'lazy', isa => 'Bool');
+has is_app => (is => 'lazy', isa => 'Bool');
 has is_private => (is => 'lazy', isa => 'Bool');
 
-sub _build_is_task    { shift->payload->{task}    }
-sub _build_is_cat_app { shift->payload->{cat_app} }
-sub _build_is_private { shift->payload->{private} }
+sub _build_is_task    { $_[0]->payload->{task}    }
+sub _build_is_app     { $_[0]->payload->{cat_app} || $_[0]->payload->{app} }
+sub _build_is_private { $_[0]->payload->{private} }
 
 sub configure {
     my $self = shift @_;
@@ -132,7 +132,7 @@ sub configure {
 
         ($self->is_task ? 'TaskWeaver' : 'PodWeaver'),
 
-        ($self->is_cat_app ?
+        ($self->is_app ?
             (
                [ PruneFiles         => { filenames => 'Makefile.PL' } ],
                [ CopyFilesFromBuild => { copy      => 'Makefile.PL' } ],
