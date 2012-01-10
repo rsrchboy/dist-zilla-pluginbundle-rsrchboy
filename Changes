@@ -1,6 +1,10 @@
 Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
+	- change "cat_app" option to just "app"; preserve cat_app for legacy
+	- dist.ini tweaks
+
+0.011     2011-10-27 10:13:25 America/Los_Angeles
 	- switch to ReportVersions::Tiny
 	- drop Test::UseAllModules for the moment, as it dies horribly when
 	  trying to use a role
