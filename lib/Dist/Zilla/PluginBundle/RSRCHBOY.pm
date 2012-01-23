@@ -130,7 +130,10 @@ sub configure {
 
         @private_or_public,
 
-        ($self->is_task ? 'TaskWeaver' : 'PodWeaver'),
+        ($self->is_task
+            ? 'TaskWeaver'
+            : [ PodWeaver => { config_plugin => '@RSRCHBOY' } ]
+        ),
 
         ($self->is_app ?
             (
