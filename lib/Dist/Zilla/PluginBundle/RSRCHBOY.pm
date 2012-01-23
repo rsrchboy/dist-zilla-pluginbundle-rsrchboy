@@ -55,7 +55,7 @@ use Dist::Zilla::Plugin::TestRelease;
 use Dist::Zilla::Plugin::UploadToCPAN;
 
 has is_task    => (is => 'lazy', isa => 'Bool');
-has is_app => (is => 'lazy', isa => 'Bool');
+has is_app     => (is => 'lazy', isa => 'Bool');
 has is_private => (is => 'lazy', isa => 'Bool');
 
 sub _build_is_task    { $_[0]->payload->{task}    }
@@ -124,8 +124,8 @@ sub configure {
             MetaYAML
 
             TestRelease
-            ConfirmRelease
             CheckPrereqsIndexed
+            ConfirmRelease
         },
 
         @private_or_public,
