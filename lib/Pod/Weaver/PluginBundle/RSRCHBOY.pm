@@ -5,13 +5,14 @@ package Pod::Weaver::PluginBundle::RSRCHBOY;
 use strict;
 use warnings;
 
+# for prereqs
+use Pod::Weaver::Section::SeeAlso      ( );
+use Pod::Weaver::Section::SourceGitHub ( );
+
 use Pod::Weaver::Config::Assembler;
 
 sub _exp { Pod::Weaver::Config::Assembler->expand_package($_[0]) }
 sub _exp2 { [ "\@RSRCHBOY/$_[0]", _exp($_[0]), {} ] }
-
-use Pod::Weaver::Config::Assembler;
-
 
 sub mvp_bundle_config {
     return (
