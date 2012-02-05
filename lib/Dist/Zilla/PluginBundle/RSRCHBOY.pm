@@ -9,6 +9,8 @@ use MooseX::AttributeShortcuts;
 use Dist::Zilla;
 with 'Dist::Zilla::Role::PluginBundle::Easy';
 
+use Path::Class;
+
 # additional deps
 use Archive::Tar::Wrapper   ( );
 use Test::NoSmartComments   ( );
@@ -77,6 +79,13 @@ sub configure {
         )
         ;
 
+    # if we have a weaver.ini, use that; otherwise use our bundle
+    my $podweaver
+        = file('weaver.ini')->stat
+        ? 'PodWeaver'
+        : [ PodWeaver => { config_plugin => '@RSRCHBOY' } ]
+        ;
+
     $self->add_plugins(qw{ NextRelease });
 
     $self->add_bundle(Git => {
@@ -130,10 +139,7 @@ sub configure {
 
         @private_or_public,
 
-        ($self->is_task
-            ? 'TaskWeaver'
-            : [ PodWeaver => { config_plugin => '@RSRCHBOY' } ]
-        ),
+        ($self->is_task ? 'TaskWeaver' : $podweaver),
 
         ($self->is_app ?
             (
