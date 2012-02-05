@@ -3,6 +3,7 @@ Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 {{$NEXT}}
 	- switch prereqs indexed? release plugin to before confirm release
 	- add initial Pod::Weaver config bundle
+	- allow a local weaver.ini to override our config
 
 0.012
 	- change "cat_app" option to just "app"; preserve cat_app for legacy
