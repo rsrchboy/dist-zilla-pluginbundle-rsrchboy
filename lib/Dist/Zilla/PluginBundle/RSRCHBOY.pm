@@ -20,6 +20,7 @@ use Test::Pod::Content      ( );
 use Pod::Coverage::TrustPod ( );
 
 use Dist::Zilla::PluginBundle::Git;
+use Dist::Zilla::PluginBundle::Git::CheckFor;
 
 #use Dist::Zilla::Plugin::Authority;
 use Dist::Zilla::Plugin::ArchiveRelease;
@@ -98,6 +99,8 @@ sub configure {
         #;version_regexp  = ^v(.+)$   ; this is the default
         { version_regexp => '^(\d.\d+)$' },
     ]);
+
+    $self->add_bundle('Git::CheckFor');
 
     $self->add_plugins(
         qw{
