@@ -14,12 +14,14 @@ use Pod::Weaver::Config::Assembler;
 sub _exp { Pod::Weaver::Config::Assembler->expand_package($_[0]) }
 sub _exp2 { [ "\@RSRCHBOY/$_[0]", _exp($_[0]), {} ] }
 
+my $vformat = 'This document describes %v of %m - released %{LLLL dd, yyyy}d as part of %r.';
+
 sub mvp_bundle_config {
     return (
         [ '@RSRCHBOY/CorePrep',  _exp('@CorePrep'),    {} ],
         _exp2('Name'),
-        _exp2('Version'),
-        [ '@RSRCHBOY/prelude',   _exp('Region'),       { region_name => 'prelude' } ],
+        [ '@RSRCHBOY/Version', _exp('Version'),      { format      => $vformat  } ],
+        [ '@RSRCHBOY/prelude', _exp('Region'),      { region_name => 'prelude' } ],
 
         [ 'SYNOPSIS',         _exp('Generic'),      {} ],
         [ 'DESCRIPTION',      _exp('Generic'),      {} ],
