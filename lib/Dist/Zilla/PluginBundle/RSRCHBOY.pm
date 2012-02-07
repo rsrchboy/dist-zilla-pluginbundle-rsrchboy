@@ -1,6 +1,6 @@
 package Dist::Zilla::PluginBundle::RSRCHBOY;
 
-# ABSTRACT: Zilla your Dists like RSRCHBOY!
+# ABSTRACT: Zilla your distributions like RSRCHBOY!
 
 use Moose;
 use namespace::autoclean;
@@ -53,6 +53,7 @@ use Dist::Zilla::Plugin::ReportVersions::Tiny;
 use Dist::Zilla::Plugin::SurgicalPkgVersion;
 use Dist::Zilla::Plugin::TaskWeaver;
 use Dist::Zilla::Plugin::Test::Compile;
+use Dist::Zilla::Plugin::Test::PodSpelling 2.002001;
 use Dist::Zilla::Plugin::Test::Portability;
 use Dist::Zilla::Plugin::TestRelease;
 use Dist::Zilla::Plugin::UploadToCPAN;
@@ -117,6 +118,16 @@ sub configure {
         },
         [ AutoPrereqs => $autoprereq_opts ],
         [ Prepender   => $prepender_opts  ],
+        [ 'Test::PodSpelling' => {
+            stopwords => [ qw{
+                AFAICT
+                ABEND
+                RSRCHBOY
+                RSRCHBOY's
+                ini
+                subclasses
+            } ] },
+        ],
         qw{
             ConsistentVersionTest
             PodCoverageTests
@@ -178,7 +189,7 @@ __END__
 
 =for Pod::Coverage configure
 
-=head1 SYNOPIS
+=head1 SYNOPSIS
 
     # in your dist.ini...
     [@RSRCHBOY]
