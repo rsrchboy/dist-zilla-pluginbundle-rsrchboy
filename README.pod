@@ -1,12 +1,19 @@
 =pod
 
+=encoding utf-8
+
 =head1 NAME
 
-Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your Dists like RSRCHBOY!
+Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 =head1 VERSION
 
-version 0.014
+This document describes 0.015 of Dist::Zilla::PluginBundle::RSRCHBOY - released February 06, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+
+=head1 SYNOPSIS
+
+    # in your dist.ini...
+    [@RSRCHBOY]
 
 =head1 DESCRIPTION
 
@@ -16,10 +23,19 @@ this being too terribly consistent/sane until the version gets to 1.
 
 =for Pod::Coverage configure
 
-=head1 SYNOPIS
+=head1 SOURCE
 
-    # in your dist.ini...
-    [@RSRCHBOY]
+The development version is on github at L<http://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY>
+and may be cloned from L<git://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY.git>
+
+=head1 BUGS
+
+Please report any bugs or feature requests on the bugtracker website
+https://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY/issues
+
+When submitting a bug or request, please include a test-file or a
+patch to an existing test-file that illustrates the bug or desired
+feature.
 
 =head1 AUTHOR
 

@@ -1,6 +1,12 @@
 Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
+
+0.015     2012-02-06 20:28:06 America/Los_Angeles
+	- DZ: add Test::PodSpelling, @Git::CheckFor
+	- PW: alter version section to be a touch more helpful
+
+0.014     2012-02-05 09:36:35 America/Los_Angeles
 	- switch prereqs indexed? release plugin to before confirm release
 	- add initial Pod::Weaver config bundle
 	- allow a local weaver.ini to override our config
