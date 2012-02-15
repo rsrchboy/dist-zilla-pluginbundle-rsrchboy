@@ -123,6 +123,8 @@ sub configure {
                 RSRCHBOY
                 RSRCHBOY's
                 ini
+                metaclass
+                metaclasses
                 subclasses
             } ] },
         ],
