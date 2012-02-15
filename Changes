@@ -2,6 +2,9 @@ Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
 
+0.016     2012-02-14 20:46:10 America/Los_Angeles
+	- add 'metaclass' to stopwords list
+
 0.015     2012-02-06 20:28:06 America/Los_Angeles
 	- DZ: add Test::PodSpelling, @Git::CheckFor
 	- PW: alter version section to be a touch more helpful
