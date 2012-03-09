@@ -2,6 +2,9 @@ Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
 
+0.017     2012-03-09 00:09:36 America/Los_Angeles
+	- add missing Pod::Weaver::Plugin::Encoding dep
+
 0.016     2012-02-14 20:46:10 America/Los_Angeles
 	- add 'metaclass' to stopwords list
 
