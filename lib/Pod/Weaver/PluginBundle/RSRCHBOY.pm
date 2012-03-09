@@ -7,6 +7,7 @@ use warnings;
 
 # for prereqs
 use Pod::Elemental::Transformer::List  ( );
+use Pod::Weaver::Plugin::Encoding      ( );
 use Pod::Weaver::Section::SeeAlso      ( );
 use Pod::Weaver::Section::SourceGitHub ( );
 
