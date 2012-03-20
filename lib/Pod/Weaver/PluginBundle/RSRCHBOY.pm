@@ -16,7 +16,7 @@ use Pod::Weaver::Config::Assembler;
 sub _exp { Pod::Weaver::Config::Assembler->expand_package($_[0]) }
 sub _exp2 { [ "\@RSRCHBOY/$_[0]", _exp($_[0]), {} ] }
 
-my $vformat = 'This document describes %v of %m - released %{LLLL dd, yyyy}d as part of %r.';
+my $vformat = 'This document describes version %v of %m - released %{LLLL dd, yyyy}d as part of %r.';
 
 sub mvp_bundle_config {
     return (
