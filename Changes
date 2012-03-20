@@ -2,6 +2,9 @@ Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
 
+0.018     2012-03-20 10:25:21 America/Los_Angeles
+	- add 'version' before %v in our pod VERSION section format string
+
 0.017     2012-03-09 00:09:36 America/Los_Angeles
 	- add missing Pod::Weaver::Plugin::Encoding dep
 
