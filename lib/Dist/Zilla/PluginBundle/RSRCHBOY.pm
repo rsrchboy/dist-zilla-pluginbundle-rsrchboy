@@ -116,18 +116,7 @@ sub configure {
         },
         [ AutoPrereqs => $autoprereq_opts ],
         [ Prepender   => $prepender_opts  ],
-        [ 'Test::PodSpelling' => {
-            stopwords => [ qw{
-                AFAICT
-                ABEND
-                RSRCHBOY
-                RSRCHBOY's
-                ini
-                metaclass
-                metaclasses
-                subclasses
-            } ] },
-        ],
+        [ 'Test::PodSpelling' => { stopwords => [ $self->stopwords ] } ],
         qw{
 
             ConsistentVersionTest
@@ -180,6 +169,22 @@ sub configure {
     );
 
     return;
+}
+
+sub stopwords {
+
+    return qw{
+        AFAICT
+        ABEND
+        RSRCHBOY
+        RSRCHBOY's
+        ini
+        metaclass
+        metaclasses
+        parameterized
+        parameterization
+        subclasses
+    };
 }
 
 __PACKAGE__->meta->make_immutable;
