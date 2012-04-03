@@ -31,6 +31,7 @@ sub mvp_bundle_config {
 
         [ 'ATTRIBUTES',       _exp('Collect'),      { command => 'attr'   } ],
         [ 'METHODS',          _exp('Collect'),      { command => 'method' } ],
+        [ 'REQUIRED METHODS', _exp('Collect'),      { command => 'required_method' } ],
         [ 'FUNCTIONS',        _exp('Collect'),      { command => 'func'   } ],
         [ 'TYPES',            _exp('Collect'),      { command => 'type'   } ],
         [ 'TEST_FUNCTIONS',   _exp('Collect'),      { command => 'test'   } ],
