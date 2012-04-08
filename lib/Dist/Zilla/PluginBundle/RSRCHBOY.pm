@@ -89,7 +89,7 @@ sub configure {
     $self->add_plugins(qw{ NextRelease });
 
     $self->add_bundle(Git => {
-        allow_dirty => [ qw{ dist.ini README.pod Changes } ],
+        allow_dirty => [ qw{ dist.ini weaver.ini README.pod Changes } ],
         tag_format  => '%v',
     });
 
