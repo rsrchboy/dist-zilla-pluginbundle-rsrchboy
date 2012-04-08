@@ -2,6 +2,11 @@ Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
 
+0.019     2012-04-07 23:19:17 America/Los_Angeles
+	- update stopwords list with some common faux-words
+	- add 'REQUIRED METHODS' section to PodWeaver config
+	- add weaver.ini to list of files allowed to be dirty during release prep
+
 0.018     2012-03-20 10:25:21 America/Los_Angeles
 	- add 'version' before %v in our pod VERSION section format string
 
