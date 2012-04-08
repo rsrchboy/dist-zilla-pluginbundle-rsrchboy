@@ -64,6 +64,12 @@ sub _build_is_task    { $_[0]->payload->{task}                             }
 sub _build_is_app     { $_[0]->payload->{cat_app} || $_[0]->payload->{app} }
 sub _build_is_private { $_[0]->payload->{private}                          }
 
+=method configure
+
+Preps plugin lists / config; see L<Dist::Zilla::Role::PluginBundle::Easy>.
+
+=cut
+
 sub configure {
     my $self = shift @_;
 
@@ -171,6 +177,12 @@ sub configure {
     return;
 }
 
+=method stopwords
+
+A list of words our POD spell checker should ignore.
+
+=cut
+
 sub stopwords {
 
     return qw{
@@ -205,5 +217,9 @@ __END__
 This is RSRCHBOY's current L<Dist::Zilla> dist.ini config for his packages.
 He's still figuring this all out, so it's probably wise to not depend on
 this being too terribly consistent/sane until the version gets to 1.
+
+=head1 SEE ALSO
+
+L<Dist::Zilla::Role::PluginBundle::Easy>
 
 =cut
