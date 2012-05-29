@@ -64,6 +64,22 @@ sub _build_is_task    { $_[0]->payload->{task}                             }
 sub _build_is_app     { $_[0]->payload->{cat_app} || $_[0]->payload->{app} }
 sub _build_is_private { $_[0]->payload->{private}                          }
 
+=method copy_from_build
+
+Returns a list of files that, once built, will be copied back into the root.
+
+=cut
+
+sub copy_from_build {
+    my ($self) = @_;
+
+    my @copy= qw{ LICENSE };
+    push @copy, 'Makefile.PL'
+        if $self->is_app;
+
+    return @copy;
+}
+
 =method configure
 
 Preps plugin lists / config; see L<Dist::Zilla::Role::PluginBundle::Easy>.
@@ -95,7 +111,7 @@ sub configure {
     $self->add_plugins(qw{ NextRelease });
 
     $self->add_bundle(Git => {
-        allow_dirty => [ qw{ dist.ini weaver.ini README.pod Changes } ],
+        allow_dirty => [ qw{ LICENSE dist.ini weaver.ini README.pod Changes } ],
         tag_format  => '%v',
     });
 
@@ -151,13 +167,8 @@ sub configure {
 
         ($self->is_task ? 'TaskWeaver' : $podweaver),
 
-        ($self->is_app ?
-            (
-               [ PruneFiles         => { filenames => 'Makefile.PL' } ],
-               [ CopyFilesFromBuild => { copy      => 'Makefile.PL' } ],
-            )
-            : ()
-        ),
+        [ PruneFiles => { filenames => [ $self->copy_from_build ] } ],
+        [ CopyFilesFromBuild => { copy => [ $self->copy_from_build ] } ],
 
         [ ReadmeAnyFromPod  => ReadmePodInRoot => {
             type     => 'pod',
