@@ -2,6 +2,9 @@ Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
 
+0.021     2012-05-29 16:57:02 America/Los_Angeles
+	- add LICENSE to list of files to copy back after building
+
 0.020     2012-05-02 14:52:13 America/Los_Angeles
 	- update our version regexp to handle '-TRIAL'
 
