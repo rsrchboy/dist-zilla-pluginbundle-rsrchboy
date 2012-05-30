@@ -59,10 +59,12 @@ use Pod::Coverage::TrustPod ( );
 has is_task    => (is => 'lazy', isa => 'Bool');
 has is_app     => (is => 'lazy', isa => 'Bool');
 has is_private => (is => 'lazy', isa => 'Bool');
+has rapid_dev  => (is => 'lazy', isa => 'Bool');
 
 sub _build_is_task    { $_[0]->payload->{task}                             }
 sub _build_is_app     { $_[0]->payload->{cat_app} || $_[0]->payload->{app} }
 sub _build_is_private { $_[0]->payload->{private}                          }
+sub _build_rapid_dev  { $_[0]->payload->{rapid_dev}                        }
 
 =method copy_from_build
 
@@ -95,6 +97,35 @@ sub release_plugins {
             CheckPrereqsIndexed
         } ,
         [ 'GitHub::Update' => { metacpan => 1 } ],
+        [ ArchiveRelease => {
+            directory => 'releases',
+        }],
+    );
+}
+
+=method author_tests
+
+=cut
+
+sub author_tests {
+    my ($self) = @_;
+
+    return () if $self->rapid_dev;
+
+    return (
+        [ 'Test::PodSpelling' => { stopwords => [ $self->stopwords ] } ],
+        qw{
+            ConsistentVersionTest
+            PodCoverageTests
+            PodSyntaxTests
+            NoTabsTests
+            EOLTests
+            HasVersionTests
+            Test::Compile
+            Test::Portability
+            ExtraTests
+            NoSmartCommentsTests
+        },
     );
 }
 
@@ -120,7 +151,7 @@ sub configure {
     $self->add_plugins(qw{ NextRelease });
 
     $self->add_bundle(Git => {
-        allow_dirty => [ qw{ LICENSE dist.ini weaver.ini README.pod Changes } ],
+        allow_dirty => [ qw{ .gitignore LICENSE dist.ini weaver.ini README.pod Changes } ],
         tag_format  => '%v',
     });
 
@@ -147,21 +178,12 @@ sub configure {
         },
         [ AutoPrereqs => $autoprereq_opts ],
         [ Prepender   => $prepender_opts  ],
-        [ 'Test::PodSpelling' => { stopwords => [ $self->stopwords ] } ],
-        qw{
 
-            ConsistentVersionTest
-            PodCoverageTests
-            PodSyntaxTests
-            NoTabsTests
-            EOLTests
-            HasVersionTests
-            Test::Compile
-            Test::Portability
-            ExtraTests
+        $self->author_tests,
+
+        qw{
             MinimumPerl
             ReportVersions::Tiny
-            NoSmartCommentsTests
 
             MetaConfig
             MetaJSON
@@ -182,10 +204,6 @@ sub configure {
             type     => 'pod',
             filename => 'README.pod',
             location => 'root',
-        }],
-
-        [ ArchiveRelease => {
-            directory => 'releases',
         }],
 
         [ InstallRelease => {
