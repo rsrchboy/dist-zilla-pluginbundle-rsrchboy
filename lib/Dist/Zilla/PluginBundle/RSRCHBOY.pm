@@ -80,6 +80,24 @@ sub copy_from_build {
     return @copy;
 }
 
+=method release_plugins
+
+Plugin configuration for public release.
+
+=cut
+
+sub release_plugins {
+
+    return (
+        qw{
+            UploadToCPAN
+            GitHub::Meta
+            CheckPrereqsIndexed
+        } ,
+        [ 'GitHub::Update' => { metacpan => 1 } ],
+    );
+}
+
 =method configure
 
 Preps plugin lists / config; see L<Dist::Zilla::Role::PluginBundle::Easy>.
@@ -91,15 +109,6 @@ sub configure {
 
     my $autoprereq_opts = $self->config_slice({ autoprereqs_skip => 'skip' });
     my $prepender_opts  = $self->config_slice({ prepender_skip   => 'skip' });
-
-    my @private_or_public
-        = $self->is_private
-        ? ()
-        : (
-            qw{ UploadToCPAN GitHub::Meta } ,
-            [ 'GitHub::Update' => { metacpan => 1 } ],
-        )
-        ;
 
     # if we have a weaver.ini, use that; otherwise use our bundle
     my $podweaver
@@ -159,11 +168,10 @@ sub configure {
             MetaYAML
 
             TestRelease
-            CheckPrereqsIndexed
             ConfirmRelease
         },
 
-        @private_or_public,
+        $self->release_plugins,
 
         ($self->is_task ? 'TaskWeaver' : $podweaver),
 
