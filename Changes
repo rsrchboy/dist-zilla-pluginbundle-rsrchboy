@@ -2,6 +2,13 @@ Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
 
+0.022     2012-06-06 01:44:51 America/Los_Angeles
+	- allow .gitignore to be dirty during pre-release
+	- break "author" tests config out into author_tests() and allow them to be
+	  excluded via "rapid_dev = 1"
+	- break out release plugin config into release_plugins()
+	- add the Pod::Weaver 'StopWords' plugin
+
 0.021     2012-05-29 16:57:02 America/Los_Angeles
 	- add LICENSE to list of files to copy back after building
 

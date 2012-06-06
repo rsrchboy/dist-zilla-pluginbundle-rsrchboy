@@ -2,13 +2,15 @@
 
 =encoding utf-8
 
+=for :stopwords Chris Weyl
+
 =head1 NAME
 
 Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 =head1 VERSION
 
-This document describes version 0.021 of Dist::Zilla::PluginBundle::RSRCHBOY - released May 29, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.022 of Dist::Zilla::PluginBundle::RSRCHBOY - released June 06, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 
@@ -26,6 +28,12 @@ this being too terribly consistent/sane until the version gets to 1.
 =head2 copy_from_build
 
 Returns a list of files that, once built, will be copied back into the root.
+
+=head2 release_plugins
+
+Plugin configuration for public release.
+
+=head2 author_tests
 
 =head2 configure
 
