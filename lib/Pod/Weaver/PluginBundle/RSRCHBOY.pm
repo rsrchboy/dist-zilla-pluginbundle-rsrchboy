@@ -8,6 +8,7 @@ use warnings;
 # for prereqs
 use Pod::Elemental::Transformer::List  ( );
 use Pod::Weaver::Plugin::Encoding      ( );
+use Pod::Weaver::Plugin::StopWords     ( );
 use Pod::Weaver::Section::SeeAlso      ( );
 use Pod::Weaver::Section::SourceGitHub ( );
 
@@ -20,7 +21,8 @@ my $vformat = 'This document describes version %v of %m - released %{LLLL dd, yy
 
 sub mvp_bundle_config {
     return (
-        [ '@RSRCHBOY/CorePrep',  _exp('@CorePrep'),    {} ],
+        [ '@RSRCHBOY/StopWords', _exp('-StopWords'), {} ],
+        [ '@RSRCHBOY/CorePrep',  _exp('@CorePrep'),  {} ],
         _exp2('Name'),
         [ '@RSRCHBOY/Version', _exp('Version'),      { format      => $vformat  } ],
         [ '@RSRCHBOY/prelude', _exp('Region'),      { region_name => 'prelude' } ],
