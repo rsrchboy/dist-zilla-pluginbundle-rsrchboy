@@ -9,6 +9,7 @@ use warnings;
 use Pod::Elemental::Transformer::List  ( );
 use Pod::Weaver::Plugin::Encoding      ( );
 use Pod::Weaver::Plugin::StopWords     ( );
+use Pod::Weaver::Section::Consumes     ( );
 use Pod::Weaver::Section::SeeAlso      ( );
 use Pod::Weaver::Section::SourceGitHub ( );
 
@@ -31,6 +32,7 @@ sub mvp_bundle_config {
         [ 'DESCRIPTION',      _exp('Generic'),      {} ],
         [ 'OVERVIEW',         _exp('Generic'),      {} ],
 
+        _exp2('Consumes'),
         [ 'ATTRIBUTES',       _exp('Collect'),      { command => 'attr'   } ],
         [ 'METHODS',          _exp('Collect'),      { command => 'method' } ],
         [ 'REQUIRED METHODS', _exp('Collect'),      { command => 'required_method' } ],
