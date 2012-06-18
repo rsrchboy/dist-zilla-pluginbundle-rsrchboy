@@ -29,6 +29,8 @@ use Dist::Zilla::Plugin::InstallRelease             ( );
 use Dist::Zilla::Plugin::MetaConfig                 ( );
 use Dist::Zilla::Plugin::MetaJSON                   ( );
 use Dist::Zilla::Plugin::MetaYAML                   ( );
+use Dist::Zilla::Plugin::MetaNoIndex                ( );
+use Dist::Zilla::Plugin::MetaProvides::Package      ( );
 use Dist::Zilla::Plugin::MinimumPerl                ( );
 use Dist::Zilla::Plugin::NoSmartCommentsTests       ( );
 use Dist::Zilla::Plugin::NoTabsTests                ( );
@@ -92,10 +94,11 @@ sub release_plugins {
 
     return (
         qw{
+            TestRelease
+            ConfirmRelease
             UploadToCPAN
-            GitHub::Meta
             CheckPrereqsIndexed
-        } ,
+        },
         [ 'GitHub::Update' => { metacpan => 1 } ],
         [ ArchiveRelease => {
             directory => 'releases',
@@ -126,6 +129,22 @@ sub author_tests {
             ExtraTests
             NoSmartCommentsTests
         },
+    );
+}
+
+=method meta_provider_plugins
+
+Plugins that mess about with what goes into META.*.
+
+=cut
+
+sub meta_provider_plugins {
+    my ($self) = @_;
+
+    return (
+        qw{ GitHub::Meta MetaConfig MetaJSON MetaYAML },
+        [ MetaNoIndex => { directory => [ qw{ corpus t } ] } ],
+        'MetaProvides::Package',
     );
 }
 
@@ -184,15 +203,9 @@ sub configure {
         qw{
             MinimumPerl
             ReportVersions::Tiny
-
-            MetaConfig
-            MetaJSON
-            MetaYAML
-
-            TestRelease
-            ConfirmRelease
         },
 
+        $self->meta_provider_plugins,
         $self->release_plugins,
 
         ($self->is_task ? 'TaskWeaver' : $podweaver),
