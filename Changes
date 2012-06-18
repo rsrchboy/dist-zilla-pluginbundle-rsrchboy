@@ -2,6 +2,10 @@ Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
 
+0.023     2012-06-18 17:07:19 America/North_Dakota/New_Salem
+	- add MetaProvides::Package, MetaNoIndex
+	- add weaver section: Consumes
+
 0.022     2012-06-06 01:44:51 America/Los_Angeles
 	- allow .gitignore to be dirty during pre-release
 	- break "author" tests config out into author_tests() and allow them to be
