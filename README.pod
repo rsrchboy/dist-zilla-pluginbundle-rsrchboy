@@ -10,7 +10,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 =head1 VERSION
 
-This document describes version 0.023 of Dist::Zilla::PluginBundle::RSRCHBOY - released June 18, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.024 of Dist::Zilla::PluginBundle::RSRCHBOY - released June 20, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 
@@ -22,16 +22,6 @@ This document describes version 0.023 of Dist::Zilla::PluginBundle::RSRCHBOY - r
 This is RSRCHBOY's current L<Dist::Zilla> dist.ini config for his packages.
 He's still figuring this all out, so it's probably wise to not depend on
 this being too terribly consistent/sane until the version gets to 1.
-
-=head1 CONSUMES
-
-=over 4
-
-=item * L<Dist::Zilla::Role::PluginBundle::Easy>
-
-=item * L<Dist::Zilla::Role::PluginBundle>
-
-=back
 
 =head1 METHODS
 

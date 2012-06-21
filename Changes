@@ -2,6 +2,9 @@ Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
 
+0.024     2012-06-20 21:12:42 America/Los_Angeles
+	- drop weaver section Consumes; not quite optimal yet
+
 0.023     2012-06-18 17:07:19 America/North_Dakota/New_Salem
 	- add MetaProvides::Package, MetaNoIndex
 	- add weaver section: Consumes
