@@ -42,6 +42,7 @@ use Dist::Zilla::Plugin::PruneFiles                 ( );
 use Dist::Zilla::Plugin::ReadmeFromPod              ( );
 use Dist::Zilla::Plugin::ReadmeAnyFromPod           ( );
 use Dist::Zilla::Plugin::ReportVersions::Tiny       ( );
+use Dist::Zilla::Plugin::Signature                  ( );
 use Dist::Zilla::Plugin::SurgicalPkgVersion         ( );
 use Dist::Zilla::Plugin::TaskWeaver                 ( );
 use Dist::Zilla::Plugin::Test::Compile              ( );
@@ -99,10 +100,10 @@ sub release_plugins {
             UploadToCPAN
             CheckPrereqsIndexed
         },
-        [ 'GitHub::Update' => { metacpan => 1 } ],
-        [ ArchiveRelease => {
-            directory => 'releases',
-        }],
+
+        [ 'GitHub::Update' => { metacpan  => 1          } ],
+        [ Signature        => { sign      => 'always'   } ],
+        [ ArchiveRelease   => { directory => 'releases' } ],
     );
 }
 
@@ -172,6 +173,7 @@ sub configure {
     $self->add_bundle(Git => {
         allow_dirty => [ qw{ .gitignore LICENSE dist.ini weaver.ini README.pod Changes } ],
         tag_format  => '%v',
+        signed      => 1,
     });
 
     $self->add_plugins([ 'Git::NextVersion' =>
