@@ -11,7 +11,7 @@ with 'Dist::Zilla::Role::PluginBundle::Easy';
 
 use Path::Class;
 
-use Dist::Zilla::PluginBundle::Git                  ( );
+use Dist::Zilla::PluginBundle::Git 1.121770         ( );
 use Dist::Zilla::PluginBundle::Git::CheckFor        ( );
 use Dist::Zilla::Plugin::ArchiveRelease             ( );
 use Dist::Zilla::Plugin::CheckPrereqsIndexed        ( );
