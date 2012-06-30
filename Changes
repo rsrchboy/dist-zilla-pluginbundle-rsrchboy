@@ -2,7 +2,13 @@ Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
 
+0.025     2012-06-30 11:05:55 America/Los_Angeles
+	- dzp: Git to 1.121770
+	- dzp: enable tag signing
+
 0.024     2012-06-20 21:12:42 America/Los_Angeles
+	- add dzp Signature
+	- force DZ::PB::Git to 1.121770, for the reworked CommitBuild
 	- drop weaver section Consumes; not quite optimal yet
 
 0.023     2012-06-18 17:07:19 America/North_Dakota/New_Salem
