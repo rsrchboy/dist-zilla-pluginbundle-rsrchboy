@@ -2,6 +2,8 @@ package Dist::Zilla::PluginBundle::RSRCHBOY;
 
 # ABSTRACT: Zilla your distributions like RSRCHBOY!
 
+use v5.10;
+
 use Moose;
 use namespace::autoclean;
 use MooseX::AttributeShortcuts;
@@ -65,10 +67,13 @@ has is_app     => (is => 'lazy', isa => 'Bool');
 has is_private => (is => 'lazy', isa => 'Bool');
 has rapid_dev  => (is => 'lazy', isa => 'Bool');
 
+has sign => (is => 'lazy', isa => 'Bool');
+
 sub _build_is_task    { $_[0]->payload->{task}                             }
 sub _build_is_app     { $_[0]->payload->{cat_app} || $_[0]->payload->{app} }
 sub _build_is_private { $_[0]->payload->{private}                          }
 sub _build_rapid_dev  { $_[0]->payload->{rapid_dev}                        }
+sub _build_sign { shift->payload->{sign} // 1 }
 
 =method copy_from_build
 
@@ -93,6 +98,7 @@ Plugin configuration for public release.
 =cut
 
 sub release_plugins {
+    my $self = shift @_;
 
     return (
         qw{
@@ -103,7 +109,10 @@ sub release_plugins {
             CheckPrereqsIndexed
         },
         [ 'GitHub::Update' => { metacpan  => 1          } ],
-        [ Signature        => { sign      => 'always'   } ],
+        ( $self->sign
+            ? ([ Signature => { sign => 'always' } ])
+            : (                                     )
+        ),
         [ ArchiveRelease   => { directory => 'releases' } ],
     );
 }
@@ -174,7 +183,7 @@ sub configure {
     $self->add_bundle(Git => {
         allow_dirty => [ qw{ .gitignore LICENSE dist.ini weaver.ini README.pod Changes } ],
         tag_format  => '%v',
-        signed      => 1,
+        signed      => $self->sign, # 1,
     });
 
     $self->add_plugins([ 'Git::NextVersion' =>
