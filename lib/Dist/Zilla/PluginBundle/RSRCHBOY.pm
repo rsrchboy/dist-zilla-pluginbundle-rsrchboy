@@ -14,6 +14,7 @@ use Path::Class;
 use Dist::Zilla::PluginBundle::Git 1.121770         ( );
 use Dist::Zilla::PluginBundle::Git::CheckFor        ( );
 use Dist::Zilla::Plugin::ArchiveRelease             ( );
+use Dist::Zilla::Plugin::CheckChangesHasContent     ( );
 use Dist::Zilla::Plugin::CheckPrereqsIndexed        ( );
 use Dist::Zilla::Plugin::CopyFilesFromBuild         ( );
 use Dist::Zilla::Plugin::ConfirmRelease             ( );
@@ -97,10 +98,10 @@ sub release_plugins {
         qw{
             TestRelease
             ConfirmRelease
+            CheckChangesHasContent
             UploadToCPAN
             CheckPrereqsIndexed
         },
-
         [ 'GitHub::Update' => { metacpan  => 1          } ],
         [ Signature        => { sign      => 'always'   } ],
         [ ArchiveRelease   => { directory => 'releases' } ],
