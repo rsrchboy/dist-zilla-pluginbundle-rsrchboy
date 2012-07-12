@@ -7,10 +7,12 @@ use v5.10;
 use Moose;
 use namespace::autoclean;
 use MooseX::AttributeShortcuts;
+use Moose::Util::TypeConstraints;
 
 use Dist::Zilla;
 with 'Dist::Zilla::Role::PluginBundle::Easy';
 
+use Config::MVP::Slicer 0.302;
 use Path::Class;
 
 use Dist::Zilla::PluginBundle::Git 1.121770         ( );
@@ -62,6 +64,9 @@ use Test::Pod               ( );
 use Test::Pod::Content      ( );
 use Pod::Coverage::TrustPod ( );
 
+# debugging...
+#use Smart::Comments '###';
+
 has is_task    => (is => 'lazy', isa => 'Bool');
 has is_app     => (is => 'lazy', isa => 'Bool');
 has is_private => (is => 'lazy', isa => 'Bool');
@@ -74,6 +79,36 @@ sub _build_is_app     { $_[0]->payload->{cat_app} || $_[0]->payload->{app} }
 sub _build_is_private { $_[0]->payload->{private}                          }
 sub _build_rapid_dev  { $_[0]->payload->{rapid_dev}                        }
 sub _build_sign { shift->payload->{sign} // 1 }
+
+has _slicer => (
+    is      => 'lazy',
+    isa     => class_type('Config::MVP::Slicer'),
+    handles => {
+        _merge_cfg => 'merge',
+    },
+);
+
+sub _build__slicer { Config::MVP::Slicer->new({ config => shift->payload }) }
+
+#around add_plugins => sub {
+my $_merger = sub {
+    my ($orig, $self) = (shift, shift);
+
+    my $_n = sub { 'Dist::Zilla::Plugin::' . shift };
+
+    ### @_
+    my @plugins =
+        map { $self->_merge_cfg($_) }
+        map { @$_ == 2 ? [ $_->[0], $_n->($_->[0]), $_->[1] ] : $_ }
+        map { (!ref $_ && !blessed $_) ? [ $_, $_n->($_), {} ] : $_ }
+        @_;
+
+    ### @plugins
+    return $self->$orig(@plugins);
+};
+
+around add_plugins => $_merger;
+#around add_bundle  => $_merger;
 
 =method copy_from_build
 
