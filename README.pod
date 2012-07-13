@@ -10,7 +10,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 =head1 VERSION
 
-This document describes version 0.025 of Dist::Zilla::PluginBundle::RSRCHBOY - released June 30, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.026 of Dist::Zilla::PluginBundle::RSRCHBOY - released July 13, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 
@@ -49,6 +49,31 @@ A list of words our POD spell checker should ignore.
 
 =for Pod::Coverage configure
 
+=head1 OPTIONS
+
+=head2 sign (boolean; default: true)
+
+On release, use your gpg key to sign the version tag created (if you're using
+git) and also generate a SIGNATURE file.
+
+See also L<Dist::Zilla::Plugin::Signature>.
+
+=head2 tweet (boolean; default: false)
+
+If set to a true value, we'll use L<Dist::Zilla::Plugin::Twitter> to tweet
+when a release occurs.
+
+=head1 BUNDLED PLUGIN OPTIONS
+
+It's possible to pass options to our bundled plugins directly:
+
+    ; format is Plugin::Name.option
+    [@RSRCHBOY]
+    GatherDir.exclude_filename = cpanfile
+
+For information on specific plugins and their options, you should refer to the
+plugin's documentation.
+
 =head1 SEE ALSO
 
 Please see those modules/websites for more information related to this module.
@@ -58,6 +83,10 @@ Please see those modules/websites for more information related to this module.
 =item *
 
 L<Dist::Zilla::Role::PluginBundle::Easy>
+
+=item *
+
+L<Config::MVP::Slicer>
 
 =back
 
