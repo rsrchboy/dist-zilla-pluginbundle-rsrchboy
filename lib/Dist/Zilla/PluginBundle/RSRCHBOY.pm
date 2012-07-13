@@ -54,7 +54,11 @@ use Dist::Zilla::Plugin::Test::Compile              ( );
 use Dist::Zilla::Plugin::Test::PodSpelling 2.002001 ( );
 use Dist::Zilla::Plugin::Test::Portability          ( );
 use Dist::Zilla::Plugin::TestRelease                ( );
+use Dist::Zilla::Plugin::Twitter                    ( );
 use Dist::Zilla::Plugin::UploadToCPAN               ( );
+
+# non-plugin / dist.ini deps
+use Dist::Zilla::Stash::PAUSE::Encrypted 0.003 ( );
 
 # additional deps
 use Archive::Tar::Wrapper   ( );
@@ -72,13 +76,16 @@ has is_app     => (is => 'lazy', isa => 'Bool');
 has is_private => (is => 'lazy', isa => 'Bool');
 has rapid_dev  => (is => 'lazy', isa => 'Bool');
 
-has sign => (is => 'lazy', isa => 'Bool');
-
 sub _build_is_task    { $_[0]->payload->{task}                             }
 sub _build_is_app     { $_[0]->payload->{cat_app} || $_[0]->payload->{app} }
 sub _build_is_private { $_[0]->payload->{private}                          }
 sub _build_rapid_dev  { $_[0]->payload->{rapid_dev}                        }
-sub _build_sign { shift->payload->{sign} // 1 }
+
+has $_ => (is => 'lazy', isa => 'Bool')
+    for qw{ sign tweet };
+
+sub _build_sign  { shift->payload->{sign}  // 1 }
+sub _build_tweet { shift->payload->{tweet} // 0 }
 
 has _slicer => (
     is      => 'lazy',
@@ -135,7 +142,7 @@ Plugin configuration for public release.
 sub release_plugins {
     my $self = shift @_;
 
-    return (
+    my @plugins = (
         qw{
             TestRelease
             ConfirmRelease
@@ -150,6 +157,11 @@ sub release_plugins {
         ),
         [ ArchiveRelease   => { directory => 'releases' } ],
     );
+
+    push @plugins, [ Twitter => { hash_tags => '#perl #cpan' } ]
+        if $self->tweet;
+
+    return @plugins;
 }
 
 =method author_tests
@@ -287,6 +299,7 @@ sub stopwords {
         ABEND
         RSRCHBOY
         RSRCHBOY's
+        gpg
         ini
         metaclass
         metaclasses
@@ -315,8 +328,35 @@ This is RSRCHBOY's current L<Dist::Zilla> dist.ini config for his packages.
 He's still figuring this all out, so it's probably wise to not depend on
 this being too terribly consistent/sane until the version gets to 1.
 
+=head1 OPTIONS
+
+=head2 sign (boolean; default: true)
+
+On release, use your gpg key to sign the version tag created (if you're using
+git) and also generate a SIGNATURE file.
+
+See also L<Dist::Zilla::Plugin::Signature>.
+
+=head2 tweet (boolean; default: false)
+
+If set to a true value, we'll use L<Dist::Zilla::Plugin::Twitter> to tweet
+when a release occurs.
+
+=head1 BUNDLED PLUGIN OPTIONS
+
+It's possible to pass options to our bundled plugins directly:
+
+    ; format is Plugin::Name.option
+    [@RSRCHBOY]
+    GatherDir.exclude_filename = cpanfile
+
+For information on specific plugins and their options, you should refer to the
+plugin's documentation.
+
 =head1 SEE ALSO
 
 L<Dist::Zilla::Role::PluginBundle::Easy>
+
+L<Config::MVP::Slicer>
 
 =cut
