@@ -97,6 +97,8 @@ has _slicer => (
 
 sub _build__slicer { Config::MVP::Slicer->new({ config => shift->payload }) }
 
+# TODO handle options for bundles!
+
 #around add_plugins => sub {
 my $_merger = sub {
     my ($orig, $self) = (shift, shift);
@@ -145,19 +147,17 @@ sub release_plugins {
     my @plugins = (
         qw{
             TestRelease
-            ConfirmRelease
             CheckChangesHasContent
-            UploadToCPAN
             CheckPrereqsIndexed
+            ConfirmRelease
+            UploadToCPAN
         },
         [ 'GitHub::Update' => { metacpan  => 1          } ],
-        ( $self->sign
-            ? ([ Signature => { sign => 'always' } ])
-            : (                                     )
-        ),
         [ ArchiveRelease   => { directory => 'releases' } ],
     );
 
+    push @plugins, [ Signature => { sign => 'always' } ]
+        if $self->sign;
     push @plugins, [ Twitter => { hash_tags => '#perl #cpan' } ]
         if $self->tweet;
 
