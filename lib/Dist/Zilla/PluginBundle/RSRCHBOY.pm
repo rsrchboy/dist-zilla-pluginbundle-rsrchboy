@@ -82,10 +82,11 @@ sub _build_is_private { $_[0]->payload->{private}                          }
 sub _build_rapid_dev  { $_[0]->payload->{rapid_dev}                        }
 
 has $_ => (is => 'lazy', isa => 'Bool')
-    for qw{ sign tweet };
+    for qw{ sign tweet github };
 
-sub _build_sign  { shift->payload->{sign}  // 1 }
-sub _build_tweet { shift->payload->{tweet} // 0 }
+sub _build_sign   { shift->payload->{sign}   // 1 }
+sub _build_tweet  { shift->payload->{tweet}  // 0 }
+sub _build_github { shift->payload->{github} // 1 }
 
 has _slicer => (
     is      => 'lazy',
@@ -341,6 +342,11 @@ See also L<Dist::Zilla::Plugin::Signature>.
 
 If set to a true value, we'll use L<Dist::Zilla::Plugin::Twitter> to tweet
 when a release occurs.
+
+=head2 github (boolean; default: true)
+
+This enables various GitHub related plugins to update dist and GitHub metadata
+automatically.
 
 =head1 BUNDLED PLUGIN OPTIONS
 
