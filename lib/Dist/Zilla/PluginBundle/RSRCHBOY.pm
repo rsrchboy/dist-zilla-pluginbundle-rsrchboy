@@ -82,11 +82,12 @@ sub _build_is_private { $_[0]->payload->{private}                          }
 sub _build_rapid_dev  { $_[0]->payload->{rapid_dev}                        }
 
 has $_ => (is => 'lazy', isa => 'Bool')
-    for qw{ sign tweet github };
+    for qw{ sign tweet github install_on_release };
 
-sub _build_sign   { shift->payload->{sign}   // 1 }
-sub _build_tweet  { shift->payload->{tweet}  // 0 }
-sub _build_github { shift->payload->{github} // 1 }
+sub _build_sign               { shift->payload->{sign}               // 1 }
+sub _build_tweet              { shift->payload->{tweet}              // 0 }
+sub _build_github             { shift->payload->{github}             // 1 }
+sub _build_install_on_release { shift->payload->{install_on_release} // 1 }
 
 has _slicer => (
     is      => 'lazy',
@@ -151,16 +152,19 @@ sub release_plugins {
             CheckChangesHasContent
             CheckPrereqsIndexed
             ConfirmRelease
-            UploadToCPAN
         },
         [ 'GitHub::Update' => { metacpan  => 1          } ],
         [ ArchiveRelease   => { directory => 'releases' } ],
     );
 
+    push @plugins, 'UploadToCPAN'
+        unless $self->is_private;
     push @plugins, [ Signature => { sign => 'always' } ]
         if $self->sign;
     push @plugins, [ Twitter => { hash_tags => '#perl #cpan' } ]
         if $self->tweet;
+    push @plugins, [ InstallRelease => { install_command => 'cpanm .' } ]
+        if $self->install_on_release;
 
     return @plugins;
 }
@@ -279,9 +283,6 @@ sub configure {
             location => 'root',
         }],
 
-        [ InstallRelease => {
-            install_command => 'cpanm .',
-        }],
     );
 
     return;
@@ -347,6 +348,15 @@ when a release occurs.
 
 This enables various GitHub related plugins to update dist and GitHub metadata
 automatically.
+
+=head2 install_on_release (boolean; default: true)
+
+After a release, install the distribution locally. Our default install command
+is (from inside the built release directory):
+
+    cpanm .
+
+You can change this by setting the C<InstallRelease.install_command> option.
 
 =head1 BUNDLED PLUGIN OPTIONS
 
