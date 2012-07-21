@@ -153,10 +153,11 @@ sub release_plugins {
             CheckPrereqsIndexed
             ConfirmRelease
         },
-        [ 'GitHub::Update' => { metacpan  => 1          } ],
         [ ArchiveRelease   => { directory => 'releases' } ],
     );
 
+    push @plugins, [ 'GitHub::Update' => { metacpan  => 1 } ]
+        if $self->github;
     push @plugins, 'UploadToCPAN'
         unless $self->is_private;
     push @plugins, [ Signature => { sign => 'always' } ]
@@ -204,11 +205,16 @@ Plugins that mess about with what goes into META.*.
 sub meta_provider_plugins {
     my ($self) = @_;
 
-    return (
-        qw{ GitHub::Meta MetaConfig MetaJSON MetaYAML },
+    my @plugins = (
+        qw{ MetaConfig MetaJSON MetaYAML },
         [ MetaNoIndex => { directory => [ qw{ corpus t } ] } ],
         'MetaProvides::Package',
     );
+
+    push @plugins, 'GitHub::Meta'
+        if $self->github;
+
+    return @plugins;
 }
 
 =method configure
