@@ -71,19 +71,24 @@ use Pod::Coverage::TrustPod ( );
 # debugging...
 #use Smart::Comments '###';
 
-has is_task    => (is => 'lazy', isa => 'Bool');
+#has is_task    => (is => 'lazy', isa => 'Bool');
 has is_app     => (is => 'lazy', isa => 'Bool');
 has is_private => (is => 'lazy', isa => 'Bool');
 has rapid_dev  => (is => 'lazy', isa => 'Bool');
 
-sub _build_is_task    { $_[0]->payload->{task}                             }
+#sub _build_is_task    { $_[0]->payload->{task}                             }
 sub _build_is_app     { $_[0]->payload->{cat_app} || $_[0]->payload->{app} }
 sub _build_is_private { $_[0]->payload->{private}                          }
 sub _build_rapid_dev  { $_[0]->payload->{rapid_dev}                        }
 
+my $_d = sub { my $key = shift; sub { shift->payload->{$key} } };
+
 has $_ => (is => 'lazy', isa => 'Bool')
     for qw{ sign tweet github install_on_release };
+has "is_$_" => (is => 'lazy', isa => 'Bool', default => $_d->($_))
+    for qw{ task };
 
+#sub _build_is_task    { shift->payload->{task}                             }
 sub _build_sign               { shift->payload->{sign}               // 1 }
 sub _build_tweet              { shift->payload->{tweet}              // 0 }
 sub _build_github             { shift->payload->{github}             // 1 }
@@ -264,17 +269,13 @@ sub configure {
             Manifest
             SurgicalPkgVersion
             ReadmeFromPod
+            MinimumPerl
+            ReportVersions::Tiny
         },
         [ AutoPrereqs => $autoprereq_opts ],
         [ Prepender   => $prepender_opts  ],
 
         $self->author_tests,
-
-        qw{
-            MinimumPerl
-            ReportVersions::Tiny
-        },
-
         $self->meta_provider_plugins,
         $self->release_plugins,
 
