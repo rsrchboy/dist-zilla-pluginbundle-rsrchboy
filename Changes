@@ -2,6 +2,10 @@ Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
 
+0.027     2012-08-26 12:43:33 America/Los_Angeles
+	* actually copy LICENSE back to root now *sigh*
+	* add 'coderef' to list of stopwords
+
 0.026     2012-07-13 15:06:31 America/Los_Angeles
 	* dzp: CheckChangesHasContent
 	* allow "sign" as an option (set to 0/falsey to disable tag and release
