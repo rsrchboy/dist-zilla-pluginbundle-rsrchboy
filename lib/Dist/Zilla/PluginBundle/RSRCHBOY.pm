@@ -258,10 +258,9 @@ sub configure {
     $self->add_bundle('Git::CheckFor');
 
     $self->add_plugins(
+        [ GatherDir => { exclude_filename => [ 'LICENSE' ] } ],
         qw{
-            GatherDir
             PruneCruft
-            License
             ExecDir
             ShareDir
             MakeMaker
@@ -279,8 +278,7 @@ sub configure {
         $self->meta_provider_plugins,
         $self->release_plugins,
 
-
-        [ PruneFiles => { filenames => [ $self->copy_from_build ] } ],
+        'License',
         [ CopyFilesFromBuild => { copy => [ $self->copy_from_build ] } ],
 
         [ ReadmeAnyFromPod  => ReadmePodInRoot => {
@@ -315,6 +313,7 @@ sub stopwords {
         parameterized
         parameterization
         subclasses
+        coderef
     };
 }
 
