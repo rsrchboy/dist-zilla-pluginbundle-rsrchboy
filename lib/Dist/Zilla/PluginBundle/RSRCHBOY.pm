@@ -158,7 +158,6 @@ sub release_plugins {
             CheckPrereqsIndexed
             ConfirmRelease
         },
-        [ ArchiveRelease   => { directory => 'releases' } ],
     );
 
     push @plugins, [ 'GitHub::Update' => { metacpan  => 1 } ]
@@ -171,6 +170,9 @@ sub release_plugins {
         if $self->tweet;
     push @plugins, [ InstallRelease => { install_command => 'cpanm .' } ]
         if $self->install_on_release;
+
+    push @plugins,
+        [ ArchiveRelease   => { directory => 'releases' } ];
 
     return @plugins;
 }
