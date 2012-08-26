@@ -135,7 +135,7 @@ Returns a list of files that, once built, will be copied back into the root.
 sub copy_from_build {
     my ($self) = @_;
 
-    my @copy= qw{ LICENSE };
+    my @copy = (qw{ LICENSE });
     push @copy, 'Makefile.PL'
         if $self->is_app;
 
@@ -279,7 +279,6 @@ sub configure {
         $self->meta_provider_plugins,
         $self->release_plugins,
 
-        ($self->is_task ? 'TaskWeaver' : $podweaver),
 
         [ PruneFiles => { filenames => [ $self->copy_from_build ] } ],
         [ CopyFilesFromBuild => { copy => [ $self->copy_from_build ] } ],
@@ -290,6 +289,7 @@ sub configure {
             location => 'root',
         }],
 
+        ($self->is_task ? 'TaskWeaver' : $podweaver),
     );
 
     return;
