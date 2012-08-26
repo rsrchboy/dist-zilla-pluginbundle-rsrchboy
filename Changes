@@ -3,108 +3,108 @@ Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 {{$NEXT}}
 
 0.026     2012-07-13 15:06:31 America/Los_Angeles
-	- dzp: CheckChangesHasContent
-	- allow "sign" as an option (set to 0/falsey to disable tag and release
+	* dzp: CheckChangesHasContent
+	* allow "sign" as an option (set to 0/falsey to disable tag and release
 	  signing)
-	- add Config::MVP::Slicer for broader plugin option coverage
-	- add "tweet" option
-	- initial start of (real) documentation
+	* add Config::MVP::Slicer for broader plugin option coverage
+	* add "tweet" option
+	* initial start of (real) documentation
 
 0.025     2012-06-30 11:05:55 America/Los_Angeles
-	- dzp: Git to 1.121770
-	- dzp: enable tag signing
+	* dzp: Git to 1.121770
+	* dzp: enable tag signing
 
 0.024     2012-06-20 21:12:42 America/Los_Angeles
-	- add dzp Signature
-	- force DZ::PB::Git to 1.121770, for the reworked CommitBuild
-	- drop weaver section Consumes; not quite optimal yet
+	* add dzp Signature
+	* force DZ::PB::Git to 1.121770, for the reworked CommitBuild
+	* drop weaver section Consumes; not quite optimal yet
 
 0.023     2012-06-18 17:07:19 America/North_Dakota/New_Salem
-	- add MetaProvides::Package, MetaNoIndex
-	- add weaver section: Consumes
+	* add MetaProvides::Package, MetaNoIndex
+	* add weaver section: Consumes
 
 0.022     2012-06-06 01:44:51 America/Los_Angeles
-	- allow .gitignore to be dirty during pre-release
-	- break "author" tests config out into author_tests() and allow them to be
+	* allow .gitignore to be dirty during pre-release
+	* break "author" tests config out into author_tests() and allow them to be
 	  excluded via "rapid_dev = 1"
-	- break out release plugin config into release_plugins()
-	- add the Pod::Weaver 'StopWords' plugin
+	* break out release plugin config into release_plugins()
+	* add the Pod::Weaver 'StopWords' plugin
 
 0.021     2012-05-29 16:57:02 America/Los_Angeles
-	- add LICENSE to list of files to copy back after building
+	* add LICENSE to list of files to copy back after building
 
 0.020     2012-05-02 14:52:13 America/Los_Angeles
-	- update our version regexp to handle '-TRIAL'
+	* update our version regexp to handle '-TRIAL'
 
 0.019     2012-04-07 23:19:17 America/Los_Angeles
-	- update stopwords list with some common faux-words
-	- add 'REQUIRED METHODS' section to PodWeaver config
-	- add weaver.ini to list of files allowed to be dirty during release prep
+	* update stopwords list with some common faux-words
+	* add 'REQUIRED METHODS' section to PodWeaver config
+	* add weaver.ini to list of files allowed to be dirty during release prep
 
 0.018     2012-03-20 10:25:21 America/Los_Angeles
-	- add 'version' before %v in our pod VERSION section format string
+	* add 'version' before %v in our pod VERSION section format string
 
 0.017     2012-03-09 00:09:36 America/Los_Angeles
-	- add missing Pod::Weaver::Plugin::Encoding dep
+	* add missing Pod::Weaver::Plugin::Encoding dep
 
 0.016     2012-02-14 20:46:10 America/Los_Angeles
-	- add 'metaclass' to stopwords list
+	* add 'metaclass' to stopwords list
 
 0.015     2012-02-06 20:28:06 America/Los_Angeles
-	- DZ: add Test::PodSpelling, @Git::CheckFor
-	- PW: alter version section to be a touch more helpful
+	* DZ: add Test::PodSpelling, @Git::CheckFor
+	* PW: alter version section to be a touch more helpful
 
 0.014     2012-02-05 09:36:35 America/Los_Angeles
-	- switch prereqs indexed? release plugin to before confirm release
-	- add initial Pod::Weaver config bundle
-	- allow a local weaver.ini to override our config
+	* switch prereqs indexed? release plugin to before confirm release
+	* add initial Pod::Weaver config bundle
+	* allow a local weaver.ini to override our config
 
 0.012
-	- change "cat_app" option to just "app"; preserve cat_app for legacy
-	- dist.ini tweaks
+	* change "cat_app" option to just "app"; preserve cat_app for legacy
+	* dist.ini tweaks
 
 0.011     2011-10-27 10:13:25 America/Los_Angeles
-	- switch to ReportVersions::Tiny
-	- drop Test::UseAllModules for the moment, as it dies horribly when
+	* switch to ReportVersions::Tiny
+	* drop Test::UseAllModules for the moment, as it dies horribly when
 	  trying to use a role
 
 0.010     2011-09-29 12:03:52 America/Los_Angeles
-	- additional prereqs (generally Test:: modules that the invoking DZ plugin
+	* additional prereqs (generally Test:: modules that the invoking DZ plugin
 	  doesn't explicitly require
-	- add is_cat_app option + specifc plugins (e.g. copy Makefile.PL back into
+	* add is_cat_app option + specifc plugins (e.g. copy Makefile.PL back into
 	  repo root so Cat doesn't freak out :))
 
 0.009     2011-09-14 17:35:58 America/Los_Angeles
-    - switch homepage url set on github to metacpan
-    - add Test::UseAllModules
-    - add prepender_skip
-    - PkgVersion => SurgicalPkgVersion
-    - Drop Authority plugin until we decide if we're going to surgicalize it
+	* switch homepage url set on github to metacpan
+	* add Test::UseAllModules
+	* add prepender_skip
+	* PkgVersion => SurgicalPkgVersion
+	* Drop Authority plugin until we decide if we're going to surgicalize it
 
 0.008     2011-09-11 20:04:28 America/Los_Angeles
-    - really remove CompileTests
+	* really remove CompileTests
 
 0.007     2011-09-11 17:21:24 America/Los_Angeles
-    - replace PortabilityTests with Test::Portability
+	* replace PortabilityTests with Test::Portability
 
 0.006     2011-09-02 21:49:50 America/Los_Angeles
-    - replace CompileTests with Test::Compile
+	* replace CompileTests with Test::Compile
 
 0.005     2011-07-03 16:33:51 America/Los_Angeles
-    - add a bunch of missing prereqs
-    - initial provision for passing in opts to autoprereqs
+	* add a bunch of missing prereqs
+	* initial provision for passing in opts to autoprereqs
 
 0.004     2011-05-15 18:50:41 America/Los_Angeles
-    - add initial task support
-    - "use" all our plugins so they're listed as prereqs
+	* add initial task support
+	* "use" all our plugins so they're listed as prereqs
 
 0.003     2011-04-29 19:07:44 America/Los_Angeles
-    - Add NoSmartCommentsTests to plugin list
-    - Reorder NextRelease w.r.t. @Git, so hopefully our
-      stub Changes will get committed on release as well
+	* Add NoSmartCommentsTests to plugin list
+	* Reorder NextRelease w.r.t. @Git, so hopefully our
+	  stub Changes will get committed on release as well
 
 0.002     2011-04-18 20:35:25 America/Los_Angeles
-    - Correctly specify "files to ignore in root" to @Git
-    - Don't use shell syntax in install command
+	* Correctly specify "files to ignore in root" to @Git
+	* Don't use shell syntax in install command
 
 0.001     2011-04-03 19:07:59 America/Los_Angeles
