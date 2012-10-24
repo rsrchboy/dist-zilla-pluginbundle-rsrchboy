@@ -31,6 +31,8 @@ sub mvp_bundle_config {
         [ 'DESCRIPTION',      _exp('Generic'),      {} ],
         [ 'OVERVIEW',         _exp('Generic'),      {} ],
 
+        [ 'REQUIRED ATTRIBUTES',       _exp('Collect'),      { command => 'reqatt'   } ],
+        [ 'LAZY ATTRIBUTES',       _exp('Collect'),      { command => 'lazyatt'   } ],
         [ 'ATTRIBUTES',       _exp('Collect'),      { command => 'attr'   } ],
         [ 'METHODS',          _exp('Collect'),      { command => 'method' } ],
         [ 'REQUIRED METHODS', _exp('Collect'),      { command => 'required_method' } ],
