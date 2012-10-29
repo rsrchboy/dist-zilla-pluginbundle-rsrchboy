@@ -6,11 +6,14 @@ use strict;
 use warnings;
 
 # for prereqs
-use Pod::Elemental::Transformer::List  ( );
-use Pod::Weaver::Plugin::Encoding      ( );
-use Pod::Weaver::Plugin::StopWords     ( );
-use Pod::Weaver::Section::SeeAlso      ( );
-use Pod::Weaver::Section::SourceGitHub ( );
+use Pod::Elemental::Transformer::List                  ( );
+use Pod::Weaver::Plugin::Encoding                      ( );
+use Pod::Weaver::Plugin::StopWords                     ( );
+use Pod::Weaver::Section::SeeAlso                      ( );
+use Pod::Weaver::Section::SourceGitHub                 ( );
+use Pod::Weaver::Section::CollectWithIntro             ( );
+use Pod::Weaver::Section::RSRCHBOY::LazyAttributes     ( );
+use Pod::Weaver::Section::RSRCHBOY::RequiredAttributes ( );
 
 use Pod::Weaver::Config::Assembler;
 
@@ -31,14 +34,15 @@ sub mvp_bundle_config {
         [ 'DESCRIPTION',      _exp('Generic'),      {} ],
         [ 'OVERVIEW',         _exp('Generic'),      {} ],
 
-        [ 'REQUIRED ATTRIBUTES',       _exp('Collect'),      { command => 'reqatt'   } ],
-        [ 'LAZY ATTRIBUTES',       _exp('Collect'),      { command => 'lazyatt'   } ],
-        [ 'ATTRIBUTES',       _exp('Collect'),      { command => 'attr'   } ],
-        [ 'METHODS',          _exp('Collect'),      { command => 'method' } ],
-        [ 'REQUIRED METHODS', _exp('Collect'),      { command => 'required_method' } ],
-        [ 'FUNCTIONS',        _exp('Collect'),      { command => 'func'   } ],
-        [ 'TYPES',            _exp('Collect'),      { command => 'type'   } ],
-        [ 'TEST_FUNCTIONS',   _exp('Collect'),      { command => 'test'   } ],
+        [ 'REQUIRED ATTRIBUTES', _exp('RSRCHBOY::RequiredAttributes'), { } ],
+        [ 'LAZY ATTRIBUTES',     _exp('RSRCHBOY::LazyAttributes'),     { } ],
+
+        [ 'ATTRIBUTES',       _exp('Collect'), { command => 'attr'            } ],
+        [ 'METHODS',          _exp('Collect'), { command => 'method'          } ],
+        [ 'REQUIRED METHODS', _exp('Collect'), { command => 'required_method' } ],
+        [ 'FUNCTIONS',        _exp('Collect'), { command => 'func'            } ],
+        [ 'TYPES',            _exp('Collect'), { command => 'type'            } ],
+        [ 'TEST_FUNCTIONS',   _exp('Collect'), { command => 'test'            } ],
 
         _exp2('Leftovers'),
 
