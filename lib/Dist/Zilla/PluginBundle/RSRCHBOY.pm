@@ -167,7 +167,6 @@ sub author_tests {
             EOLTests
             HasVersionTests
             Test::Compile
-            Test::Portability
             ExtraTests
             NoSmartCommentsTests
         },
