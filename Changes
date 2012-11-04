@@ -2,6 +2,11 @@ Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
 
+0.029     2012-11-03 23:26:30 PST8PDT
+	* switch to using the dist-zilla specific pluginbundle slicer role
+	* drop Test::Portability, as the underlying module has been broken for 6
+	  years
+
 0.028     2012-11-03 21:55:56 PST8PDT
 	* add lazy/required attributes sections from CollectWithInfo (that is, we
 	  now have a nice little bit of intro text).
