@@ -10,7 +10,10 @@ use MooseX::AttributeShortcuts;
 use Moose::Util::TypeConstraints;
 
 use Dist::Zilla;
-with 'Dist::Zilla::Role::PluginBundle::Easy';
+with
+    'Dist::Zilla::Role::PluginBundle::Easy',
+    'Dist::Zilla::Role::PluginBundle::Config::Slicer',
+    ;
 
 use Config::MVP::Slicer 0.302;
 use Path::Class;
@@ -93,38 +96,6 @@ sub _build_sign               { shift->payload->{sign}               // 1 }
 sub _build_tweet              { shift->payload->{tweet}              // 0 }
 sub _build_github             { shift->payload->{github}             // 1 }
 sub _build_install_on_release { shift->payload->{install_on_release} // 1 }
-
-has _slicer => (
-    is      => 'lazy',
-    isa     => class_type('Config::MVP::Slicer'),
-    handles => {
-        _merge_cfg => 'merge',
-    },
-);
-
-sub _build__slicer { Config::MVP::Slicer->new({ config => shift->payload }) }
-
-# TODO handle options for bundles!
-
-#around add_plugins => sub {
-my $_merger = sub {
-    my ($orig, $self) = (shift, shift);
-
-    my $_n = sub { 'Dist::Zilla::Plugin::' . shift };
-
-    ### @_
-    my @plugins =
-        map { $self->_merge_cfg($_) }
-        map { @$_ == 2 ? [ $_->[0], $_n->($_->[0]), $_->[1] ] : $_ }
-        map { (!ref $_ && !blessed $_) ? [ $_, $_n->($_), {} ] : $_ }
-        @_;
-
-    ### @plugins
-    return $self->$orig(@plugins);
-};
-
-around add_plugins => $_merger;
-#around add_bundle  => $_merger;
 
 =method copy_from_build
 
