@@ -22,6 +22,8 @@ sub _exp2 { [ "\@RSRCHBOY/$_[0]", _exp($_[0]), {} ] }
 
 my $vformat = 'This document describes version %v of %m - released %{LLLL dd, yyyy}d as part of %r.';
 
+# this.... needs some work.
+
 sub mvp_bundle_config {
     return (
         [ '@RSRCHBOY/StopWords', _exp('-StopWords'), {} ],
@@ -33,6 +35,8 @@ sub mvp_bundle_config {
         [ 'SYNOPSIS',         _exp('Generic'),      {} ],
         [ 'DESCRIPTION',      _exp('Generic'),      {} ],
         [ 'OVERVIEW',         _exp('Generic'),      {} ],
+
+        [ 'ROLE PARAMETERS', _exp('RSRCHBOY::RoleParameters'), {} ],
 
         [ 'REQUIRED ATTRIBUTES', _exp('RSRCHBOY::RequiredAttributes'), { } ],
         [ 'LAZY ATTRIBUTES',     _exp('RSRCHBOY::LazyAttributes'),     { } ],
