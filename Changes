@@ -2,6 +2,11 @@ Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
 
+0.028     2012-11-03 21:55:56 PST8PDT
+	* add lazy/required attributes sections from CollectWithInfo (that is, we
+	  now have a nice little bit of intro text).
+	* Add 'ROLE PARAMETERS' section
+
 0.027     2012-08-26 12:43:33 America/Los_Angeles
 	* actually copy LICENSE back to root now *sigh*
 	* add 'coderef' to list of stopwords
