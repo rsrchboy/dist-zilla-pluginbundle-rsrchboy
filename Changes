@@ -2,6 +2,9 @@ Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
 
+0.030     2012-11-14 21:45:00 PST8PDT
+	* Add CONTRIBUTORS section to our weaver configuration
+
 0.029     2012-11-03 23:26:30 PST8PDT
 	* switch to using the dist-zilla specific pluginbundle slicer role
 	* drop Test::Portability, as the underlying module has been broken for 6
