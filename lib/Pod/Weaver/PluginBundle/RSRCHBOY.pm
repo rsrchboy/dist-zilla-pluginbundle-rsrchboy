@@ -12,6 +12,7 @@ use Pod::Weaver::Plugin::StopWords                     ( );
 use Pod::Weaver::Section::SeeAlso                      ( );
 use Pod::Weaver::Section::SourceGitHub                 ( );
 use Pod::Weaver::Section::CollectWithIntro             ( );
+use Pod::Weaver::Section::Contributors                 ( );
 use Pod::Weaver::Section::RSRCHBOY::LazyAttributes     ( );
 use Pod::Weaver::Section::RSRCHBOY::RequiredAttributes ( );
 
@@ -57,6 +58,7 @@ sub mvp_bundle_config {
         _exp2('Bugs'),
 
         _exp2('Authors'),
+        _exp2('Contributors'),
         _exp2('Legal'),
 
         [ '@RSRCHBOY/List',      _exp('-Transformer'), { transformer => 'List' } ],
