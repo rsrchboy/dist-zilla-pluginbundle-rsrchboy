@@ -2,6 +2,9 @@ Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
 
+0.031     2012-11-26 23:27:18 PST8PDT
+	* add ContributorsFromGit to dzil bundle
+
 0.030     2012-11-14 21:45:00 PST8PDT
 	* Add CONTRIBUTORS section to our weaver configuration
 
