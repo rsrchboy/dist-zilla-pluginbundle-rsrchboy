@@ -26,6 +26,7 @@ use Dist::Zilla::Plugin::CheckPrereqsIndexed        ( );
 use Dist::Zilla::Plugin::CopyFilesFromBuild         ( );
 use Dist::Zilla::Plugin::ConfirmRelease             ( );
 use Dist::Zilla::Plugin::ConsistentVersionTest      ( );
+use Dist::Zilla::Plugin::ContributorsFromGit        ( );
 use Dist::Zilla::Plugin::EOLTests                   ( );
 use Dist::Zilla::Plugin::ExtraTests                 ( );
 use Dist::Zilla::Plugin::Git::NextVersion           ( );
@@ -226,6 +227,8 @@ sub configure {
         #;version_regexp  = ^v(.+)$   ; this is the default
         { version_regexp => '^(\d.\d+)(-TRIAL|)$' },
     ]);
+
+    $self->add_plugins('ContributorsFromGit');
 
     $self->add_bundle('Git::CheckFor');
 
