@@ -13,9 +13,9 @@ default_for command => 'lazyatt';
 
 default_for content => [
     'These attributes are lazily constructed from another source (e.g.',
-    'required attributes, external source, some combo of the two).',
-    'You can, but are generally recommended to not, set these values at',
-    'construction time.',
+    'required attributes, external source, a BUILD() method, or some combo',
+    'thereof). You can set these values at construction time, though this is',
+    'generally neither required nor recommended.',
 ]->join(q{ });
 
 __PACKAGE__->meta->make_immutable;
