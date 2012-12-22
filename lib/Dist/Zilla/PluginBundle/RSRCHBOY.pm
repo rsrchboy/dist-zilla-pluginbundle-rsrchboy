@@ -28,6 +28,7 @@ use Dist::Zilla::Plugin::ConfirmRelease             ( );
 use Dist::Zilla::Plugin::ConsistentVersionTest      ( );
 use Dist::Zilla::Plugin::ContributorsFromGit        ( );
 use Dist::Zilla::Plugin::CPANFile                   ( );
+use Dist::Zilla::Plugin::Dpkg 0.04                  ( );
 use Dist::Zilla::Plugin::EOLTests                   ( );
 use Dist::Zilla::Plugin::ExtraTests                 ( );
 use Dist::Zilla::Plugin::Git::NextVersion           ( );
@@ -248,6 +249,8 @@ sub configure {
             ReadmeFromPod
             MinimumPerl
             ReportVersions::Tiny
+
+            Dpkg
         },
         [ AutoPrereqs => $autoprereq_opts ],
         [ Prepender   => $prepender_opts  ],
