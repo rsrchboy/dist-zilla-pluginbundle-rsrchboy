@@ -27,6 +27,7 @@ use Dist::Zilla::Plugin::CopyFilesFromBuild         ( );
 use Dist::Zilla::Plugin::ConfirmRelease             ( );
 use Dist::Zilla::Plugin::ConsistentVersionTest      ( );
 use Dist::Zilla::Plugin::ContributorsFromGit        ( );
+use Dist::Zilla::Plugin::CPANFile                   ( );
 use Dist::Zilla::Plugin::EOLTests                   ( );
 use Dist::Zilla::Plugin::ExtraTests                 ( );
 use Dist::Zilla::Plugin::Git::NextVersion           ( );
@@ -263,6 +264,8 @@ sub configure {
             filename => 'README.pod',
             location => 'root',
         }],
+
+        'CPANFile',
 
         ($self->is_task ? 'TaskWeaver' : $podweaver),
     );
