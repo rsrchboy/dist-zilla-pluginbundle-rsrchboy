@@ -217,10 +217,12 @@ sub configure {
         : [ PodWeaver => { config_plugin => '@RSRCHBOY' } ]
         ;
 
-    $self->add_plugins(qw{ NextRelease });
+    $self->add_plugins([ NextRelease => {
+        format => '%-8V  %{yyyy-MM-dd HH:mm:ss ZZZZ}d',
+    }]);
 
     $self->add_bundle(Git => {
-        allow_dirty => [ qw{ .gitignore LICENSE dist.ini weaver.ini README.pod Changes } ],
+        allow_dirty => [ qw{ cpanfile .gitignore LICENSE dist.ini weaver.ini README.pod Changes } ],
         tag_format  => '%v',
         signed      => $self->sign, # 1,
     });
