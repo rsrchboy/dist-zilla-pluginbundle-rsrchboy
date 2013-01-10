@@ -307,6 +307,8 @@ __END__
 
 =for Pod::Coverage configure
 
+=for :stopwords GitHub Plugins
+
 =head1 SYNOPSIS
 
     # in your dist.ini...
