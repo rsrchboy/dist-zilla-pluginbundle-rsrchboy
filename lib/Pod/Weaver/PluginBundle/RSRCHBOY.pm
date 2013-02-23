@@ -1,4 +1,16 @@
+#
+# This file is part of Dist-Zilla-PluginBundle-RSRCHBOY
+#
+# This software is Copyright (c) 2011 by Chris Weyl.
+#
+# This is free software, licensed under:
+#
+#   The GNU Lesser General Public License, Version 2.1, February 1999
+#
 package Pod::Weaver::PluginBundle::RSRCHBOY;
+{
+  $Pod::Weaver::PluginBundle::RSRCHBOY::VERSION = '0.035';
+}
 
 # ABSTRACT: Document your modules like RSRCHBOY does
 
@@ -70,6 +82,20 @@ sub mvp_bundle_config {
 
 __END__
 
+=pod
+
+=encoding utf-8
+
+=for :stopwords Chris Weyl
+
+=head1 NAME
+
+Pod::Weaver::PluginBundle::RSRCHBOY - Document your modules like RSRCHBOY does
+
+=head1 VERSION
+
+This document describes version 0.035 of Pod::Weaver::PluginBundle::RSRCHBOY - released February 23, 2013 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+
 =head1 SYNOPSIS
 
 In weaver.ini:
@@ -128,5 +154,29 @@ This plugin bundle is equivalent to the following weaver.ini file:
   [-Encoding]
 
 =for Pod::Coverage mvp_bundle_config
+
+=head1 SEE ALSO
+
+Please see those modules/websites for more information related to this module.
+
+=over 4
+
+=item *
+
+L<Dist::Zilla::PluginBundle::RSRCHBOY|Dist::Zilla::PluginBundle::RSRCHBOY>
+
+=back
+
+=head1 AUTHOR
+
+Chris Weyl <cweyl@alumni.drew.edu>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2011 by Chris Weyl.
+
+This is free software, licensed under:
+
+  The GNU Lesser General Public License, Version 2.1, February 1999
 
 =cut

@@ -1,0 +1,56 @@
+This file contains message digests of all files listed in MANIFEST,
+signed via the Module::Signature module, version 0.70.
+
+To verify the content in this distribution, first make sure you have
+Module::Signature installed, then type:
+
+    % cpansign -v
+
+It will check each file's integrity, as well as the signature's
+validity.  If "==> Signature verified OK! <==" is not displayed,
+the distribution may already have been compromised, and you should
+not run its Makefile.PL or Build.PL.
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+SHA1 09289ecf09618e92fc52862027f592e58e612094 Changes
+SHA1 52aa9d0c94f09d9806b24b66e833897f67ba260d INSTALL
+SHA1 514760f01d379ad532c49a196f1c6f7912b65556 LICENSE
+SHA1 b28af95d6f71845b1a6761ad72b492f7645fae51 MANIFEST
+SHA1 a561be55664384bd9d960745cb6ae935685b762d META.json
+SHA1 2a01e2e22cdc7a72b1c9e646d3a66f7298e8c3a2 META.yml
+SHA1 a50576dfee12ca1ae1bca6f0aa3fcafb6ff3158f Makefile.PL
+SHA1 073f1f7bf0e450a96475c62844ac3ef3bf976f27 README
+SHA1 7739ea47b5e6588ef845d8b420c9d31ff0169828 cpanfile
+SHA1 e4860e3e69c9a3146eef3fabbf943f9c3055c6aa dist.ini
+SHA1 2ee6118723c93c4b14ceb64bfbd7fbd318889a37 lib/Dist/Zilla/PluginBundle/RSRCHBOY.pm
+SHA1 7c4c120aec5189965019f663feefb50c44119a16 lib/Pod/Weaver/PluginBundle/RSRCHBOY.pm
+SHA1 fa3642c0e26dd8564a7e90a7a86e95e5d714cf58 lib/Pod/Weaver/Section/RSRCHBOY/GeneratedAttributes.pm
+SHA1 ee930600e69bbc12fb400e7d856b7064d12ad649 lib/Pod/Weaver/Section/RSRCHBOY/LazyAttributes.pm
+SHA1 b5bd1eccdc2f14bc0dc758658850865fcf90b6e6 lib/Pod/Weaver/Section/RSRCHBOY/RequiredAttributes.pm
+SHA1 e5729fba1e1bcd05335deaef8b06b6f920aef88f lib/Pod/Weaver/Section/RSRCHBOY/RoleParameters.pm
+SHA1 6adff351c557ace245d76d09362b5b34ba9cfb60 lib/Pod/Weaver/SectionBase/CollectWithIntro.pm
+SHA1 2d5881775dc630b32ab58794c84d22251f93d81a t/00-compile.t
+SHA1 ea3f32bbd55e9bbe2e38c85a00880ed54d63c1fe t/00-load.t
+SHA1 3e09316b103053bdb77c0d08943eda8e91bd0714 t/000-report-versions-tiny.t
+SHA1 d146af57256d30482c68ac11f367064b6b9748d7 t/author-pod-spell.t
+SHA1 9c3627ff37f4fd5bddc34bf46cf3359eaf76a060 t/release-consistent-version.t
+SHA1 a032c41ef6887fab1b900669c2d304fab46680e2 t/release-eol.t
+SHA1 2c84a6cfef047da345f820f8c153edba2f3695dc t/release-has-version.t
+SHA1 f8fe2e0e0cc54f8c56e4356642895e7c3c9fc8ad t/release-no-smart-comments.t
+SHA1 455d1dd1867212a665ad5ea4126b572411de300c t/release-no-tabs.t
+SHA1 a7dd5dd74b25111cccb3a9d3c5f11741598910a2 t/release-pod-coverage.t
+SHA1 37d63809eaa22d65707b864ea681a1c77d3d2f2d t/release-pod-linkcheck.t
+SHA1 3f66cf67094d93c705a01b6b768fbd5cc74a040a t/release-pod-syntax.t
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.11 (GNU/Linux)
+
+iQEcBAEBAgAGBQJRKQd0AAoJEOd5N1CvIgQkWTUIAJ3+IEzY+BiVbOyCEMFT+qCO
+MhAxNiIJBwIhZZBLXq3Mj7WAXANc6oH+8ani0+UHGL/5dwf/QzNH/e7q2Kik9GIp
+cM59yA1Dz+UNJKn2+XS2xhEYfaCXVBFGjKTnUuDhF42xkBWOe8EkCQ3Px3quC4br
+13n/Uo/Pjn6RmPKSnJ5LN/FtCBjG/yQLY2vChOu/eBBSBI8meLHOpF38AzT1xlK6
+35qHChDsLZFvWbpuTyHLXPWLn2VhAXVc002GTET0Fzp2o4qcbgliDestRI7IDLYy
+2gtOaCeyIcXorS/dosG8DwUX41AXMVqAHH56kVE2QKDLY6qsBnJ6A4dPnF73EPA=
+=AvlZ
+-----END PGP SIGNATURE-----
