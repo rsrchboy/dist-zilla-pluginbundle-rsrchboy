@@ -2,6 +2,9 @@ Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
 
+0.034     2013-02-23 09:51:18 PST-0800
+	* [dzil] add Git::CommitBuild to track full CPAN releases
+
 0.033     2013-01-09 16:06:50 PST-0800
 	* [dzil] expose trial info in Changes version line
 	* [dzil] add cpanfile to list of files allowed to be dirty
