@@ -30,6 +30,7 @@ use Dist::Zilla::Plugin::ContributorsFromGit        ( );
 use Dist::Zilla::Plugin::CPANFile                   ( );
 use Dist::Zilla::Plugin::EOLTests                   ( );
 use Dist::Zilla::Plugin::ExtraTests                 ( );
+use Dist::Zilla::Plugin::Git::CommitBuild 2.009     ( );
 use Dist::Zilla::Plugin::Git::NextVersion           ( );
 use Dist::Zilla::Plugin::GitHub::Meta               ( );
 use Dist::Zilla::Plugin::GitHub::Update             ( );
@@ -134,16 +135,21 @@ sub release_plugins {
         },
     );
 
-    push @plugins, [ 'GitHub::Update' => { metacpan  => 1 } ]
-        if $self->github;
     push @plugins, 'UploadToCPAN'
         unless $self->is_private;
+    push @plugins, [ 'Git::CommitBuild' => {
+        release_branch       => 'release/cpan',
+        release_message      => 'Full build of CPAN release %v%t',
+        multiple_inheritance => 1,
+    }];
     push @plugins, [ Signature => { sign => 'always' } ]
         if $self->sign;
     push @plugins, [ Twitter => { hash_tags => '#perl #cpan' } ]
         if $self->tweet;
     push @plugins, [ InstallRelease => { install_command => 'cpanm .' } ]
         if $self->install_on_release;
+    push @plugins, [ 'GitHub::Update' => { metacpan  => 1 } ]
+        if $self->github;
 
     push @plugins,
         [ ArchiveRelease   => { directory => 'releases' } ];
@@ -225,6 +231,8 @@ sub configure {
         allow_dirty => [ qw{ cpanfile .gitignore LICENSE dist.ini weaver.ini README.pod Changes } ],
         tag_format  => '%v',
         signed      => $self->sign, # 1,
+        # also push to our fully-built branch
+        push_to     => [ 'origin', 'origin refs/heads/release/cpan:refs/heads/release/cpan' ],
     });
 
     $self->add_plugins([ 'Git::NextVersion' =>
