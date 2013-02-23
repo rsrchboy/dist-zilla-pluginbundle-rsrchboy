@@ -2,6 +2,10 @@ Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
 
+0.035     2013-02-23 10:16:16 PST-0800
+	* [dzil] rework how/where we add the git plugins to resolve ordering
+	  dependency issues (Push vs CommitBuild)
+
 0.034     2013-02-23 09:51:18 PST-0800
 	* [dzil] add Git::CommitBuild to track full CPAN releases
 
