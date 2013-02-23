@@ -131,16 +131,31 @@ sub release_plugins {
             TestRelease
             CheckChangesHasContent
             CheckPrereqsIndexed
-            ConfirmRelease
         },
+        [
+            'Git::Check' => {
+                allow_dirty => [ qw{ cpanfile .gitignore LICENSE dist.ini weaver.ini README.pod Changes } ],
+            },
+        ],
+        'ConfirmRelease',
     );
 
-    push @plugins, 'UploadToCPAN'
-        unless $self->is_private;
+    push @plugins, [ 'Git::Commit' => {
+        allow_dirty => [ qw{ cpanfile .gitignore LICENSE dist.ini weaver.ini README.pod Changes } ],
+    }];
+    push @plugins, [ 'Git::Tag' => {
+        tag_format  => '%v',
+        signed      => $self->sign, # 1,
+    }];
     push @plugins, [ 'Git::CommitBuild' => {
         release_branch       => 'release/cpan',
         release_message      => 'Full build of CPAN release %v%t',
         multiple_inheritance => 1,
+    }];
+    push @plugins, 'UploadToCPAN'
+        unless $self->is_private;
+    push @plugins, [ 'Git::Push' => {
+        push_to => [ 'origin', 'origin refs/heads/release/cpan:refs/heads/release/cpan' ],
     }];
     push @plugins, [ Signature => { sign => 'always' } ]
         if $self->sign;
@@ -223,17 +238,9 @@ sub configure {
         : [ PodWeaver => { config_plugin => '@RSRCHBOY' } ]
         ;
 
-    $self->add_plugins([ NextRelease => {
-        format => '%-8V  %{yyyy-MM-dd HH:mm:ss ZZZZ}d',
-    }]);
-
-    $self->add_bundle(Git => {
-        allow_dirty => [ qw{ cpanfile .gitignore LICENSE dist.ini weaver.ini README.pod Changes } ],
-        tag_format  => '%v',
-        signed      => $self->sign, # 1,
-        # also push to our fully-built branch
-        push_to     => [ 'origin', 'origin refs/heads/release/cpan:refs/heads/release/cpan' ],
-    });
+    $self->add_plugins(
+        [ NextRelease => { format => '%-8V  %{yyyy-MM-dd HH:mm:ss ZZZZ}d' }],
+    );
 
     $self->add_plugins([ 'Git::NextVersion' =>
         #;first_version = 0.001       ; this is the default
