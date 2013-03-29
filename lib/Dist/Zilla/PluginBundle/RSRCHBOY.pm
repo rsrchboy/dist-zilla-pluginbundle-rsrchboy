@@ -60,7 +60,6 @@ use Dist::Zilla::Plugin::Test::Compile              ( );
 use Dist::Zilla::Plugin::Test::Pod::LinkCheck       ( );
 use Dist::Zilla::Plugin::Test::PodSpelling 2.002001 ( );
 use Dist::Zilla::Plugin::TestRelease                ( );
-use Dist::Zilla::Plugin::TravisYML                  ( );
 use Dist::Zilla::Plugin::Twitter                    ( );
 use Dist::Zilla::Plugin::UploadToCPAN               ( );
 
@@ -148,9 +147,6 @@ sub release_plugins {
         tag_format  => '%v',
         signed      => $self->sign, # 1,
     }];
-    push @plugins, [ TravisYML => {
-        release_branch => '/^(build|release)\/.*/',
-    }];
     push @plugins, [ 'Git::CommitBuild' => {
         release_branch       => 'release/cpan',
         release_message      => 'Full build of CPAN release %v%t',
@@ -165,7 +161,7 @@ sub release_plugins {
             #'origin refs/heads/build/*:refs/heads/build/*',
         ],
     }];
-    push @plugins, [ Signature => { sign => 'always' } ]
+    push @plugins, 'Signature', # [ Signature => { sign => 'always' } ]
         if $self->sign;
     push @plugins, [ Twitter => { hash_tags => '#perl #cpan' } ]
         if $self->tweet;
