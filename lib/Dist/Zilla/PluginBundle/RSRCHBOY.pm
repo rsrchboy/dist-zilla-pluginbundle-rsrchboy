@@ -134,7 +134,7 @@ sub release_plugins {
         },
         [
             'Git::Check' => {
-                allow_dirty => [ qw{ .travis.yml cpanfile .gitignore LICENSE dist.ini weaver.ini README.pod Changes } ],
+                allow_dirty => [ qw{ .travis.yml cpanfile .gitignore LICENSE dist.ini weaver.ini README.mkdn Changes } ],
             },
         ],
         'ConfirmRelease',
@@ -280,9 +280,9 @@ sub configure {
         'License',
         [ CopyFilesFromBuild => { copy => [ $self->copy_from_build ] } ],
 
-        [ ReadmeAnyFromPod  => ReadmePodInRoot => {
-            type     => 'pod',
-            filename => 'README.pod',
+        [ ReadmeAnyFromPod  => ReadmeMarkdownInRoot => {
+            type     => 'markdown',
+            filename => 'README.mkdn',
             location => 'root',
         }],
 
