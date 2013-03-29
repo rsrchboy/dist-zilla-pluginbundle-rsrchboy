@@ -1,6 +1,7 @@
 Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
+	* [dzil] remove TravisYML plugin until it's a little more sorted
 
 0.036     2013-03-17 22:12:51 PDT-0700
 	* [dzil] add TravisYML plugin and configuration
