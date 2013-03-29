@@ -25,6 +25,7 @@ use Dist::Zilla::Plugin::CheckChangesHasContent     ( );
 use Dist::Zilla::Plugin::CheckPrereqsIndexed        ( );
 use Dist::Zilla::Plugin::CopyFilesFromBuild         ( );
 use Dist::Zilla::Plugin::ConfirmRelease             ( );
+use Dist::Zilla::Plugin::CoderwallEndorse           ( );
 use Dist::Zilla::Plugin::ConsistentVersionTest      ( );
 use Dist::Zilla::Plugin::ContributorsFromGit        ( );
 use Dist::Zilla::Plugin::CPANFile                   ( );
@@ -285,6 +286,7 @@ sub configure {
             filename => 'README.mkdn',
             location => 'root',
         }],
+        [ CoderwallEndorse => { users => 'RsrchBoy' } ],
 
         'CPANFile',
 
