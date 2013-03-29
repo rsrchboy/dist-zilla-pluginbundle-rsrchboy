@@ -14,7 +14,6 @@ install:
    - rm -rf ~/.cpanm
    - mkdir ~/.cpanm
    - sudo mount tmpfs -t tmpfs ~/.cpanm
-   - cpanm --quiet --skip-satisfied --installdeps --metacpan .
    - dzil authordeps | grep -vP '[^\w:]' | xargs -n 5 -P 10 cpanm --quiet --notest --skip-satisfied
 
    # echo "# for LinkCheck"
