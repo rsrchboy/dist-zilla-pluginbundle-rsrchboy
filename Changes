@@ -2,6 +2,9 @@ Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
 
+0.038     2013-03-29 22:58:45 PDT-0700
+	* [dzil] allow dev-style versions (x.xxxxxx_xx)
+
 0.037     2013-03-28 21:58:31 PDT-0700
 	* [dzil] remove TravisYML plugin until it's a little more sorted
 	* [dzil] Switch GH readme from POD to Markdown to support badges (travis,
