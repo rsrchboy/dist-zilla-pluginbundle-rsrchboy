@@ -1,7 +1,5 @@
 Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
-{{$NEXT}}
-
 0.039     2013-04-22 21:23:23 PDT-0700
 	* [dzil] sync git allow dirty files lists (and ensure the new README.mkdn
 	  gets committed appropriately!)
