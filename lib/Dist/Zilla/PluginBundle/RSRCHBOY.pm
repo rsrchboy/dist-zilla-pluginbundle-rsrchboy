@@ -126,23 +126,21 @@ Plugin configuration for public release.
 sub release_plugins {
     my $self = shift @_;
 
+    my @allow_dirty = qw{
+        .travis.yml cpanfile .gitignore LICENSE dist.ini
+        weaver.ini README.mkdn Changes
+    };
+
     my @plugins = (
         qw{
             TestRelease
             CheckChangesHasContent
             CheckPrereqsIndexed
         },
-        [
-            'Git::Check' => {
-                allow_dirty => [ qw{ .travis.yml cpanfile .gitignore LICENSE dist.ini weaver.ini README.mkdn Changes } ],
-            },
-        ],
+        [ 'Git::Check'  => { allow_dirty => [ @allow_dirty ] } ],
         'ConfirmRelease',
+        [ 'Git::Commit' => { allow_dirty => [ @allow_dirty ] } ],
     );
-
-    push @plugins, [ 'Git::Commit' => {
-        allow_dirty => [ qw{ cpanfile .gitignore LICENSE dist.ini weaver.ini README.pod Changes } ],
-    }];
     push @plugins, [ 'Git::Tag' => {
         tag_format  => '%v',
         signed      => $self->sign, # 1,
@@ -171,7 +169,7 @@ sub release_plugins {
         if $self->github;
 
     push @plugins,
-        [ ArchiveRelease   => { directory => 'releases' } ];
+        [ ArchiveRelease => { directory => 'releases' } ];
 
     return @plugins;
 }
