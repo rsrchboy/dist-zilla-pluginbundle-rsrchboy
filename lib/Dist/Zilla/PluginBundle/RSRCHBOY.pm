@@ -131,6 +131,7 @@ sub release_plugins {
     my @allow_dirty = qw{
         .travis.yml cpanfile .gitignore LICENSE dist.ini
         weaver.ini README.mkdn Changes
+        cpanfile
     };
 
     my @plugins = (
@@ -258,7 +259,8 @@ sub configure {
     $self->add_bundle('Git::CheckFor');
 
     $self->add_plugins(
-        [ GatherDir => { exclude_filename => [ 'LICENSE' ] } ],
+        # FIXME
+        [ GatherDir => { exclude_filename => [ 'LICENSE', 'cpanfile' ] } ],
         qw{
             Git::Describe
             PruneCruft
