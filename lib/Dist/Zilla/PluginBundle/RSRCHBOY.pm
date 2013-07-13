@@ -1,4 +1,21 @@
+#
+# This file is part of Dist-Zilla-PluginBundle-RSRCHBOY
+#
+# This software is Copyright (c) 2013 by Chris Weyl.
+#
+# This is free software, licensed under:
+#
+#   The GNU Lesser General Public License, Version 2.1, February 1999
+#
 package Dist::Zilla::PluginBundle::RSRCHBOY;
+BEGIN {
+  $Dist::Zilla::PluginBundle::RSRCHBOY::AUTHORITY = 'cpan:RSRCHBOY';
+}
+{
+  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.040';
+}
+# git description: 0.039-4-g35ea22e
+
 
 # ABSTRACT: Zilla your distributions like RSRCHBOY!
 
@@ -103,11 +120,6 @@ sub _build_tweet              { shift->payload->{tweet}              || 0 }
 sub _build_github             { shift->payload->{github}             || 1 }
 sub _build_install_on_release { shift->payload->{install_on_release} || 1 }
 
-=method copy_from_build
-
-Returns a list of files that, once built, will be copied back into the root.
-
-=cut
 
 sub copy_from_build {
     my ($self) = @_;
@@ -119,11 +131,6 @@ sub copy_from_build {
     return @copy;
 }
 
-=method release_plugins
-
-Plugin configuration for public release.
-
-=cut
 
 sub release_plugins {
     my $self = shift @_;
@@ -176,9 +183,6 @@ sub release_plugins {
     return @plugins;
 }
 
-=method author_tests
-
-=cut
 
 sub author_tests {
     my ($self) = @_;
@@ -203,11 +207,6 @@ sub author_tests {
     );
 }
 
-=method meta_provider_plugins
-
-Plugins that mess about with what goes into META.*.
-
-=cut
 
 sub meta_provider_plugins {
     my ($self) = @_;
@@ -224,11 +223,6 @@ sub meta_provider_plugins {
     return @plugins;
 }
 
-=method configure
-
-Preps plugin lists / config; see L<Dist::Zilla::Role::PluginBundle::Easy>.
-
-=cut
 
 sub configure {
     my $self = shift @_;
@@ -297,11 +291,6 @@ sub configure {
     return;
 }
 
-=method stopwords
-
-A list of words our POD spell checker should ignore.
-
-=cut
 
 sub stopwords {
 
@@ -327,9 +316,19 @@ __PACKAGE__->meta->make_immutable;
 
 __END__
 
-=for Pod::Coverage configure
+=pod
 
-=for :stopwords GitHub Plugins
+=encoding utf-8
+
+=for :stopwords Chris Weyl GitHub Plugins
+
+=head1 NAME
+
+Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
+
+=head1 VERSION
+
+This document describes version 0.040 of Dist::Zilla::PluginBundle::RSRCHBOY - released July 12, 2013 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 
@@ -341,6 +340,32 @@ __END__
 This is RSRCHBOY's current L<Dist::Zilla> dist.ini config for his packages.
 He's still figuring this all out, so it's probably wise to not depend on
 this being too terribly consistent/sane until the version gets to 1.
+
+=head1 METHODS
+
+=head2 copy_from_build
+
+Returns a list of files that, once built, will be copied back into the root.
+
+=head2 release_plugins
+
+Plugin configuration for public release.
+
+=head2 author_tests
+
+=head2 meta_provider_plugins
+
+Plugins that mess about with what goes into META.*.
+
+=head2 configure
+
+Preps plugin lists / config; see L<Dist::Zilla::Role::PluginBundle::Easy>.
+
+=head2 stopwords
+
+A list of words our POD spell checker should ignore.
+
+=for Pod::Coverage configure
 
 =head1 OPTIONS
 
@@ -383,8 +408,44 @@ plugin's documentation.
 
 =head1 SEE ALSO
 
+Please see those modules/websites for more information related to this module.
+
+=over 4
+
+=item *
+
 L<Dist::Zilla::Role::PluginBundle::Easy>
 
+=item *
+
 L<Config::MVP::Slicer>
+
+=back
+
+=head1 SOURCE
+
+The development version is on github at L<http://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY>
+and may be cloned from L<git://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY.git>
+
+=head1 BUGS
+
+Please report any bugs or feature requests on the bugtracker website
+https://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY/issues
+
+When submitting a bug or request, please include a test-file or a
+patch to an existing test-file that illustrates the bug or desired
+feature.
+
+=head1 AUTHOR
+
+Chris Weyl <cweyl@alumni.drew.edu>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2013 by Chris Weyl.
+
+This is free software, licensed under:
+
+  The GNU Lesser General Public License, Version 2.1, February 1999
 
 =cut

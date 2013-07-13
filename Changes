@@ -1,7 +1,5 @@
 Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
-{{$NEXT}}
-
 0.040     2013-07-12 23:34:53 CDT-0500
 	* drop requirement on perl v5.10+; not needed for this package and was
 	  making testing difficult on travis.
