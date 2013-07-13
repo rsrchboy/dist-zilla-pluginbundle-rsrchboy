@@ -265,7 +265,8 @@ sub configure {
     $self->add_bundle('Git::CheckFor');
 
     $self->add_plugins(
-        [ GatherDir => { exclude_filename => [ 'LICENSE' ] } ],
+        # FIXME
+        [ GatherDir => { exclude_filename => [ 'LICENSE', 'cpanfile' ] } ],
         qw{
             Git::Describe
             PruneCruft
