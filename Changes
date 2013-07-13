@@ -2,6 +2,12 @@ Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
 
+0.040     2013-07-12 23:34:53 CDT-0500
+	* drop requirement on perl v5.10+; not needed for this package and was
+	  making testing difficult on travis.
+	* [dzil] add Authority, Git::Describe plugins
+	* [dzil] add Test::MinimumVersion w/a default of 5.008008
+
 0.039     2013-04-22 21:23:23 PDT-0700
 	* [dzil] sync git allow dirty files lists (and ensure the new README.mkdn
 	  gets committed appropriately!)
