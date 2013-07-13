@@ -19,6 +19,7 @@ use Path::Class;
 use Dist::Zilla::PluginBundle::Git 1.121770         ( );
 use Dist::Zilla::PluginBundle::Git::CheckFor        ( );
 use Dist::Zilla::Plugin::ArchiveRelease             ( );
+use Dist::Zilla::Plugin::Authority                  ( );
 use Dist::Zilla::Plugin::CheckChangesHasContent     ( );
 use Dist::Zilla::Plugin::CheckPrereqsIndexed        ( );
 use Dist::Zilla::Plugin::CopyFilesFromBuild         ( );
@@ -29,6 +30,7 @@ use Dist::Zilla::Plugin::CPANFile                   ( );
 use Dist::Zilla::Plugin::EOLTests                   ( );
 use Dist::Zilla::Plugin::ExtraTests                 ( );
 use Dist::Zilla::Plugin::Git::CommitBuild 2.009     ( );
+use Dist::Zilla::Plugin::Git::Describe              ( );
 use Dist::Zilla::Plugin::Git::NextVersion           ( );
 use Dist::Zilla::Plugin::GitHub::Meta               ( );
 use Dist::Zilla::Plugin::GitHub::Update             ( );
@@ -208,7 +210,7 @@ sub meta_provider_plugins {
     my ($self) = @_;
 
     my @plugins = (
-        qw{ MetaConfig MetaJSON MetaYAML },
+        qw{ Authority MetaConfig MetaJSON MetaYAML },
         [ MetaNoIndex => { directory => [ qw{ corpus t } ] } ],
         'MetaProvides::Package',
     );
@@ -255,6 +257,7 @@ sub configure {
     $self->add_plugins(
         [ GatherDir => { exclude_filename => [ 'LICENSE' ] } ],
         qw{
+            Git::Describe
             PruneCruft
             ExecDir
             ShareDir
@@ -264,6 +267,7 @@ sub configure {
             SurgicalPkgVersion
             ReadmeFromPod
             MinimumPerl
+
             ReportVersions::Tiny
         },
         [ AutoPrereqs => $autoprereq_opts ],
