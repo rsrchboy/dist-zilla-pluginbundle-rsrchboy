@@ -214,7 +214,8 @@ sub meta_provider_plugins {
     my ($self) = @_;
 
     my @plugins = (
-        qw{ Authority MetaConfig MetaJSON MetaYAML },
+        [ Authority => { authority => 'cpan:RSRCHBOY' } ],
+        qw{ MetaConfig MetaJSON MetaYAML },
         [ MetaNoIndex => { directory => [ qw{ corpus t } ] } ],
         'MetaProvides::Package',
     );
