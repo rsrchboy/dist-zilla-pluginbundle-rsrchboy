@@ -13,9 +13,9 @@ install:
    - git config user.email 'travis@nowhere.dne'
 
    # Deal with all of the DZIL dependancies, quickly and quietly
-   - cpanm --quiet --notest Dist::Zilla
-   - cpanm --verbose --no-interactive --installdeps .
-   - dzil authordeps | cpanm --verbose --no-interactive --notest
+   - cpanm --notest Dist::Zilla
+   - cpanm --installdeps .
+   - dzil authordeps | cpanm --notest
    # for DZP LinkCheck
    - cpanp x
 
