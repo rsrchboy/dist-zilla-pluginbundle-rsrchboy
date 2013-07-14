@@ -14,8 +14,8 @@ install:
 
    # Deal with all of the DZIL dependancies, quickly and quietly
    - cpanm --quiet --notest Dist::Zilla
-   - cpanm --verbose --installdeps .
-   - dzil authordeps | cpanm --verbose --notest
+   - cpanm --verbose --no-interactive --installdeps .
+   - dzil authordeps | cpanm --verbose --no-interactive --notest
    # for DZP LinkCheck
    - cpanp x
 
