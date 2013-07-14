@@ -214,10 +214,12 @@ sub meta_provider_plugins {
     my ($self) = @_;
 
     my @plugins = (
-        [ Authority => { authority => 'cpan:RSRCHBOY' } ],
-        qw{ MetaConfig MetaJSON MetaYAML },
-        [ MetaNoIndex => { directory => [ qw{ corpus t } ] } ],
+        'MetaConfig',
+        'MetaJSON',
         'MetaProvides::Package',
+        'MetaYAML',
+        [ Authority   => { authority => 'cpan:RSRCHBOY' } ],
+        [ MetaNoIndex => { directory => [ qw{ corpus t } ] } ],
     );
 
     push @plugins, 'GitHub::Meta'
