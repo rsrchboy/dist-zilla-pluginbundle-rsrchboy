@@ -129,8 +129,14 @@ sub release_plugins {
     my $self = shift @_;
 
     my @allow_dirty = qw{
-        .travis.yml cpanfile .gitignore LICENSE dist.ini
-        weaver.ini README.mkdn Changes
+        .gitignore
+        .travis.yml
+        Changes
+        LICENSE
+        README.mkdn
+        cpanfile
+        dist.ini
+        weaver.ini
     };
 
     my @plugins = (
