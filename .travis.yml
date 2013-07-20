@@ -1,24 +1,21 @@
 language: perl
 perl:
+   - "5.8"
    - "5.10"
    - "5.12"
    - "5.14"
    - "5.16"
+   - "5.18"
 
 matrix:
-   include:
-      - perl: "5.17.10"
-        env:
-           - BREWVER="5.17.10"
    allow_failures:
-      - perl: "5.17.10"
+      - perl: "5.8"
+
+branches:
+    except:
+        - "release/cpan"
 
 before_install:
-    - test "$BREWVER" = "" || perlbrew install -j4 $BREWVER
-    - test "$BREWVER" = "" || perlbrew switch $BREWVER
-    - test "$BREWVER" = "" || perl -v
-
-install:
    # git bits sometimes needed...
    - git config user.name 'Travis-CI'
    - git config user.email 'travis@nowhere.dne'
@@ -29,6 +26,7 @@ install:
    # for DZP LinkCheck
    - cpanp x
 
+install:
    - export AUTOMATED_TESTING=1 HARNESS_TIMER=1
    - dzil listdeps | cpanm
 
