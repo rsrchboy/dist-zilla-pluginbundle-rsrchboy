@@ -20,17 +20,19 @@ before_install:
    - git config user.name 'Travis-CI'
    - git config user.email 'travis@nowhere.dne'
 
-   # Deal with all of the DZIL dependancies, quickly and quietly
-   - cpanm --quiet --notest Dist::Zilla
-   - cpanm --verbose --installdeps .
-   - dzil authordeps | cpanm --verbose --notest
+   # Moose installs in parallel quite nicely.
+   - HARNESS_OPTIONS=j8:c cpanm Moose || { cat ~/.cpanm/build.log ; false ; }
+   - HARNESS_OPTIONS=j8:c cpanm Dist::Zilla || { cat ~/.cpanm/build.log ; false ; }
+
    # for DZP LinkCheck
+   - cpanm --skip-satisfied CPANPLUS
    - cpanp x
 
 install:
-   - export AUTOMATED_TESTING=1 HARNESS_TIMER=1
-   - dzil listdeps | cpanm
+   # not so much install our package as all its prereqs
+   - dzil authordeps --missing | cpanm || { cat ~/.cpanm/build.log ; false ; }
+   - dzil listdeps --author --missing | cpanm || { cat ~/.cpanm/build.log ; false ; }
 
 script:
    - export DZSIGN=archive
-   - dzil smoke --release --author
+   - dzil test --release --author
