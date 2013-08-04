@@ -242,6 +242,8 @@ Preps plugin lists / config; see L<Dist::Zilla::Role::PluginBundle::Easy>.
 sub configure {
     my $self = shift @_;
 
+    $self->ensure_current;
+
     my $autoprereq_opts = $self->config_slice({ autoprereqs_skip => 'skip' });
     my $prepender_opts  = $self->config_slice({ prepender_skip   => 'skip' });
 
@@ -306,6 +308,24 @@ sub configure {
 
     return;
 }
+
+=method ensure_current
+
+Sometimes things change.  (I know, I know, the horror!)  This seeks to
+minimize that pain by automatically making what changes it can.
+
+=cut
+
+sub ensure_current {
+    my $self = shift @_;
+
+    # cpanfile was added in 0.42
+    system 'touch cpanfile && git add cpanfile && git commit cpanfile'
+        unless -f 'cpanfile';
+
+    return;
+}
+
 
 =method stopwords
 
