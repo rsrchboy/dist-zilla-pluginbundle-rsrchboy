@@ -7,6 +7,8 @@ use namespace::autoclean;
 use MooseX::AttributeShortcuts;
 use Moose::Util::TypeConstraints;
 
+use autodie 0.20;
+
 use Dist::Zilla;
 with
     'Dist::Zilla::Role::PluginBundle::Easy',
