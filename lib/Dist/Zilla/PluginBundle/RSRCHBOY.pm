@@ -142,10 +142,22 @@ sub release_plugins {
             CheckChangesHasContent
             CheckPrereqsIndexed
         },
+        [ 'Git::Remote::Check' => GitCheckReleaseBranchSync  => {
+            remote_name   => 'origin',
+            do_update     => 1,
+            branch        => 'release/cpan',
+            remote_branch => 'release/cpan',
+        } ],
+        [ 'Git::Remote::Check' => GitCheckMasterBranchSync => {
+            remote_name   => 'origin',
+            do_update     => 1,
+            branch        => 'master',
+            remote_branch => 'master',
+        } ],
         [ 'Git::Check'  => { allow_dirty => [ @allow_dirty ] } ],
-        'ConfirmRelease',
         [ 'Git::Commit' => { allow_dirty => [ @allow_dirty ] } ],
     );
+
     push @plugins, [ 'Git::Tag' => {
         tag_format  => '%v',
         signed      => $self->sign,
@@ -161,7 +173,6 @@ sub release_plugins {
         push_to => [
             'origin',
             'origin refs/heads/release/cpan:refs/heads/release/cpan',
-            #'origin refs/heads/build/*:refs/heads/build/*',
         ],
     }];
     push @plugins, 'Signature',
@@ -174,7 +185,9 @@ sub release_plugins {
         if $self->github;
 
     push @plugins,
-        [ ArchiveRelease => { directory => 'releases' } ];
+        [ ArchiveRelease => { directory => 'releases' } ],
+        'ConfirmRelease',
+        ;
 
     return @plugins;
 }
