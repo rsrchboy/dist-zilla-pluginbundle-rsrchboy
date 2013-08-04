@@ -418,12 +418,16 @@ It's possible to pass options to our bundled plugins directly:
     GatherDir.exclude_filename = cpanfile
 
 For information on specific plugins and their options, you should refer to the
-plugin's documentation.
+documentation of L<Dist::Zilla::Role::PluginBundle::Config::Slicer>.
 
 =head1 SEE ALSO
 
-L<Dist::Zilla::Role::PluginBundle::Easy>
+Dist::Zilla::Role::PluginBundle::Easy
 
-L<Config::MVP::Slicer>
+Dist::Zilla::Role::PluginBundle::PluginRemover
+
+Dist::Zilla::Role::PluginBundle::Config::Slicer
+
+Config::MVP::Slicer
 
 =cut
