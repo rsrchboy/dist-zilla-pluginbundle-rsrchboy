@@ -80,15 +80,10 @@ use Test::Pod::Content      ( );
 use Test::Pod::LinkCheck    ( );
 use Pod::Coverage::TrustPod ( );
 
-# debugging...
-#use Smart::Comments '###';
-
-#has is_task    => (is => 'lazy', isa => 'Bool');
 has is_app     => (is => 'lazy', isa => 'Bool');
 has is_private => (is => 'lazy', isa => 'Bool');
 has rapid_dev  => (is => 'lazy', isa => 'Bool');
 
-#sub _build_is_task    { $_[0]->payload->{task}                             }
 sub _build_is_app     { $_[0]->payload->{cat_app} || $_[0]->payload->{app} }
 sub _build_is_private { $_[0]->payload->{private}                          }
 sub _build_rapid_dev  { $_[0]->payload->{rapid_dev}                        }
@@ -154,7 +149,7 @@ sub release_plugins {
     );
     push @plugins, [ 'Git::Tag' => {
         tag_format  => '%v',
-        signed      => $self->sign, # 1,
+        signed      => $self->sign,
     }];
     push @plugins, [ 'Git::CommitBuild' => {
         release_branch       => 'release/cpan',
