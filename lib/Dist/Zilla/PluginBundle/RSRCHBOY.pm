@@ -81,6 +81,8 @@ use Test::Pod::Content      ( );
 use Test::Pod::LinkCheck    ( );
 use Pod::Coverage::TrustPod ( );
 
+# FIXME this next section is kinda... ugly
+
 has is_app     => (is => 'lazy', isa => 'Bool');
 has is_private => (is => 'lazy', isa => 'Bool');
 has rapid_dev  => (is => 'lazy', isa => 'Bool');
@@ -90,10 +92,9 @@ sub _build_is_private { $_[0]->payload->{private}                          }
 sub _build_rapid_dev  { $_[0]->payload->{rapid_dev}                        }
 
 my $_d = sub { my $key = shift; sub { shift->payload->{$key} } };
-
 has $_ => (is => 'lazy', isa => 'Bool')
     for qw{ sign tweet github install_on_release };
-has "is_$_" => (is => 'lazy', isa => 'Bool', default => $_d->($_))
+has "is_$_" => (is => 'lazy', isa => 'Bool', builder => $_d->($_))
     for qw{ task };
 
 sub _build_sign               { shift->payload->{sign}               || 1 }
