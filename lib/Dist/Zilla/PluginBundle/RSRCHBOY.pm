@@ -154,8 +154,9 @@ sub release_plugins {
             branch        => 'master',
             remote_branch => 'master',
         } ],
-        [ 'Git::Check'  => { allow_dirty => [ @allow_dirty ] } ],
-        [ 'Git::Commit' => { allow_dirty => [ @allow_dirty ] } ],
+        [ 'Git::Check'      => { allow_dirty => [ @allow_dirty ] } ],
+        [ 'Git::Commit'     => { allow_dirty => [ @allow_dirty ] } ],
+        [ 'Test::CheckDeps' => { ':version' => '0.007', fatal => 1, level => 'suggests' } ],
     );
 
     push @plugins, [ 'Git::Tag' => {
