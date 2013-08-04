@@ -8,6 +8,7 @@ use MooseX::AttributeShortcuts;
 use Moose::Util::TypeConstraints;
 
 use autodie 0.20;
+use autobox::Core;
 
 use Dist::Zilla;
 with
@@ -95,27 +96,24 @@ has $_ => (is => 'lazy', isa => 'Bool')
 has "is_$_" => (is => 'lazy', isa => 'Bool', default => $_d->($_))
     for qw{ task };
 
-#sub _build_is_task    { shift->payload->{task}                             }
 sub _build_sign               { shift->payload->{sign}               || 1 }
 sub _build_tweet              { shift->payload->{tweet}              || 0 }
 sub _build_github             { shift->payload->{github}             || 1 }
 sub _build_install_on_release { shift->payload->{install_on_release} || 1 }
 
-=method copy_from_build
+has _copy_from_build => (
+    is      => 'lazy',
+    isa     => 'ArrayRef[Str]',
+    builder => sub {
+        my ($self) = @_;
 
-Returns a list of files that, once built, will be copied back into the root.
+        my @copy = (qw{ LICENSE cpanfile });
+        push @copy, 'Makefile.PL'
+            if $self->is_app;
 
-=cut
-
-sub copy_from_build {
-    my ($self) = @_;
-
-    my @copy = (qw{ LICENSE });
-    push @copy, 'Makefile.PL'
-        if $self->is_app;
-
-    return @copy;
-}
+        return [ @copy ];
+    },
+);
 
 =method release_plugins
 
@@ -130,12 +128,12 @@ sub release_plugins {
         .gitignore
         .travis.yml
         Changes
-        LICENSE
         README.mkdn
-        cpanfile
         dist.ini
         weaver.ini
     };
+    push @allow_dirty, $self->_copy_from_build->flatten;
+
 
     my @plugins = (
         qw{
@@ -165,7 +163,7 @@ sub release_plugins {
             #'origin refs/heads/build/*:refs/heads/build/*',
         ],
     }];
-    push @plugins, 'Signature', # [ Signature => { sign => 'always' } ]
+    push @plugins, 'Signature',
         if $self->sign;
     push @plugins, [ Twitter => { hash_tags => '#perl #cpan' } ]
         if $self->tweet;
@@ -265,8 +263,7 @@ sub configure {
     $self->add_bundle('Git::CheckFor');
 
     $self->add_plugins(
-        # FIXME
-        [ GatherDir => { exclude_filename => [ 'LICENSE', 'cpanfile' ] } ],
+        [ GatherDir => { exclude_filename => $self->_copy_from_build } ],
         qw{
             Git::Describe
             PruneCruft
@@ -289,15 +286,15 @@ sub configure {
         $self->release_plugins,
 
         'License',
-        [ CopyFilesFromBuild => { copy => [ $self->copy_from_build ] } ],
+        'CPANFile',
+
+        [ CopyFilesFromBuild => { copy => $self->_copy_from_build } ],
 
         [ ReadmeAnyFromPod  => ReadmeMarkdownInRoot => {
             type     => 'markdown',
             filename => 'README.mkdn',
             location => 'root',
         }],
-
-        'CPANFile',
 
         ($self->is_task ? 'TaskWeaver' : $podweaver),
     );
@@ -315,9 +312,12 @@ minimize that pain by automatically making what changes it can.
 sub ensure_current {
     my $self = shift @_;
 
-    # cpanfile was added in 0.42
-    system 'touch cpanfile && git add cpanfile && git commit cpanfile'
-        unless -f 'cpanfile';
+    ### ensure all our CopyFromBuild files are known to git...
+    for my $file ($self->_copy_from_build->flatten) {
+
+        system "touch $file && git add $file && git commit -m 'autoadd' $file"
+            unless -f "$file";
+    }
 
     return;
 }
@@ -348,8 +348,7 @@ sub stopwords {
 }
 
 __PACKAGE__->meta->make_immutable;
-
-1;
+!!42;
 
 __END__
 
