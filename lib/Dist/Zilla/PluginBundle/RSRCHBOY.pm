@@ -12,6 +12,7 @@ use autodie 0.20;
 use Dist::Zilla;
 with
     'Dist::Zilla::Role::PluginBundle::Easy',
+    'Dist::Zilla::Role::PluginBundle::PluginRemover' => { -version => '0.102' },
     'Dist::Zilla::Role::PluginBundle::Config::Slicer',
     ;
 
