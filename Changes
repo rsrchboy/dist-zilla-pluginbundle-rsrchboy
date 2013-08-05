@@ -2,6 +2,19 @@ Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
 
+0.042     2013-08-04 15:18:09 PDT-0700
+	* add Test::CheckDeps
+	* start prepping dist.ini to hold our prereqs (...maybe)
+	* use Git::Check::Remote to ensure master and release/cpan are in sync before releasing
+	* don't add cpanfile to build in dist.ini, as we're doing it in the bundle now
+	* default => builder; plus a note to clean up this area.
+	* make copy_from_build a private attribute rather than a method
+	* add the PluginRemover role!
+	* add ensure_current() method, to help cope with bundle changes
+	* require a recent version of autodie
+	* rejigger our .travis.yml to be...  well, hopefully better
+	* copy cpanfile back into our root; for travis and others
+
 0.041     2013-07-20 13:23:43 PDT-0700
 	* [dzil] provide a default authority (cpan:RSRCHBOY)
 	* various travis tweaks so we build correctly over there
