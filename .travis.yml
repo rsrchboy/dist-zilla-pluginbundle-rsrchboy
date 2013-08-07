@@ -21,17 +21,17 @@ before_install:
    - git config user.email 'travis@nowhere.dne'
 
    # Moose installs in parallel quite nicely.
-   - HARNESS_OPTIONS=j8:c cpanm Moose || { cat ~/.cpanm/build.log ; false ; }
-   - HARNESS_OPTIONS=j8:c cpanm Dist::Zilla || { cat ~/.cpanm/build.log ; false ; }
+   - HARNESS_OPTIONS=j8:c cpanm -q Moose       || { cat ~/.cpanm/build.log ; false ; }
+   - HARNESS_OPTIONS=j8:c cpanm -q Dist::Zilla || { cat ~/.cpanm/build.log ; false ; }
 
    # for DZP LinkCheck
-   - cpanm --skip-satisfied CPANPLUS
+   - cpanm --skip-satisfied -q CPANPLUS || { cat ~/.cpanm/build.log ; false ; }
    - cpanp x
 
 install:
    # not so much install our package as all its prereqs
-   - dzil authordeps --missing | cpanm || { cat ~/.cpanm/build.log ; false ; }
-   - dzil listdeps --author --missing | cpanm || { cat ~/.cpanm/build.log ; false ; }
+   - dzil authordeps --missing        | cpanm -q || { cat ~/.cpanm/build.log ; false ; }
+   - dzil listdeps --author --missing | cpanm -q || { cat ~/.cpanm/build.log ; false ; }
 
 script:
    - export DZSIGN=archive
