@@ -20,55 +20,55 @@ with
 use Config::MVP::Slicer 0.302;
 use Path::Class;
 
-use Dist::Zilla::PluginBundle::Git 1.121770             ( );
-use Dist::Zilla::PluginBundle::Git::CheckFor            ( );
-use Dist::Zilla::Plugin::ArchiveRelease                 ( );
-use Dist::Zilla::Plugin::Authority                      ( );
-use Dist::Zilla::Plugin::CheckChangesHasContent         ( );
-use Dist::Zilla::Plugin::CheckPrereqsIndexed            ( );
-use Dist::Zilla::Plugin::CopyFilesFromBuild             ( );
-use Dist::Zilla::Plugin::ConfirmRelease                 ( );
-use Dist::Zilla::Plugin::ConsistentVersionTest          ( );
-use Dist::Zilla::Plugin::ContributorsFromGit            ( );
-use Dist::Zilla::Plugin::CPANFile                       ( );
-use Dist::Zilla::Plugin::EOLTests                       ( );
-use Dist::Zilla::Plugin::ExtraTests                     ( );
-use Dist::Zilla::Plugin::Git::CommitBuild 2.009         ( );
-use Dist::Zilla::Plugin::Git::Describe                  ( );
-use Dist::Zilla::Plugin::Git::NextVersion               ( );
-use Dist::Zilla::Plugin::GitHub::Meta                   ( );
-use Dist::Zilla::Plugin::GitHub::Update                 ( );
-use Dist::Zilla::Plugin::HasVersionTests                ( );
-use Dist::Zilla::Plugin::InstallGuide                   ( );
-use Dist::Zilla::Plugin::InstallRelease                 ( );
-use Dist::Zilla::Plugin::MetaConfig                     ( );
-use Dist::Zilla::Plugin::MetaJSON                       ( );
-use Dist::Zilla::Plugin::MetaYAML                       ( );
-use Dist::Zilla::Plugin::MetaNoIndex                    ( );
-use Dist::Zilla::Plugin::MetaProvides::Package          ( );
-use Dist::Zilla::Plugin::MinimumPerl                    ( );
-use Dist::Zilla::Plugin::NoSmartCommentsTests           ( );
-use Dist::Zilla::Plugin::NoTabsTests                    ( );
-use Dist::Zilla::Plugin::PodWeaver                      ( );
-use Dist::Zilla::Plugin::PodCoverageTests               ( );
-use Dist::Zilla::Plugin::PodSyntaxTests                 ( );
-use Dist::Zilla::Plugin::Prepender                      ( );
-use Dist::Zilla::Plugin::PromptIfStale                  ( );
-use Dist::Zilla::Plugin::PruneFiles                     ( );
-use Dist::Zilla::Plugin::ReadmeFromPod                  ( );
-use Dist::Zilla::Plugin::ReadmeAnyFromPod               ( );
-use Dist::Zilla::Plugin::ReportVersions::Tiny           ( );
-use Dist::Zilla::Plugin::Signature                      ( );
-use Dist::Zilla::Plugin::SurgicalPkgVersion             ( );
-use Dist::Zilla::Plugin::TaskWeaver                     ( );
-use Dist::Zilla::Plugin::Test::Compile                  ( );
-use Dist::Zilla::Plugin::Test::MinimumVersion 2.000005  ( );
-use Dist::Zilla::Plugin::Test::Pod::LinkCheck           ( );
-use Dist::Zilla::Plugin::Test::PodSpelling 2.002001     ( );
-use Dist::Zilla::Plugin::TestRelease                    ( );
-use Dist::Zilla::Plugin::Travis::ConfigForReleaseBranch ( );
-use Dist::Zilla::Plugin::Twitter                        ( );
-use Dist::Zilla::Plugin::UploadToCPAN                   ( );
+use Dist::Zilla::PluginBundle::Git 1.121770            ( );
+use Dist::Zilla::PluginBundle::Git::CheckFor           ( );
+use Dist::Zilla::Plugin::ArchiveRelease                ( );
+use Dist::Zilla::Plugin::Authority                     ( );
+use Dist::Zilla::Plugin::CheckChangesHasContent        ( );
+use Dist::Zilla::Plugin::CheckPrereqsIndexed           ( );
+use Dist::Zilla::Plugin::CopyFilesFromBuild            ( );
+use Dist::Zilla::Plugin::ConfirmRelease                ( );
+use Dist::Zilla::Plugin::ConsistentVersionTest         ( );
+use Dist::Zilla::Plugin::ContributorsFromGit           ( );
+use Dist::Zilla::Plugin::CPANFile                      ( );
+use Dist::Zilla::Plugin::EOLTests                      ( );
+use Dist::Zilla::Plugin::ExtraTests                    ( );
+use Dist::Zilla::Plugin::CheckExtraTests               ( );
+use Dist::Zilla::Plugin::RunExtraTests                 ( );
+use Dist::Zilla::Plugin::Git::CommitBuild 2.009        ( );
+use Dist::Zilla::Plugin::Git::Describe                 ( );
+use Dist::Zilla::Plugin::Git::NextVersion              ( );
+use Dist::Zilla::Plugin::GitHub::Meta                  ( );
+use Dist::Zilla::Plugin::GitHub::Update                ( );
+use Dist::Zilla::Plugin::HasVersionTests               ( );
+use Dist::Zilla::Plugin::InstallGuide                  ( );
+use Dist::Zilla::Plugin::InstallRelease                ( );
+use Dist::Zilla::Plugin::MetaConfig                    ( );
+use Dist::Zilla::Plugin::MetaJSON                      ( );
+use Dist::Zilla::Plugin::MetaYAML                      ( );
+use Dist::Zilla::Plugin::MetaNoIndex                   ( );
+use Dist::Zilla::Plugin::MetaProvides::Package         ( );
+use Dist::Zilla::Plugin::MinimumPerl                   ( );
+use Dist::Zilla::Plugin::NoSmartCommentsTests          ( );
+use Dist::Zilla::Plugin::NoTabsTests                   ( );
+use Dist::Zilla::Plugin::PodWeaver                     ( );
+use Dist::Zilla::Plugin::PodCoverageTests              ( );
+use Dist::Zilla::Plugin::PodSyntaxTests                ( );
+use Dist::Zilla::Plugin::Prepender                     ( );
+use Dist::Zilla::Plugin::PruneFiles                    ( );
+use Dist::Zilla::Plugin::ReadmeFromPod                 ( );
+use Dist::Zilla::Plugin::ReadmeAnyFromPod              ( );
+use Dist::Zilla::Plugin::ReportVersions::Tiny          ( );
+use Dist::Zilla::Plugin::Signature                     ( );
+use Dist::Zilla::Plugin::SurgicalPkgVersion            ( );
+use Dist::Zilla::Plugin::TaskWeaver                    ( );
+use Dist::Zilla::Plugin::Test::Compile                 ( );
+use Dist::Zilla::Plugin::Test::MinimumVersion 2.000005 ( );
+use Dist::Zilla::Plugin::Test::Pod::LinkCheck          ( );
+use Dist::Zilla::Plugin::Test::PodSpelling 2.002001    ( );
+use Dist::Zilla::Plugin::TestRelease                   ( );
+use Dist::Zilla::Plugin::Twitter                       ( );
+use Dist::Zilla::Plugin::UploadToCPAN                  ( );
 
 # non-plugin / dist.ini deps
 use Dist::Zilla::Stash::PAUSE::Encrypted 0.003 ( );
@@ -209,9 +209,10 @@ sub author_tests {
             EOLTests
             HasVersionTests
             Test::Compile
-            ExtraTests
             NoSmartCommentsTests
             Test::Pod::LinkCheck
+            RunExtraTests
+            CheckExtraTests
         },
         [ 'Test::MinimumVersion' => { max_target_perl => '5.008008' } ],
     );
