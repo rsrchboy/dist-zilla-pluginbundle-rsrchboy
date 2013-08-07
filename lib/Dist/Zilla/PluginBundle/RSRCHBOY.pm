@@ -339,9 +339,12 @@ sub ensure_current {
     ### ensure all our CopyFromBuild files are known to git...
     for my $file ($self->_copy_from_build->flatten) {
 
-        system "touch $file && git add $file && git commit -m 'autoadd' $file"
+        system "touch $file && git add $file && git commit -m 'dzil: autoadd $file' $file"
             unless -f "$file";
     }
+
+    system "git rm -f $_ && git commit -m 'dzil: autorm $_' $_"
+        for grep { -f $_ } qw{ README.pod };
 
     return;
 }
