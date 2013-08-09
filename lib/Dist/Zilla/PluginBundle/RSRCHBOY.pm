@@ -154,6 +154,7 @@ sub release_plugins {
         [ 'Git::Commit'     => { allow_dirty => [ @allow_dirty ] } ],
         [ 'Test::CheckDeps' => { ':version' => '0.007', fatal => 1, level => 'suggests' } ],
         'Travis::ConfigForReleaseBranch',
+        'SchwartzRatio',
     );
 
     push @plugins, [ 'Git::Tag' => {
