@@ -58,6 +58,7 @@ use Dist::Zilla::Plugin::PruneFiles                    ( );
 use Dist::Zilla::Plugin::ReadmeFromPod                 ( );
 use Dist::Zilla::Plugin::ReadmeAnyFromPod              ( );
 use Dist::Zilla::Plugin::ReportVersions::Tiny          ( );
+use Dist::Zilla::Plugin::SchwartzRatio                 ( );
 use Dist::Zilla::Plugin::Signature                     ( );
 use Dist::Zilla::Plugin::SurgicalPkgVersion            ( );
 use Dist::Zilla::Plugin::TaskWeaver                    ( );
