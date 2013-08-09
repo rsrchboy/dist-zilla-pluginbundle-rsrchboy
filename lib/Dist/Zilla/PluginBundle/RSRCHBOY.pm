@@ -32,7 +32,6 @@ use Dist::Zilla::Plugin::ConsistentVersionTest         ( );
 use Dist::Zilla::Plugin::ContributorsFromGit           ( );
 use Dist::Zilla::Plugin::CPANFile                      ( );
 use Dist::Zilla::Plugin::EOLTests                      ( );
-use Dist::Zilla::Plugin::ExtraTests                    ( );
 use Dist::Zilla::Plugin::CheckExtraTests               ( );
 use Dist::Zilla::Plugin::RunExtraTests                 ( );
 use Dist::Zilla::Plugin::Git::CommitBuild 2.009        ( );
