@@ -2,6 +2,12 @@ Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
 
+0.043     2013-08-13 01:23:32 PDT-0700
+	* [dzil] move "missing prereqs" into dist.ini
+	* [dzil] only fetch/update the origin remote once
+	* [dzil] add Travis::ConfigForReleaseBranch
+	* [dzil] add PromptIfStale
+
 0.042     2013-08-04 15:18:09 PDT-0700
 	* add Test::CheckDeps
 	* start prepping dist.ini to hold our prereqs (...maybe)
