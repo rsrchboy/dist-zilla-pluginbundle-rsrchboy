@@ -144,15 +144,19 @@ sub release_plugins {
             CheckChangesHasContent
             CheckPrereqsIndexed
         },
-        [ 'Git::Remote::Check' => GitCheckReleaseBranchSync  => {
+        [ 'Git::Remote::Update' => GitFetchOrigin  => {
             remote_name   => 'origin',
             do_update     => 1,
+        } ],
+        [ 'Git::Remote::Check' => GitCheckReleaseBranchSync  => {
+            remote_name   => 'origin',
+            do_update     => 0,
             branch        => 'release/cpan',
             remote_branch => 'release/cpan',
         } ],
         [ 'Git::Remote::Check' => GitCheckMasterBranchSync => {
             remote_name   => 'origin',
-            do_update     => 1,
+            do_update     => 0,
             branch        => 'master',
             remote_branch => 'master',
         } ],
