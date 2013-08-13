@@ -1,7 +1,5 @@
 Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
-{{$NEXT}}
-
 0.042     2013-08-04 15:18:09 PDT-0700
 	* add Test::CheckDeps
 	* start prepping dist.ini to hold our prereqs (...maybe)
