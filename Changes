@@ -1,7 +1,5 @@
 Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
-{{$NEXT}}
-
 0.043     2013-08-13 01:23:32 PDT-0700
 	* [dzil] move "missing prereqs" into dist.ini
 	* [dzil] only fetch/update the origin remote once
