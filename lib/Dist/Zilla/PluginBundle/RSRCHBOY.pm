@@ -53,6 +53,7 @@ use Dist::Zilla::Plugin::PodWeaver                     ( );
 use Dist::Zilla::Plugin::PodCoverageTests              ( );
 use Dist::Zilla::Plugin::PodSyntaxTests                ( );
 use Dist::Zilla::Plugin::Prepender                     ( );
+use Dist::Zilla::Plugin::PromptIfStale                 ( );
 use Dist::Zilla::Plugin::PruneFiles                    ( );
 use Dist::Zilla::Plugin::ReadmeFromPod                 ( );
 use Dist::Zilla::Plugin::ReadmeAnyFromPod              ( );
@@ -279,6 +280,16 @@ sub configure {
 
     $self->add_plugins(
         [ GatherDir => { exclude_filename => $self->_copy_from_build } ],
+        [
+            PromptIfStale => {
+                phase   => 'build',
+                modules => [ qw{
+                    Dist::Zilla
+                    Dist::Zilla::PluginBundle::RSRCHBOY
+                }],
+            },
+        ],
+
         qw{
             Git::Describe
             PruneCruft
