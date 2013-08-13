@@ -73,16 +73,6 @@ use Dist::Zilla::Plugin::UploadToCPAN                   ( );
 # non-plugin / dist.ini deps
 use Dist::Zilla::Stash::PAUSE::Encrypted 0.003 ( );
 
-# additional deps
-use Archive::Tar::Wrapper   ( );
-use Test::MinimumVersion    ( );
-use Test::NoSmartComments   ( );
-use Test::Pod::Coverage     ( );
-use Test::Pod               ( );
-use Test::Pod::Content      ( );
-use Test::Pod::LinkCheck    ( );
-use Pod::Coverage::TrustPod ( );
-
 # FIXME this next section is kinda... ugly
 
 has is_app     => (is => 'lazy', isa => 'Bool');
