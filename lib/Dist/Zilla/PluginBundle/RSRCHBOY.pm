@@ -152,28 +152,32 @@ sub release_plugins {
         } ],
         [ 'Git::Check'      => { allow_dirty => [ @allow_dirty ] } ],
         [ 'Git::Commit'     => { allow_dirty => [ @allow_dirty ] } ],
+
         [ 'Test::CheckDeps' => { ':version' => '0.007', fatal => 1, level => 'suggests' } ],
         'Travis::ConfigForReleaseBranch',
         'SchwartzRatio',
+
+        [ 'Git::Tag' => { tag_format  => '%v', signed => $self->sign } ],
+
+        [ 'Git::CommitBuild' => 'Git::CommitBuild::Build' => { } ],
+
+        [ 'Git::CommitBuild' => 'Git::CommitBuild::Release' => {
+            release_branch       => 'release/cpan',
+            release_message      => 'Full build of CPAN release %v%t',
+            multiple_inheritance => 1,
+        }],
+
+        [ 'Git::Push' => {
+            push_to => [
+                'origin',
+                'origin refs/heads/release/cpan:refs/heads/release/cpan',
+            ],
+        }],
     );
 
-    push @plugins, [ 'Git::Tag' => {
-        tag_format  => '%v',
-        signed      => $self->sign,
-    }];
-    push @plugins, [ 'Git::CommitBuild' => {
-        release_branch       => 'release/cpan',
-        release_message      => 'Full build of CPAN release %v%t',
-        multiple_inheritance => 1,
-    }];
     push @plugins, 'UploadToCPAN'
         unless $self->is_private;
-    push @plugins, [ 'Git::Push' => {
-        push_to => [
-            'origin',
-            'origin refs/heads/release/cpan:refs/heads/release/cpan',
-        ],
-    }];
+
     push @plugins, 'Signature',
         if $self->sign;
     push @plugins, [ Twitter => { hash_tags => '#perl #cpan' } ]
