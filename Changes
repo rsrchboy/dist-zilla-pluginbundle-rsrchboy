@@ -139,7 +139,7 @@ Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 	* add initial Pod::Weaver config bundle
 	* allow a local weaver.ini to override our config
 
-0.012
+0.012     2012-01-10 America/Los_Angeles
 	* change "cat_app" option to just "app"; preserve cat_app for legacy
 	* dist.ini tweaks
 
