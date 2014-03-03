@@ -1,7 +1,5 @@
 Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
-{{$NEXT}}
-
 0.044     2014-03-03 11:59:20 PST-0800
 	* [dzil] make POD spelling test happy ('dist' makes them sad!)
 	* [dzil] Fix 0.012 release date (github #1; thanks @neilbowers!)
