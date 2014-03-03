@@ -76,7 +76,7 @@ In weaver.ini:
 
   [@RSRCHBOY]
 
-or in dist.ini:
+or in C<dist.ini>:
 
   [PodWeaver]
   config_plugin = @RSRCHBOY

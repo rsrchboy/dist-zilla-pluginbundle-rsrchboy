@@ -396,7 +396,7 @@ __END__
 
 =head1 DESCRIPTION
 
-This is RSRCHBOY's current L<Dist::Zilla> dist.ini config for his packages.
+This is RSRCHBOY's current L<Dist::Zilla> C<dist.ini> config for his packages.
 He's still figuring this all out, so it's probably wise to not depend on
 this being too terribly consistent/sane until the version gets to 1.
 
@@ -416,8 +416,8 @@ when a release occurs.
 
 =head2 github (boolean; default: true)
 
-This enables various GitHub related plugins to update dist and GitHub metadata
-automatically.
+This enables various GitHub related plugins to update distribution and GitHub
+metadata automatically.
 
 =head2 install_on_release (boolean; default: true)
 
