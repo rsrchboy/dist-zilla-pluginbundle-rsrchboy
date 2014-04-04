@@ -1,6 +1,9 @@
 Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
+	* [dzil] add CheckSelfDependency (ensures no recursive deps)
+	* [dzil] add missing dzil plugin dep to dist.ini *le sigh*
+
 
 0.045     2014-04-10 17:29:59 PDT-0700
 	* [dzil] add CheckSelfDependency (ensures no recursive deps)

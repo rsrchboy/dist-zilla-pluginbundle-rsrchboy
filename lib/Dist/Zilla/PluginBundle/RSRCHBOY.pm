@@ -15,6 +15,7 @@ with
     'Dist::Zilla::Role::PluginBundle::Easy',
     'Dist::Zilla::Role::PluginBundle::PluginRemover' => { -version => '0.102' },
     'Dist::Zilla::Role::PluginBundle::Config::Slicer',
+    'Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git',
     ;
 
 use Config::MVP::Slicer 0.302;
@@ -304,7 +305,7 @@ sub ensure_current {
     for my $file ($self->_copy_from_build->flatten) {
 
         system "touch $file && git add $file && git commit -m 'dzil: autoadd $file' $file"
-            unless -f "$file";
+            unless $self->has_file_in_head($file);
     }
 
     system "git rm -f $_ && git commit -m 'dzil: autorm $_' $_"
