@@ -70,9 +70,6 @@ use Dist::Zilla::Plugin::TestRelease                   ( );
 use Dist::Zilla::Plugin::Twitter                       ( );
 use Dist::Zilla::Plugin::UploadToCPAN                  ( );
 
-# non-plugin / dist.ini deps
-use Dist::Zilla::Stash::PAUSE::Encrypted 0.003 ( );
-
 # FIXME this next section is kinda... ugly
 
 has is_app     => (is => 'lazy', isa => 'Bool');
