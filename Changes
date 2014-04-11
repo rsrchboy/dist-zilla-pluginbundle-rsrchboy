@@ -1,7 +1,5 @@
 Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
-{{$NEXT}}
-
 0.046     2014-04-11 14:58:09 PDT-0700
 	* [dzil] Add a helper role for Git::Raw operations
 	* [pw]   Move Pod::Weaver deps into dist.ini
