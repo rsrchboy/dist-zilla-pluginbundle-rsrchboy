@@ -4,7 +4,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 # VERSION
 
-This document describes version 0.045 of Dist::Zilla::PluginBundle::RSRCHBOY - released April 10, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.046 of Dist::Zilla::PluginBundle::RSRCHBOY - released April 11, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 # SYNOPSIS
 
@@ -92,13 +92,13 @@ Please see those modules/websites for more information related to this module.
 
 # SOURCE
 
-The development version is on github at [http://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY](http://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY)
-and may be cloned from [git://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY.git](git://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY.git)
+The development version is on github at [http://https://github.com/RsrchBoy/dist-zilla-pluginbundle-rsrchboy](http://https://github.com/RsrchBoy/dist-zilla-pluginbundle-rsrchboy)
+and may be cloned from [git://https://github.com/RsrchBoy/dist-zilla-pluginbundle-rsrchboy.git](git://https://github.com/RsrchBoy/dist-zilla-pluginbundle-rsrchboy.git)
 
 # BUGS
 
 Please report any bugs or feature requests on the bugtracker website
-https://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY/issues
+https://github.com/RsrchBoy/dist-zilla-pluginbundle-rsrchboy/issues
 
 When submitting a bug or request, please include a test-file or a
 patch to an existing test-file that illustrates the bug or desired
