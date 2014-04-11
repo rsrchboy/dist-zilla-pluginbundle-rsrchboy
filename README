@@ -1,0 +1,109 @@
+NAME
+    Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like
+    RSRCHBOY!
+
+VERSION
+    This document describes version 0.045 of
+    Dist::Zilla::PluginBundle::RSRCHBOY - released April 10, 2014 as part of
+    Dist-Zilla-PluginBundle-RSRCHBOY.
+
+SYNOPSIS
+        # in your dist.ini...
+        [@RSRCHBOY]
+
+DESCRIPTION
+    This is RSRCHBOY's current Dist::Zilla "dist.ini" config for his
+    packages. He's still figuring this all out, so it's probably wise to not
+    depend on this being too terribly consistent/sane until the version gets
+    to 1.
+
+METHODS
+  release_plugins
+    Plugin configuration for public release.
+
+  author_tests
+  meta_provider_plugins
+    Plugins that mess about with what goes into META.*.
+
+  configure
+    Preps plugin lists / config; see Dist::Zilla::Role::PluginBundle::Easy.
+
+  ensure_current
+    Sometimes things change. (I know, I know, the horror!) This seeks to
+    minimize that pain by automatically making what changes it can.
+
+  stopwords
+    A list of words our POD spell checker should ignore.
+
+OPTIONS
+  sign (boolean; default: true)
+    On release, use your gpg key to sign the version tag created (if you're
+    using git) and also generate a SIGNATURE file.
+
+    See also Dist::Zilla::Plugin::Signature.
+
+  tweet (boolean; default: false)
+    If set to a true value, we'll use Dist::Zilla::Plugin::Twitter to tweet
+    when a release occurs.
+
+  github (boolean; default: true)
+    This enables various GitHub related plugins to update distribution and
+    GitHub metadata automatically.
+
+  install_on_release (boolean; default: true)
+    After a release, install the distribution locally. Our default install
+    command is (from inside the built release directory):
+
+        cpanm .
+
+    You can change this by setting the "InstallRelease.install_command"
+    option.
+
+BUNDLED PLUGIN OPTIONS
+    It's possible to pass options to our bundled plugins directly:
+
+        ; format is Plugin::Name.option
+        [@RSRCHBOY]
+        GatherDir.exclude_filename = cpanfile
+
+    For information on specific plugins and their options, you should refer
+    to the documentation of Dist::Zilla::Role::PluginBundle::Config::Slicer.
+
+SEE ALSO
+    Please see those modules/websites for more information related to this
+    module.
+
+    *   Dist::Zilla::Role::PluginBundle::Easy
+
+    *   Dist::Zilla::Role::PluginBundle::PluginRemover
+
+    *   Dist::Zilla::Role::PluginBundle::Config::Slicer
+
+    *   Config::MVP::Slicer
+
+SOURCE
+    The development version is on github at
+    <http://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY> and may be
+    cloned from
+    <git://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY.git>
+
+BUGS
+    Please report any bugs or feature requests on the bugtracker website
+    https://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY/issues
+
+    When submitting a bug or request, please include a test-file or a patch
+    to an existing test-file that illustrates the bug or desired feature.
+
+AUTHOR
+    Chris Weyl <cweyl@alumni.drew.edu>
+
+CONTRIBUTOR
+    Neil Bowers <neil@bowers.com>
+
+COPYRIGHT AND LICENSE
+    This software is Copyright (c) 2013 by Chris Weyl.
+
+    This is free software, licensed under:
+
+      The GNU Lesser General Public License, Version 2.1, February 1999
+
