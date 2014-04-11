@@ -2,6 +2,15 @@ Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
 
+0.045     2014-04-10 17:29:59 PDT-0700
+	* [dzil] add CheckSelfDependency (ensures no recursive deps)
+	* [dzil] add missing dzil plugin dep to dist.ini *le sigh*
+	* [dzil] make our max_target_perl v5.10.1
+	* [dzil] mark ContributorsFromGit minimum as 0.010
+	* [dzil] move PAUSE::Encrypted dep declaration to dist.ini
+	* [dzil] ...and add missing plugin: Travis::ConfigForReleaseBranch
+	* [dzil] add CheckSelfDependency
+
 0.044     2014-03-03 11:59:20 PST-0800
 	* [dzil] make POD spelling test happy ('dist' makes them sad!)
 	* [dzil] Fix 0.012 release date (github #1; thanks @neilbowers!)
