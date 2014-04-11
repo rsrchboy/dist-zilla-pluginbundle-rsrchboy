@@ -36,7 +36,6 @@ use Dist::Zilla::Plugin::RunExtraTests                 ( );
 use Dist::Zilla::Plugin::Git::CommitBuild 2.009        ( );
 use Dist::Zilla::Plugin::Git::Describe                 ( );
 use Dist::Zilla::Plugin::Git::NextVersion              ( );
-use Dist::Zilla::Plugin::GitHub::Meta                  ( );
 use Dist::Zilla::Plugin::GitHub::Update                ( );
 use Dist::Zilla::Plugin::HasVersionTests               ( );
 use Dist::Zilla::Plugin::InstallGuide                  ( );
@@ -68,6 +67,9 @@ use Dist::Zilla::Plugin::Test::PodSpelling 2.002001    ( );
 use Dist::Zilla::Plugin::TestRelease                   ( );
 use Dist::Zilla::Plugin::Twitter                       ( );
 use Dist::Zilla::Plugin::UploadToCPAN                  ( );
+
+has github_user => (is => 'lazy', isa => 'Str', builder => sub { 'RsrchBoy' });
+has set_github_user => (is => 'lazy', isa => 'Str', builder => sub { 1 });
 
 # FIXME this next section is kinda... ugly
 
@@ -236,8 +238,15 @@ sub meta_provider_plugins {
         'MetaProvides::Package',
     );
 
-    push @plugins, 'GitHub::Meta'
-        if $self->github;
+    if ($self->github) {
+
+        my $opts = { issues => 1 };
+
+        $opts->{user} = $self->github_user
+            if $self->set_github_user;
+
+        push @plugins, [ GithubMeta => $opts ]
+    }
 
     return @plugins;
 }
