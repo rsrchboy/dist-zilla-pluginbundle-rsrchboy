@@ -5,17 +5,6 @@ package Pod::Weaver::PluginBundle::RSRCHBOY;
 use strict;
 use warnings;
 
-# for prereqs
-use Pod::Elemental::Transformer::List                  ( );
-use Pod::Weaver::Plugin::Encoding                      ( );
-use Pod::Weaver::Plugin::StopWords                     ( );
-use Pod::Weaver::Section::SeeAlso                      ( );
-use Pod::Weaver::Section::SourceGitHub                 ( );
-use Pod::Weaver::Section::CollectWithIntro             ( );
-use Pod::Weaver::Section::Contributors                 ( );
-use Pod::Weaver::Section::RSRCHBOY::LazyAttributes     ( );
-use Pod::Weaver::Section::RSRCHBOY::RequiredAttributes ( );
-
 use Pod::Weaver::Config::Assembler;
 
 sub _exp { Pod::Weaver::Config::Assembler->expand_package($_[0]) }
