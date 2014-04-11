@@ -6,7 +6,15 @@ use Moose::Role;
 use namespace::autoclean;
 use MooseX::AttributeShortcuts 0.023;
 
+use autobox::Core;
 use Git::Raw 0.32;
+use File::Slurp 'slurp';
+
+with 'MooseX::RelatedClasses' => {
+    namespace        => 'Git::Raw',
+    all_in_namespace => 1,
+    private          => 1,
+};
 
 =attr repo
 
@@ -18,6 +26,7 @@ has repo => (
     is              => 'lazy',
     isa_instance_of => 'Git::Raw::Repository',
     builder         => sub { Git::Raw::Repository->open('.') },
+    handles         => [ qw{ head index } ],
 );
 
 =method has_file_in_head($filename)
