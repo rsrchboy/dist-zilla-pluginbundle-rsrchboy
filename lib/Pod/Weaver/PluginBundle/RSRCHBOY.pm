@@ -51,7 +51,7 @@ sub mvp_bundle_config {
         _exp2('Legal'),
 
         [ '@RSRCHBOY/List',      _exp('-Transformer'), { transformer => 'List' } ],
-        [ '@RSRCHBOY/Encoding',  _exp('-Encoding'),    {} ],
+        [ '@RSRCHBOY/SingleEncoding', _exp('-SingleEncoding'), {} ],
     );
 }
 
@@ -114,7 +114,7 @@ This plugin bundle is equivalent to the following weaver.ini file:
   [-Transformer]
   transformer = List
 
-  [-Encoding]
+  [-SingleEncoding]
 
 =for Pod::Coverage mvp_bundle_config
 
