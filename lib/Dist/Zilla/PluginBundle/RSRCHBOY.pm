@@ -162,7 +162,7 @@ sub author_tests {
             ConsistentVersionTest
             PodCoverageTests
             PodSyntaxTests
-            NoTabsTests
+            Test::NoTabs
             EOLTests
             HasVersionTests
             Test::Compile
