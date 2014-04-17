@@ -2,6 +2,11 @@ Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
 
+0.047     2014-04-17 15:41:19 PDT-0700
+	* [dzil] switch from NoTabsTests to Test::NoTabs
+	* [pw] use SingleEncoding (thanks! issue #5)
+	* [dzil] use Git::Raw to do *some* of the git bits for now
+
 0.046     2014-04-11 14:58:09 PDT-0700
 	* [dzil] Add a helper role for Git::Raw operations
 	* [pw]   Move Pod::Weaver deps into dist.ini
