@@ -19,8 +19,8 @@ sub mvp_bundle_config {
         [ '@RSRCHBOY/StopWords', _exp('-StopWords'), {} ],
         [ '@RSRCHBOY/CorePrep',  _exp('@CorePrep'),  {} ],
         _exp2('Name'),
-        [ '@RSRCHBOY/Version', _exp('Version'),      { format      => $vformat  } ],
-        [ '@RSRCHBOY/prelude', _exp('Region'),      { region_name => 'prelude' } ],
+        [ '@RSRCHBOY/Version', _exp('Version'), { format      => $vformat  } ],
+        [ '@RSRCHBOY/prelude', _exp('Region'),  { region_name => 'prelude' } ],
 
         [ 'SYNOPSIS',         _exp('Generic'),      {} ],
         [ 'DESCRIPTION',      _exp('Generic'),      {} ],
@@ -46,7 +46,7 @@ sub mvp_bundle_config {
         _exp2('SourceGitHub'),
         _exp2('Bugs'),
 
-        _exp2('Authors'),
+        [ 'RSRCHBOY::Authors',     _exp('RSRCHBOY::Authors'),     { } ],
         _exp2('Contributors'),
         _exp2('Legal'),
 
@@ -77,7 +77,7 @@ documentation.
 
 =head1 OVERVIEW
 
-This plugin bundle is equivalent to the following weaver.ini file:
+This plugin bundle is B<ROUGHLY> equivalent to the following weaver.ini file:
 
   [@CorePrep]
 

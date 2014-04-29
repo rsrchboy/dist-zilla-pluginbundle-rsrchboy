@@ -69,10 +69,13 @@ requires "MooseX::NewDefaults" => "0";
 requires "MooseX::RelatedClasses" => "0";
 requires "Path::Class" => "0";
 requires "Pod::Coverage::TrustPod" => "0";
+requires "Pod::Elemental::Element::Pod5::Command" => "0";
+requires "Pod::Elemental::Element::Pod5::Ordinary" => "0";
 requires "Pod::Elemental::Transformer::List" => "0";
 requires "Pod::Weaver::Config::Assembler" => "0";
 requires "Pod::Weaver::Plugin::SingleEncoding" => "0";
 requires "Pod::Weaver::Plugin::StopWords" => "0";
+requires "Pod::Weaver::Section::Authors" => "0";
 requires "Pod::Weaver::Section::CollectWithIntro" => "0";
 requires "Pod::Weaver::Section::Contributors" => "0";
 requires "Pod::Weaver::Section::SeeAlso" => "0";
@@ -83,10 +86,12 @@ requires "Test::Pod" => "0";
 requires "Test::Pod::Content" => "0";
 requires "Test::Pod::Coverage" => "0";
 requires "Test::Pod::LinkCheck" => "0";
+requires "URI::Escape::XS" => "0";
+requires "aliased" => "0";
 requires "autobox::Core" => "0";
 requires "autodie" => "0.20";
 requires "namespace::autoclean" => "0";
-requires "perl" => "5.006";
+requires "perl" => "v5.10.0";
 requires "strict" => "0";
 requires "warnings" => "0";
 
@@ -96,7 +101,6 @@ on 'test' => sub {
   requires "IPC::Open3" => "0";
   requires "Test::CheckDeps" => "0.010";
   requires "Test::More" => "0.94";
-  requires "perl" => "5.006";
 };
 
 on 'configure' => sub {

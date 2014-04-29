@@ -4,7 +4,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 # VERSION
 
-This document describes version 0.047 of Dist::Zilla::PluginBundle::RSRCHBOY - released April 17, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.048 of Dist::Zilla::PluginBundle::RSRCHBOY - released April 29, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 # SYNOPSIS
 
@@ -107,6 +107,17 @@ feature.
 # AUTHOR
 
 Chris Weyl <cweyl@alumni.drew.edu>
+
+## SAYING THANKS IN A MATERIALISTIC WAY
+
+Please note **I do not expect to be gittip'ed or flattr'ed for this work**,
+rather **it is simply a very pleasant surprise**. I largely create and release
+works like this because I need them or I find it enjoyable; however, don't let
+that stop you giving me money if you feel like it ;)
+
+[flattr this!](https://flattr.com/submit/auto?user_id=RsrchBoy&url=https%3A%2F%2Fgithub.com%2FRsrchBoy%2Fdist-zilla-pluginbundle-rsrchboy&title=RsrchBoy&#x27;s%20CPAN%20Dist-Zilla-PluginBundle-RSRCHBOY&tags=%22RsrchBoy&#x27;s%20Dist-Zilla-PluginBundle-RSRCHBOY%20in%20the%20CPAN%22)
+[gittip me!](https://www.gittip.com/RsrchBoy/)
+[Amazon Wishlist](http://www.amazon.com/gp/registry/wishlist/3G2DQFPBA57L6)
 
 # CONTRIBUTORS
 
