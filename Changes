@@ -2,6 +2,9 @@ Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
 
+0.048     2014-04-29 14:44:00 PDT-0700
+	* [pw] add a custom Authors plugin
+
 0.047     2014-04-17 15:41:19 PDT-0700
 	* [dzil] switch from NoTabsTests to Test::NoTabs
 	* [pw] use SingleEncoding (thanks! issue #5)
