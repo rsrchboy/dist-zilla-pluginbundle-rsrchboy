@@ -2,6 +2,11 @@ Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
 
+0.049     2014-05-12 12:52:47 PDT-0700
+	* [dzil] drop errant File::Slurp usage (closes #6)
+	* [dzil] drop InstallGuide, as all my releases are ABENDing
+	* [pw]   restructure our Authors section a touch; add HTML images / links
+
 0.048     2014-04-29 14:44:00 PDT-0700
 	* [pw] add a custom Authors plugin
 
