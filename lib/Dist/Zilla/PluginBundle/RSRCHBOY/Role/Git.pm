@@ -8,7 +8,6 @@ use MooseX::AttributeShortcuts 0.023;
 
 use autobox::Core;
 use Git::Raw 0.32;
-use File::Slurp 'slurp';
 
 with 'MooseX::RelatedClasses' => {
     namespace        => 'Git::Raw',
