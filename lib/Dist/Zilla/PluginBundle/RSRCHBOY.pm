@@ -259,7 +259,6 @@ sub configure {
             ExecDir
             ShareDir
             MakeMaker
-            InstallGuide
             Manifest
             SurgicalPkgVersion
             ReadmeFromPod
