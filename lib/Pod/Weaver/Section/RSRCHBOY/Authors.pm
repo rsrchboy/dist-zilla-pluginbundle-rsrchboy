@@ -46,7 +46,7 @@ EOT
     $output->children->[-1]->children->push(
         Command->new({
             command => 'head2',
-            content => 'SAYING THANKS IN A MATERIALISTIC WAY',
+            content => q{I'm a material boy in a material world},
         }),
         Ordinary->new({ content => $text  }),
         Ordinary->new({ content => $links }),
