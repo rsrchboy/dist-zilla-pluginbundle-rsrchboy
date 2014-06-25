@@ -1,6 +1,7 @@
 Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
+	* Add missing prepreq to dist.ini
 
 0.049     2014-05-12 12:52:47 PDT-0700
 	* [dzil] drop errant File::Slurp usage (closes #6)

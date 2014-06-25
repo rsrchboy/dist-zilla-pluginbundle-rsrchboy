@@ -33,6 +33,7 @@ requires "Dist::Zilla::Plugin::PodCoverageTests" => "0";
 requires "Dist::Zilla::Plugin::PodSyntaxTests" => "0";
 requires "Dist::Zilla::Plugin::PodWeaver" => "4.000";
 requires "Dist::Zilla::Plugin::Prepender" => "0";
+requires "Dist::Zilla::Plugin::PromptIfStale" => "0";
 requires "Dist::Zilla::Plugin::PruneFiles" => "0";
 requires "Dist::Zilla::Plugin::ReadmeAnyFromPod" => "0";
 requires "Dist::Zilla::Plugin::ReadmeFromPod" => "0";
@@ -111,5 +112,6 @@ on 'develop' => sub {
   requires "Test::NoTabs" => "0";
   requires "Test::Pod" => "1.41";
   requires "Test::Pod::Coverage" => "1.08";
+  requires "Test::Spelling" => "0.12";
   requires "version" => "0.9901";
 };
