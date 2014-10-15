@@ -38,6 +38,7 @@ requires "Dist::Zilla::Plugin::PruneFiles" => "0";
 requires "Dist::Zilla::Plugin::ReadmeAnyFromPod" => "0";
 requires "Dist::Zilla::Plugin::ReadmeFromPod" => "0";
 requires "Dist::Zilla::Plugin::ReportVersions::Tiny" => "0";
+requires "Dist::Zilla::Plugin::Run::AfterMint" => "0";
 requires "Dist::Zilla::Plugin::RunExtraTests" => "0";
 requires "Dist::Zilla::Plugin::SchwartzRatio" => "0";
 requires "Dist::Zilla::Plugin::Signature" => "0";
@@ -103,7 +104,7 @@ on 'test' => sub {
 };
 
 on 'configure' => sub {
-  requires "ExtUtils::MakeMaker" => "6.30";
+  requires "ExtUtils::MakeMaker" => "0";
 };
 
 on 'develop' => sub {

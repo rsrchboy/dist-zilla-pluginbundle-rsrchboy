@@ -2,6 +2,9 @@ Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
 
+0.051     2014-10-14 22:34:15 PDT-0700
+	* Add Dist::Zilla::Plugin::Run::AfterMint as a minting prereq.
+
 0.050     2014-07-05 15:25:22 PDT-0700
 	* Add missing prepreq to dist.ini
 
