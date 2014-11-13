@@ -163,7 +163,7 @@ sub author_tests {
             PodCoverageTests
             PodSyntaxTests
             Test::NoTabs
-            EOLTests
+            Test::EOL
             HasVersionTests
             Test::Compile
             NoSmartCommentsTests
