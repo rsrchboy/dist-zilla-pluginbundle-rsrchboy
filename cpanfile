@@ -13,7 +13,6 @@ requires "Dist::Zilla::Plugin::ConfirmRelease" => "0";
 requires "Dist::Zilla::Plugin::ConsistentVersionTest" => "0";
 requires "Dist::Zilla::Plugin::ContributorsFromGit" => "0.010";
 requires "Dist::Zilla::Plugin::CopyFilesFromBuild" => "0";
-requires "Dist::Zilla::Plugin::EOLTests" => "0";
 requires "Dist::Zilla::Plugin::Git::CommitBuild" => "2.009";
 requires "Dist::Zilla::Plugin::Git::Describe" => "0";
 requires "Dist::Zilla::Plugin::Git::NextVersion" => "0";
@@ -46,6 +45,7 @@ requires "Dist::Zilla::Plugin::SurgicalPkgVersion" => "0";
 requires "Dist::Zilla::Plugin::TaskWeaver" => "0";
 requires "Dist::Zilla::Plugin::Test::CheckDeps" => "0";
 requires "Dist::Zilla::Plugin::Test::Compile" => "0";
+requires "Dist::Zilla::Plugin::Test::EOL" => "0";
 requires "Dist::Zilla::Plugin::Test::MinimumVersion" => "2.000005";
 requires "Dist::Zilla::Plugin::Test::NoTabs" => "0";
 requires "Dist::Zilla::Plugin::Test::Pod::LinkCheck" => "0";
@@ -101,14 +101,17 @@ on 'test' => sub {
   requires "IPC::Open3" => "0";
   requires "Test::CheckDeps" => "0.010";
   requires "Test::More" => "0.94";
+  requires "perl" => "v5.10.0";
 };
 
 on 'configure' => sub {
   requires "ExtUtils::MakeMaker" => "0";
+  requires "perl" => "v5.10.0";
 };
 
 on 'develop' => sub {
   requires "Pod::Coverage::TrustPod" => "0";
+  requires "Test::EOL" => "0";
   requires "Test::More" => "0";
   requires "Test::NoTabs" => "0";
   requires "Test::Pod" => "1.41";
