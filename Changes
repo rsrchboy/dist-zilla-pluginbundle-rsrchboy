@@ -2,8 +2,11 @@ Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
 
+0.054     2014-12-02 20:03:07 PST-0800
+	* [dzil] ...and allow tweet disabling to work!
+
 0.053     2014-12-02 19:56:57 PST-0800
-	* [dzil] Tweet by default 
+	* [dzil] Tweet by default
 
 0.052     2014-11-12 22:09:14 PST-0800
 	* [dzil] EOLTests becomes Test::EOL
