@@ -2,6 +2,9 @@ package Dist::Zilla::PluginBundle::RSRCHBOY;
 
 # ABSTRACT: Zilla your distributions like RSRCHBOY!
 
+use utf8;
+use v5.10;
+
 use Moose;
 use namespace::autoclean;
 use MooseX::AttributeShortcuts;
@@ -40,10 +43,10 @@ has $_ => (is => 'lazy', isa => 'Bool')
 has "is_$_" => (is => 'lazy', isa => 'Bool', builder => $_d->($_))
     for qw{ task };
 
-sub _build_sign               { shift->payload->{sign}               || 1 }
-sub _build_tweet              { shift->payload->{tweet}              || 1 }
-sub _build_github             { shift->payload->{github}             || 1 }
-sub _build_install_on_release { shift->payload->{install_on_release} || 1 }
+sub _build_sign               { shift->payload->{sign}               // 1 }
+sub _build_tweet              { shift->payload->{tweet}              // 1 }
+sub _build_github             { shift->payload->{github}             // 1 }
+sub _build_install_on_release { shift->payload->{install_on_release} // 1 }
 
 has _copy_from_build => (
     is      => 'lazy',
