@@ -41,7 +41,7 @@ has "is_$_" => (is => 'lazy', isa => 'Bool', builder => $_d->($_))
     for qw{ task };
 
 sub _build_sign               { shift->payload->{sign}               || 1 }
-sub _build_tweet              { shift->payload->{tweet}              || 0 }
+sub _build_tweet              { shift->payload->{tweet}              || 1 }
 sub _build_github             { shift->payload->{github}             || 1 }
 sub _build_install_on_release { shift->payload->{install_on_release} || 1 }
 
@@ -367,7 +367,7 @@ git) and also generate a SIGNATURE file.
 
 See also L<Dist::Zilla::Plugin::Signature>.
 
-=head2 tweet (boolean; default: false)
+=head2 tweet (boolean; default: true)
 
 If set to a true value, we'll use L<Dist::Zilla::Plugin::Twitter> to tweet
 when a release occurs.
