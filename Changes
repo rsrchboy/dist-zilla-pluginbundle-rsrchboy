@@ -1,7 +1,5 @@
 Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
-{{$NEXT}}
-
 0.055     2014-12-27 21:36:13 PST-0800
 	* [dzil] Reorder certain plugins to get README generation going again.
 
