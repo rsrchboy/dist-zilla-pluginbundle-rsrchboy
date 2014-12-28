@@ -264,9 +264,7 @@ sub configure {
             MakeMaker
             Manifest
             SurgicalPkgVersion
-            ReadmeFromPod
             MinimumPerl
-
             ReportVersions::Tiny
         },
         [ AutoPrereqs => $autoprereq_opts ],
@@ -279,13 +277,16 @@ sub configure {
         'License',
         'CPANFile',
 
-        [ CopyFilesFromBuild => { copy => $self->_copy_from_build } ],
-
         [ ReadmeAnyFromPod  => ReadmeMarkdownInRoot => {
             type     => 'markdown',
             filename => 'README.mkdn',
             location => 'root',
         }],
+        [ ReadmeAnyFromPod  => ReadmeTxt => {
+            type     => 'text',
+            filename => 'README',
+        }],
+        [ CopyFilesFromBuild => { copy => $self->_copy_from_build } ],
 
         ($self->is_task ? 'TaskWeaver' : $podweaver),
     );
