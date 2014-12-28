@@ -35,7 +35,6 @@ requires "Dist::Zilla::Plugin::Prepender" => "0";
 requires "Dist::Zilla::Plugin::PromptIfStale" => "0";
 requires "Dist::Zilla::Plugin::PruneFiles" => "0";
 requires "Dist::Zilla::Plugin::ReadmeAnyFromPod" => "0";
-requires "Dist::Zilla::Plugin::ReadmeFromPod" => "0";
 requires "Dist::Zilla::Plugin::ReportVersions::Tiny" => "0";
 requires "Dist::Zilla::Plugin::Run::AfterMint" => "0";
 requires "Dist::Zilla::Plugin::RunExtraTests" => "0";
