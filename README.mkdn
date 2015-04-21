@@ -1,10 +1,13 @@
+[![Build Status](https://travis-ci.org/RsrchBoy/dist-zilla-pluginbundle-rsrchboy.svg?branch=master)](https://travis-ci.org/RsrchBoy/dist-zilla-pluginbundle-rsrchboy)
+[![Kwalitee status](http://cpants.cpanauthors.org/dist/Dist-Zilla-PluginBundle-RSRCHBOY.png)](http://cpants.charsbar.org/dist/overview/Dist-Zilla-PluginBundle-RSRCHBOY)
+
 # NAME
 
 Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 # VERSION
 
-This document describes version 0.055 of Dist::Zilla::PluginBundle::RSRCHBOY - released December 27, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.056 of Dist::Zilla::PluginBundle::RSRCHBOY - released April 20, 2015 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 # SYNOPSIS
 
