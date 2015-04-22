@@ -274,7 +274,7 @@ sub configure {
             -phase        => 'develop',
             -relationship => 'requires',
 
-            $self->meta->name  => $self->meta->VERSION,
+            $self->meta->name  => $self->VERSION,
         } ],
 
         $self->author_tests,
