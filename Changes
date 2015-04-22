@@ -1,7 +1,5 @@
 Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
-{{$NEXT}}
-
 0.057     2015-04-21 20:27:43 PDT-0700
 	* [dzil] add ourself as a versioned develop/requires prerequisite, such
 	  that distributions built with this bundle should develop/require at

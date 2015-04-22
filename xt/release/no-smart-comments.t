@@ -9,8 +9,16 @@
 #   The GNU Lesser General Public License, Version 2.1, February 1999
 #
 
-use Test::More tests => 1;
+use strict;
+use warnings;
 
-BEGIN { use_ok 'Dist::Zilla::PluginBundle::RSRCHBOY' }
+use Test::More 0.88;
 
-diag("Testing Dist::Zilla::PluginBundle::RSRCHBOY $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION, Perl $], $^X");
+eval "use Test::NoSmartComments";
+plan skip_all => 'Test::NoSmartComments required for checking comment IQ'
+    if $@;
+
+no_smart_comments_in_all();
+no_smart_comments_in_tests();
+
+done_testing();
