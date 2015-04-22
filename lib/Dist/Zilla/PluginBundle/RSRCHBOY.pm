@@ -270,6 +270,13 @@ sub configure {
         [ AutoPrereqs => $autoprereq_opts ],
         [ Prepender   => $prepender_opts  ],
 
+        [ Prereqs => AuthorBundleDevelopRequires => {
+            -phase        => 'develop',
+            -relationship => 'requires',
+
+            $self->meta->name  => $self->meta->VERSION,
+        } ],
+
         $self->author_tests,
         $self->meta_provider_plugins,
         $self->release_plugins,
