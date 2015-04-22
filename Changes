@@ -1,7 +1,5 @@
 Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
-{{$NEXT}}
-
 0.058     2015-04-21 20:33:51 PDT-0700
 	* [dzil] call VERSION on the right thing *le sigh*
 
