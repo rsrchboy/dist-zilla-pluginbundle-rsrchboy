@@ -27,8 +27,8 @@ after weave_section => sub {
     my $flattr_url   = uri_escape($input->{distmeta}->{resources}->{homepage});
     my $flattr_link  = "https://flattr.com/submit/auto?user_id=RsrchBoy&url=$flattr_url&title=$flattr_title&tags=$flattr_tag";
 
-    my $gittip_link = 'https://www.gittip.com/RsrchBoy/';
-    my $gittip_img  = 'https://raw.githubusercontent.com/gittip/www.gittip.com/master/www/assets/%25version/logo.png';
+    my $gittip_link = 'https://gratipay.com/RsrchBoy/';
+    my $gittip_img  = 'http://img.shields.io/gratipay/RsrchBoy.svg';
 
     # L<Amazon Wishlist|http://www.amazon.com/gp/registry/wishlist/3G2DQFPBA57L6>.
     my $amzn_img  = 'http://wps.io/wp-content/uploads/2014/05/amazon_wishlist.resized.png';
@@ -41,9 +41,9 @@ after weave_section => sub {
 EOT
 
     my $links = <<"EOT";
-L<Flattr this|$flattr_link>,
-L<gittip me|$gittip_link>, or indulge my
-L<Amazon Wishlist|$amzn_link>...  If you so desire.
+L<Flattr|$flattr_link>,
+L<Gratipay|$gittip_link>, or indulge my
+L<Amazon Wishlist|$amzn_link>...  If and *only* if you so desire.
 EOT
 
     my $text = <<"EOT";
