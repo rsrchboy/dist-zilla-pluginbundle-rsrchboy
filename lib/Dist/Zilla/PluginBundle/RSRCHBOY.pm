@@ -365,12 +365,6 @@ __END__
     # in your dist.ini...
     [@RSRCHBOY]
 
-=head1 DESCRIPTION
-
-This is RSRCHBOY's current L<Dist::Zilla> C<dist.ini> config for his packages.
-He's still figuring this all out, so it's probably wise to not depend on
-this being too terribly consistent/sane until the version gets to 1.
-
 =head1 OPTIONS
 
 =head2 sign (boolean; default: true)
