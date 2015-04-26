@@ -1,5 +1,8 @@
 [![Build Status](https://travis-ci.org/RsrchBoy/dist-zilla-pluginbundle-rsrchboy.svg?branch=master)](https://travis-ci.org/RsrchBoy/dist-zilla-pluginbundle-rsrchboy)
 [![Kwalitee status](http://cpants.cpanauthors.org/dist/Dist-Zilla-PluginBundle-RSRCHBOY.png)](http://cpants.charsbar.org/dist/overview/Dist-Zilla-PluginBundle-RSRCHBOY)
+![CPAN Version](https://img.shields.io/cpan/v/Dist-Zilla-PluginBundle-RSRCHBOY.svg)
+![CPAN License](https://img.shields.io/cpan/l/Dist-Zilla-PluginBundle-RSRCHBOY.svg)
+![License](https://img.shields.io/github/license/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY.svg)
 
 # NAME
 
@@ -7,18 +10,12 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 # VERSION
 
-This document describes version 0.058 of Dist::Zilla::PluginBundle::RSRCHBOY - released April 21, 2015 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.059 of Dist::Zilla::PluginBundle::RSRCHBOY - released April 25, 2015 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 # SYNOPSIS
 
     # in your dist.ini...
     [@RSRCHBOY]
-
-# DESCRIPTION
-
-This is RSRCHBOY's current [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla) `dist.ini` config for his packages.
-He's still figuring this all out, so it's probably wise to not depend on
-this being too terribly consistent/sane until the version gets to 1.
 
 # METHODS
 
@@ -140,3 +137,223 @@ This software is Copyright (c) 2013 by Chris Weyl.
 This is free software, licensed under:
 
     The GNU Lesser General Public License, Version 2.1, February 1999
+
+# DESCRIPTION
+
+\[NextRelease / Dist::Zilla::PluginBundle::RSRCHBOY/NextRelease\]
+format = %-8V  %{yyyy-MM-dd HH:mm:ss ZZZZ}d
+
+\[Git::NextVersion / Dist::Zilla::PluginBundle::RSRCHBOY/Git::NextVersion\]
+version\_regexp = ^(\\d.\\d+(\_\\d\\d)?)(-TRIAL|)$
+
+\[ContributorsFromGit / Dist::Zilla::PluginBundle::RSRCHBOY/ContributorsFromGit\]
+
+\[Git::CheckFor::CorrectBranch / Dist::Zilla::PluginBundle::RSRCHBOY/@Git::CheckFor/Git::CheckFor::CorrectBranch\]
+
+\[Git::CheckFor::Fixups / Dist::Zilla::PluginBundle::RSRCHBOY/@Git::CheckFor/Git::CheckFor::Fixups\]
+
+\[Git::CheckFor::MergeConflicts / Dist::Zilla::PluginBundle::RSRCHBOY/@Git::CheckFor/Git::CheckFor::MergeConflicts\]
+
+\[GatherDir / Dist::Zilla::PluginBundle::RSRCHBOY/GatherDir\]
+exclude\_filename = LICENSE
+exclude\_filename = cpanfile
+
+\[PromptIfStale / Dist::Zilla::PluginBundle::RSRCHBOY/PromptIfStale\]
+modules = Dist::Zilla
+modules = Dist::Zilla::PluginBundle::RSRCHBOY
+phase = build
+
+\[PruneCruft / Dist::Zilla::PluginBundle::RSRCHBOY/PruneCruft\]
+except = \\.travis\\.yml
+
+\[Git::Describe / Dist::Zilla::PluginBundle::RSRCHBOY/Git::Describe\]
+
+\[ExecDir / Dist::Zilla::PluginBundle::RSRCHBOY/ExecDir\]
+
+\[ShareDir / Dist::Zilla::PluginBundle::RSRCHBOY/ShareDir\]
+
+\[MakeMaker / Dist::Zilla::PluginBundle::RSRCHBOY/MakeMaker\]
+
+\[Manifest / Dist::Zilla::PluginBundle::RSRCHBOY/Manifest\]
+
+\[SurgicalPkgVersion / Dist::Zilla::PluginBundle::RSRCHBOY/SurgicalPkgVersion\]
+
+\[MinimumPerl / Dist::Zilla::PluginBundle::RSRCHBOY/MinimumPerl\]
+
+\[ReportVersions::Tiny / Dist::Zilla::PluginBundle::RSRCHBOY/ReportVersions::Tiny\]
+
+\[AutoPrereqs / Dist::Zilla::PluginBundle::RSRCHBOY/AutoPrereqs\]
+
+\[Prepender / Dist::Zilla::PluginBundle::RSRCHBOY/Prepender\]
+
+\[Prereqs / Dist::Zilla::PluginBundle::RSRCHBOY/AuthorBundleDevelopRequires\]
+\-phase = develop
+\-relationship = requires
+Dist::Zilla::PluginBundle::RSRCHBOY = 0
+
+\[Test::PodSpelling / Dist::Zilla::PluginBundle::RSRCHBOY/Test::PodSpelling\]
+stopwords = AFAICT
+stopwords = ABEND
+stopwords = RSRCHBOY
+stopwords = RSRCHBOY's
+stopwords = gpg
+stopwords = ini
+stopwords = metaclass
+stopwords = metaclasses
+stopwords = parameterized
+stopwords = parameterization
+stopwords = subclasses
+stopwords = coderef
+
+\[ConsistentVersionTest / Dist::Zilla::PluginBundle::RSRCHBOY/ConsistentVersionTest\]
+
+\[PodCoverageTests / Dist::Zilla::PluginBundle::RSRCHBOY/PodCoverageTests\]
+
+\[PodSyntaxTests / Dist::Zilla::PluginBundle::RSRCHBOY/PodSyntaxTests\]
+
+\[Test::NoTabs / Dist::Zilla::PluginBundle::RSRCHBOY/Test::NoTabs\]
+
+\[Test::EOL / Dist::Zilla::PluginBundle::RSRCHBOY/Test::EOL\]
+
+\[HasVersionTests / Dist::Zilla::PluginBundle::RSRCHBOY/HasVersionTests\]
+
+\[Test::Compile / Dist::Zilla::PluginBundle::RSRCHBOY/Test::Compile\]
+
+\[NoSmartCommentsTests / Dist::Zilla::PluginBundle::RSRCHBOY/NoSmartCommentsTests\]
+
+\[Test::Pod::LinkCheck / Dist::Zilla::PluginBundle::RSRCHBOY/Test::Pod::LinkCheck\]
+
+\[RunExtraTests / Dist::Zilla::PluginBundle::RSRCHBOY/RunExtraTests\]
+
+\[CheckExtraTests / Dist::Zilla::PluginBundle::RSRCHBOY/CheckExtraTests\]
+
+\[Test::MinimumVersion / Dist::Zilla::PluginBundle::RSRCHBOY/Test::MinimumVersion\]
+max\_target\_perl = 5.008008
+
+\[Authority / Dist::Zilla::PluginBundle::RSRCHBOY/Authority\]
+authority = cpan:RSRCHBOY
+
+\[MetaConfig / Dist::Zilla::PluginBundle::RSRCHBOY/MetaConfig\]
+
+\[MetaJSON / Dist::Zilla::PluginBundle::RSRCHBOY/MetaJSON\]
+
+\[MetaYAML / Dist::Zilla::PluginBundle::RSRCHBOY/MetaYAML\]
+
+\[MetaNoIndex / Dist::Zilla::PluginBundle::RSRCHBOY/MetaNoIndex\]
+directory = corpus
+directory = t
+
+\[MetaProvides::Package / Dist::Zilla::PluginBundle::RSRCHBOY/MetaProvides::Package\]
+
+\[GithubMeta / Dist::Zilla::PluginBundle::RSRCHBOY/GithubMeta\]
+issues = 1
+user = RsrchBoy
+
+\[TestRelease / Dist::Zilla::PluginBundle::RSRCHBOY/TestRelease\]
+
+\[CheckChangesHasContent / Dist::Zilla::PluginBundle::RSRCHBOY/CheckChangesHasContent\]
+
+\[CheckPrereqsIndexed / Dist::Zilla::PluginBundle::RSRCHBOY/CheckPrereqsIndexed\]
+
+\[Git::Remote::Update / Dist::Zilla::PluginBundle::RSRCHBOY/GitFetchOrigin\]
+do\_update = 1
+remote\_name = origin
+
+\[Git::Remote::Check / Dist::Zilla::PluginBundle::RSRCHBOY/GitCheckReleaseBranchSync\]
+branch = release/cpan
+do\_update = 0
+remote\_branch = release/cpan
+remote\_name = origin
+
+\[Git::Remote::Check / Dist::Zilla::PluginBundle::RSRCHBOY/GitCheckMasterBranchSync\]
+branch = master
+do\_update = 0
+remote\_branch = master
+remote\_name = origin
+
+\[Git::Check / Dist::Zilla::PluginBundle::RSRCHBOY/Git::Check\]
+allow\_dirty = .gitignore
+allow\_dirty = .travis.yml
+allow\_dirty = Changes
+allow\_dirty = README.mkdn
+allow\_dirty = dist.ini
+allow\_dirty = weaver.ini
+allow\_dirty = LICENSE
+allow\_dirty = cpanfile
+
+\[Git::Commit / Dist::Zilla::PluginBundle::RSRCHBOY/Git::Commit\]
+allow\_dirty = .gitignore
+allow\_dirty = .travis.yml
+allow\_dirty = Changes
+allow\_dirty = README.mkdn
+allow\_dirty = dist.ini
+allow\_dirty = weaver.ini
+allow\_dirty = LICENSE
+allow\_dirty = cpanfile
+
+\[Test::CheckDeps / Dist::Zilla::PluginBundle::RSRCHBOY/Test::CheckDeps\]
+:version = 0.007
+fatal = 1
+level = suggests
+
+\[CheckSelfDependency / Dist::Zilla::PluginBundle::RSRCHBOY/CheckSelfDependency\]
+
+\[Travis::ConfigForReleaseBranch / Dist::Zilla::PluginBundle::RSRCHBOY/Travis::ConfigForReleaseBranch\]
+
+\[SchwartzRatio / Dist::Zilla::PluginBundle::RSRCHBOY/SchwartzRatio\]
+
+\[Git::Tag / Dist::Zilla::PluginBundle::RSRCHBOY/Git::Tag\]
+signed = 1
+tag\_format = %v
+
+\[Git::CommitBuild / Dist::Zilla::PluginBundle::RSRCHBOY/Git::CommitBuild::Build\]
+
+\[Git::CommitBuild / Dist::Zilla::PluginBundle::RSRCHBOY/Git::CommitBuild::Release\]
+multiple\_inheritance = 1
+release\_branch = release/cpan
+release\_message = Full build of CPAN release %v%t
+
+\[Git::Push / Dist::Zilla::PluginBundle::RSRCHBOY/Git::Push\]
+push\_to = origin
+push\_to = origin refs/heads/release/cpan:refs/heads/release/cpan
+
+\[UploadToCPAN / Dist::Zilla::PluginBundle::RSRCHBOY/UploadToCPAN\]
+
+\[Signature / Dist::Zilla::PluginBundle::RSRCHBOY/Signature\]
+
+\[Twitter / Dist::Zilla::PluginBundle::RSRCHBOY/Twitter\]
+hash\_tags = #perl #cpan
+
+\[InstallRelease / Dist::Zilla::PluginBundle::RSRCHBOY/InstallRelease\]
+install\_command = cpanm .
+
+\[GitHub::Update / Dist::Zilla::PluginBundle::RSRCHBOY/GitHub::Update\]
+metacpan = 1
+
+\[ArchiveRelease / Dist::Zilla::PluginBundle::RSRCHBOY/ArchiveRelease\]
+directory = releases
+
+\[ConfirmRelease / Dist::Zilla::PluginBundle::RSRCHBOY/ConfirmRelease\]
+
+\[License / Dist::Zilla::PluginBundle::RSRCHBOY/License\]
+
+\[CPANFile / Dist::Zilla::PluginBundle::RSRCHBOY/CPANFile\]
+
+\[ReadmeAnyFromPod / Dist::Zilla::PluginBundle::RSRCHBOY/ReadmeMarkdownInRoot\]
+filename = README.mkdn
+location = root
+type = markdown
+
+\[ReadmeAnyFromPod / Dist::Zilla::PluginBundle::RSRCHBOY/ReadmeTxt\]
+filename = README
+type = text
+
+\[CopyFilesFromBuild / Dist::Zilla::PluginBundle::RSRCHBOY/CopyFilesFromBuild\]
+copy = LICENSE
+copy = cpanfile
+
+\[GitHubREADME::Badge / Dist::Zilla::PluginBundle::RSRCHBOY/GitHubREADME::Badge\]
+badges = travis
+badges = cpants
+
+\[PodWeaver / Dist::Zilla::PluginBundle::RSRCHBOY/PodWeaver\]
