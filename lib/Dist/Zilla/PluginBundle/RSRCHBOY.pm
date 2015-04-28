@@ -358,8 +358,6 @@ __END__
 
 =for Pod::Coverage configure
 
-=for :stopwords GitHub Plugins Gratipay
-
 =head1 SYNOPSIS
 
     # in your dist.ini...
