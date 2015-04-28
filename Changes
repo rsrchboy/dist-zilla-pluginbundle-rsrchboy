@@ -1,7 +1,5 @@
 Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
-{{$NEXT}}
-
 0.059     2015-04-27 22:08:27 PDT-0700
 	* [dzil] use 0 for our version in develop prereq declaration when
 	  unavailable
