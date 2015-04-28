@@ -348,6 +348,7 @@ sub stopwords {
         parameterization
         subclasses
         coderef
+        Gratipay
     };
 }
 
