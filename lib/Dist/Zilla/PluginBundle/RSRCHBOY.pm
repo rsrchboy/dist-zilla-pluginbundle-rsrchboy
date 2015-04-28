@@ -295,7 +295,7 @@ sub configure {
         }],
         [ CopyFilesFromBuild => { copy => $self->_copy_from_build } ],
 
-        [ 'GitHubREADME::Badge' => { badges => [ qw{ travis cpants } ] } ],
+        [ 'GitHubREADME::Badge' => { badges => [ qw{ travis cpants coveralls } ] } ],
 
         ($self->is_task ? 'TaskWeaver' : $podweaver),
     );
