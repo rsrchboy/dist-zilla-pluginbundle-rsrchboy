@@ -8,7 +8,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 # VERSION
 
-This document describes version 0.060 of Dist::Zilla::PluginBundle::RSRCHBOY - released April 27, 2015 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.061 of Dist::Zilla::PluginBundle::RSRCHBOY - released April 29, 2015 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 # SYNOPSIS
 
