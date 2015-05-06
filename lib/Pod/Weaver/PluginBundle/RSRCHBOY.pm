@@ -43,7 +43,6 @@ sub mvp_bundle_config {
         [ '@RSRCHBOY/postlude',  _exp('Region'),       { region_name => 'postlude' } ],
 
         _exp2('SeeAlso'),
-        _exp2('SourceGitHub'),
         _exp2('Bugs'),
 
         [ 'RSRCHBOY::Authors',     _exp('RSRCHBOY::Authors'),     { } ],
