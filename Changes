@@ -2,6 +2,9 @@ Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
 
+0.061     2015-05-05 20:26:02 PDT-0700
+	* [pw] drop SourceGitHub
+
 0.060     2015-04-27 22:17:13 PDT-0700
 	* aaaaaand add 'Gratipay' to our list of stopwords
 

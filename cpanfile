@@ -79,7 +79,6 @@ requires "Pod::Weaver::Section::Authors" => "0";
 requires "Pod::Weaver::Section::CollectWithIntro" => "0";
 requires "Pod::Weaver::Section::Contributors" => "0";
 requires "Pod::Weaver::Section::SeeAlso" => "0";
-requires "Pod::Weaver::Section::SourceGitHub" => "0";
 requires "Test::MinimumVersion" => "0";
 requires "Test::NoSmartComments" => "0";
 requires "Test::Pod" => "0";

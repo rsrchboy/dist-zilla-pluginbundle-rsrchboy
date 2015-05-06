@@ -8,7 +8,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 # VERSION
 
-This document describes version 0.061 of Dist::Zilla::PluginBundle::RSRCHBOY - released April 29, 2015 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.061 of Dist::Zilla::PluginBundle::RSRCHBOY - released May 05, 2015 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 # SYNOPSIS
 
@@ -93,11 +93,6 @@ Please see those modules/websites for more information related to this module.
 - [Dist::Zilla::Role::PluginBundle::PluginRemover](https://metacpan.org/pod/Dist::Zilla::Role::PluginBundle::PluginRemover)
 - [Dist::Zilla::Role::PluginBundle::Config::Slicer](https://metacpan.org/pod/Dist::Zilla::Role::PluginBundle::Config::Slicer)
 - [Config::MVP::Slicer](https://metacpan.org/pod/Config::MVP::Slicer)
-
-# SOURCE
-
-The development version is on github at [http://https://github.com/RsrchBoy/dist-zilla-pluginbundle-rsrchboy](http://https://github.com/RsrchBoy/dist-zilla-pluginbundle-rsrchboy)
-and may be cloned from [git://https://github.com/RsrchBoy/dist-zilla-pluginbundle-rsrchboy.git](git://https://github.com/RsrchBoy/dist-zilla-pluginbundle-rsrchboy.git)
 
 # BUGS
 
