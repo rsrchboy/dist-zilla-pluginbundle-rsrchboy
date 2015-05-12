@@ -2,6 +2,9 @@ Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
 
+0.062     2015-05-11 20:59:37 PDT-0700
+	* [dzil] Conditionalize CommitBuild 
+
 0.061     2015-05-05 20:26:02 PDT-0700
 	* [pw] drop SourceGitHub
 
