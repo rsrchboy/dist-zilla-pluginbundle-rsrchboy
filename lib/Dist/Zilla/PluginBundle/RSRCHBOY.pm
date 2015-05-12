@@ -114,13 +114,14 @@ sub release_plugins {
 
         [ 'Git::Tag' => { tag_format  => '%v', signed => $self->sign } ],
 
-        [ 'Git::CommitBuild' => 'Git::CommitBuild::Build' => { } ],
-
-        [ 'Git::CommitBuild' => 'Git::CommitBuild::Release' => {
-            release_branch       => 'release/cpan',
-            release_message      => 'Full build of CPAN release %v%t',
-            multiple_inheritance => 1,
-        }],
+        $ENV{TRAVIS} ? () : (
+            [ 'Git::CommitBuild' => 'Git::CommitBuild::Build' => { } ],
+            [ 'Git::CommitBuild' => 'Git::CommitBuild::Release' => {
+                release_branch       => 'release/cpan',
+                release_message      => 'Full build of CPAN release %v%t',
+                multiple_inheritance => 1,
+            }],
+        ),
 
         [ 'Git::Push' => {
             push_to => [
