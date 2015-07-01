@@ -1,7 +1,5 @@
 Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
-{{$NEXT}}
-
 0.063     2015-06-30 18:28:14 PDT-0700
 	* [pw] add '=pvt_method'
 
