@@ -351,6 +351,7 @@ sub stopwords {
         coderef
         Gratipay
         codebase
+        implementers
     };
 }
 
