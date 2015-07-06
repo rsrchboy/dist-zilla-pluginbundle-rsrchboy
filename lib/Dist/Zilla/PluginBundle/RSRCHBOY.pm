@@ -1,4 +1,16 @@
+#
+# This file is part of Dist-Zilla-PluginBundle-RSRCHBOY
+#
+# This software is Copyright (c) 2013 by Chris Weyl.
+#
+# This is free software, licensed under:
+#
+#   The GNU Lesser General Public License, Version 2.1, February 1999
+#
 package Dist::Zilla::PluginBundle::RSRCHBOY;
+our $AUTHORITY = 'cpan:RSRCHBOY';
+# git description: 0.063-2-gb52ff68
+$Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.064';
 
 # ABSTRACT: Zilla your distributions like RSRCHBOY!
 
@@ -62,11 +74,6 @@ has _copy_from_build => (
     },
 );
 
-=method release_plugins
-
-Plugin configuration for public release.
-
-=cut
 
 sub release_plugins {
     my $self = shift @_;
@@ -151,9 +158,6 @@ sub release_plugins {
     return @plugins;
 }
 
-=method author_tests
-
-=cut
 
 sub author_tests {
     my ($self) = @_;
@@ -179,11 +183,6 @@ sub author_tests {
     );
 }
 
-=method meta_provider_plugins
-
-Plugins that mess about with what goes into META.*.
-
-=cut
 
 sub meta_provider_plugins {
     my ($self) = @_;
@@ -208,11 +207,6 @@ sub meta_provider_plugins {
     return @plugins;
 }
 
-=method configure
-
-Preps plugin lists / config; see L<Dist::Zilla::Role::PluginBundle::Easy>.
-
-=cut
 
 sub configure {
     my $self = shift @_;
@@ -304,12 +298,6 @@ sub configure {
     return;
 }
 
-=method ensure_current
-
-Sometimes things change.  (I know, I know, the horror!)  This seeks to
-minimize that pain by automatically making what changes it can.
-
-=cut
 
 sub ensure_current {
     my $self = shift @_;
@@ -328,11 +316,6 @@ sub ensure_current {
 }
 
 
-=method stopwords
-
-A list of words our POD spell checker should ignore.
-
-=cut
 
 sub stopwords {
 
@@ -360,7 +343,21 @@ __PACKAGE__->meta->make_immutable;
 
 __END__
 
-=for Pod::Coverage configure
+=pod
+
+=encoding UTF-8
+
+=for :stopwords Chris Weyl Bowers Neil Romanov Sergey
+
+=for :stopwords Wishlist flattr flattr'ed gittip gittip'ed
+
+=head1 NAME
+
+Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
+
+=head1 VERSION
+
+This document describes version 0.064 of Dist::Zilla::PluginBundle::RSRCHBOY - released July 05, 2015 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 
@@ -372,6 +369,33 @@ __END__
 This is RSRCHBOY's current L<Dist::Zilla> C<dist.ini> config for his packages.
 He's still figuring this all out, so it's probably wise to not depend on
 this being too terribly consistent/sane until the version gets to 1.
+
+=head1 METHODS
+
+=head2 release_plugins
+
+Plugin configuration for public release.
+
+=head2 author_tests
+
+=head2 meta_provider_plugins
+
+Plugins that mess about with what goes into META.*.
+
+=head2 configure
+
+Preps plugin lists / config; see L<Dist::Zilla::Role::PluginBundle::Easy>.
+
+=head2 ensure_current
+
+Sometimes things change.  (I know, I know, the horror!)  This seeks to
+minimize that pain by automatically making what changes it can.
+
+=head2 stopwords
+
+A list of words our POD spell checker should ignore.
+
+=for Pod::Coverage configure
 
 =head1 OPTIONS
 
@@ -414,12 +438,82 @@ documentation of L<Dist::Zilla::Role::PluginBundle::Config::Slicer>.
 
 =head1 SEE ALSO
 
-Dist::Zilla::Role::PluginBundle::Easy
+Please see those modules/websites for more information related to this module.
 
-Dist::Zilla::Role::PluginBundle::PluginRemover
+=over 4
 
-Dist::Zilla::Role::PluginBundle::Config::Slicer
+=item *
 
-Config::MVP::Slicer
+L<Dist::Zilla::Role::PluginBundle::Easy|Dist::Zilla::Role::PluginBundle::Easy>
+
+=item *
+
+L<Dist::Zilla::Role::PluginBundle::PluginRemover|Dist::Zilla::Role::PluginBundle::PluginRemover>
+
+=item *
+
+L<Dist::Zilla::Role::PluginBundle::Config::Slicer|Dist::Zilla::Role::PluginBundle::Config::Slicer>
+
+=item *
+
+L<Config::MVP::Slicer|Config::MVP::Slicer>
+
+=back
+
+=head1 BUGS
+
+Please report any bugs or feature requests on the bugtracker website
+https://github.com/RsrchBoy/dist-zilla-pluginbundle-rsrchboy/issues
+
+When submitting a bug or request, please include a test-file or a
+patch to an existing test-file that illustrates the bug or desired
+feature.
+
+=head1 AUTHOR
+
+Chris Weyl <cweyl@alumni.drew.edu>
+
+=head2 I'm a material boy in a material world
+
+=begin html
+
+<a href="https://gratipay.com/RsrchBoy/"><img src="http://img.shields.io/gratipay/RsrchBoy.svg" /></a>
+<a href="http://bit.ly/rsrchboys-wishlist"><img src="http://wps.io/wp-content/uploads/2014/05/amazon_wishlist.resized.png" /></a>
+<a href="https://flattr.com/submit/auto?user_id=RsrchBoy&url=https%3A%2F%2Fgithub.com%2FRsrchBoy%2Fdist-zilla-pluginbundle-rsrchboy&title=RsrchBoy's%20CPAN%20Dist-Zilla-PluginBundle-RSRCHBOY&tags=%22RsrchBoy's%20Dist-Zilla-PluginBundle-RSRCHBOY%20in%20the%20CPAN%22"><img src="http://api.flattr.com/button/flattr-badge-large.png" /></a>
+
+=end html
+
+Please note B<I do not expect to be gittip'ed or flattr'ed for this work>,
+rather B<it is simply a very pleasant surprise>. I largely create and release
+works like this because I need them or I find it enjoyable; however, don't let
+that stop you if you feel like it ;)
+
+L<Flattr|https://flattr.com/submit/auto?user_id=RsrchBoy&url=https%3A%2F%2Fgithub.com%2FRsrchBoy%2Fdist-zilla-pluginbundle-rsrchboy&title=RsrchBoy's%20CPAN%20Dist-Zilla-PluginBundle-RSRCHBOY&tags=%22RsrchBoy's%20Dist-Zilla-PluginBundle-RSRCHBOY%20in%20the%20CPAN%22>,
+L<Gratipay|https://gratipay.com/RsrchBoy/>, or indulge my
+L<Amazon Wishlist|http://bit.ly/rsrchboys-wishlist>...  If and *only* if you so desire.
+
+=head1 CONTRIBUTORS
+
+=for stopwords Neil Bowers Sergey Romanov
+
+=over 4
+
+=item *
+
+Neil Bowers <neil@bowers.com>
+
+=item *
+
+Sergey Romanov <complefor@rambler.ru>
+
+=back
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2013 by Chris Weyl.
+
+This is free software, licensed under:
+
+  The GNU Lesser General Public License, Version 2.1, February 1999
 
 =cut
