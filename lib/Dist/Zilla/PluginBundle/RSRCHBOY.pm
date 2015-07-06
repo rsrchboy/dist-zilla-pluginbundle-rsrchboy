@@ -337,21 +337,21 @@ A list of words our POD spell checker should ignore.
 sub stopwords {
 
     return qw{
-        AFAICT
         ABEND
+        AFAICT
+        Gratipay
         RSRCHBOY
         RSRCHBOY's
+        codebase
+        coderef
         gpg
+        implementers
         ini
         metaclass
         metaclasses
-        parameterized
         parameterization
+        parameterized
         subclasses
-        coderef
-        Gratipay
-        codebase
-        implementers
     };
 }
 
