@@ -22,22 +22,26 @@ sub mvp_bundle_config {
         [ '@RSRCHBOY/Version', _exp('Version'), { format      => $vformat  } ],
         [ '@RSRCHBOY/prelude', _exp('Region'),  { region_name => 'prelude' } ],
 
-        [ 'SYNOPSIS',         _exp('Generic'),      {} ],
-        [ 'DESCRIPTION',      _exp('Generic'),      {} ],
-        [ 'OVERVIEW',         _exp('Generic'),      {} ],
+        [ 'SYNOPSIS',    _exp('Generic'), {} ],
+        [ 'DESCRIPTION', _exp('Generic'), {} ],
+        [ 'OVERVIEW',    _exp('Generic'), {} ],
 
         [ 'ROLE PARAMETERS', _exp('RSRCHBOY::RoleParameters'), {} ],
+
+        [ 'EXTENDS',    _exp('Collect'), { command => 'extends'    } ],
+        [ 'IMPLEMENTS', _exp('Collect'), { command => 'implements' } ],
+        [ 'CONSUMES',   _exp('Collect'), { command => 'consumes'   } ],
 
         [ 'REQUIRED ATTRIBUTES', _exp('RSRCHBOY::RequiredAttributes'), { } ],
         [ 'LAZY ATTRIBUTES',     _exp('RSRCHBOY::LazyAttributes'),     { } ],
         [ 'REQUIRED METHODS', _exp('Collect'), { command => 'required_method' } ],
 
-        [ 'ATTRIBUTES',       _exp('Collect'), { command => 'attr'            } ],
-        [ 'METHODS',          _exp('Collect'), { command => 'method'          } ],
-        [ 'PRIVATE METHODS',  _exp('Collect'), { command => 'pvt_method'      } ],
-        [ 'FUNCTIONS',        _exp('Collect'), { command => 'func'            } ],
-        [ 'TYPES',            _exp('Collect'), { command => 'type'            } ],
-        [ 'TEST_FUNCTIONS',   _exp('Collect'), { command => 'test'            } ],
+        [ 'ATTRIBUTES',       _exp('Collect'), { command => 'attr'       } ],
+        [ 'METHODS',          _exp('Collect'), { command => 'method'     } ],
+        [ 'PRIVATE METHODS',  _exp('Collect'), { command => 'pvt_method' } ],
+        [ 'FUNCTIONS',        _exp('Collect'), { command => 'func'       } ],
+        [ 'TYPES',            _exp('Collect'), { command => 'type'       } ],
+        [ 'TEST_FUNCTIONS',   _exp('Collect'), { command => 'test'       } ],
 
         _exp2('Leftovers'),
 
