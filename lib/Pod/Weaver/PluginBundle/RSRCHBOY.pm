@@ -26,15 +26,15 @@ sub mvp_bundle_config {
         [ 'DESCRIPTION', _exp('Generic'), {} ],
         [ 'OVERVIEW',    _exp('Generic'), {} ],
 
-        [ 'ROLE PARAMETERS', _exp('RSRCHBOY::RoleParameters'), {} ],
-
         [ 'EXTENDS',    _exp('Collect'), { command => 'extends'    } ],
         [ 'IMPLEMENTS', _exp('Collect'), { command => 'implements' } ],
         [ 'CONSUMES',   _exp('Collect'), { command => 'consumes'   } ],
 
-        [ 'REQUIRED ATTRIBUTES', _exp('RSRCHBOY::RequiredAttributes'), { } ],
-        [ 'LAZY ATTRIBUTES',     _exp('RSRCHBOY::LazyAttributes'),     { } ],
-        [ 'REQUIRED METHODS', _exp('Collect'), { command => 'required_method' } ],
+        [ 'ROLE PARAMETERS', _exp('RSRCHBOY::RoleParameters'), {} ],
+
+        [ 'REQUIRED ATTRIBUTES', _exp('RSRCHBOY::RequiredAttributes'), {         } ],
+        [ 'LAZY ATTRIBUTES',     _exp('RSRCHBOY::LazyAttributes'),     {         } ],
+        [ 'REQUIRED METHODS',    _exp('Collect'), { command => 'required_method' } ],
 
         [ 'ATTRIBUTES',       _exp('Collect'), { command => 'attr'       } ],
         [ 'METHODS',          _exp('Collect'), { command => 'method'     } ],
