@@ -2,6 +2,9 @@ Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
 
+0.064_01-TRIAL  2015-07-10 21:48:05 PDT-0700
+	* rejigger and add some pod sections
+
 0.064     2015-07-05 20:09:57 PDT-0700
 	* adjust stopwords
 
@@ -9,7 +12,7 @@ Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 	* [pw] add '=pvt_method'
 
 0.062     2015-05-11 20:59:37 PDT-0700
-	* [dzil] Conditionalize CommitBuild 
+	* [dzil] Conditionalize CommitBuild
 
 0.061     2015-05-05 20:26:02 PDT-0700
 	* [pw] drop SourceGitHub
