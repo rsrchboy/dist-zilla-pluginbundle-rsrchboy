@@ -41,7 +41,7 @@ sub mvp_bundle_config {
         [ 'PRIVATE METHODS',  _exp('Collect'), { command => 'pvt_method' } ],
         [ 'FUNCTIONS',        _exp('Collect'), { command => 'func'       } ],
         [ 'TYPES',            _exp('Collect'), { command => 'type'       } ],
-        [ 'TEST_FUNCTIONS',   _exp('Collect'), { command => 'test'       } ],
+        [ 'TEST FUNCTIONS',   _exp('Collect'), { command => 'test'       } ],
 
         _exp2('Leftovers'),
 
