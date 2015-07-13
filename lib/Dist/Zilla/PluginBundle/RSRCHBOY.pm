@@ -352,6 +352,8 @@ sub stopwords {
         parameterization
         parameterized
         subclasses
+        Formattable
+        formattable
     };
 }
 
