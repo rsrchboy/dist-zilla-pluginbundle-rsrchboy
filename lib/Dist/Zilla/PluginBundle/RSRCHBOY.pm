@@ -266,7 +266,7 @@ sub configure {
             Manifest
             SurgicalPkgVersion
             MinimumPerl
-            ReportVersions::Tiny
+            Test::ReportPrereqs
         },
         [ AutoPrereqs => $autoprereq_opts ],
         [ Prepender   => $prepender_opts  ],
