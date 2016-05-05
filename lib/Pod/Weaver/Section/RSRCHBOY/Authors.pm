@@ -16,8 +16,29 @@ use URI::Escape::XS 'uri_escape';
 
 extends 'Pod::Weaver::Section::Authors';
 
+=attr feed_me
+
+Boolean.  Set to false to disable our pledge-drive section :)
+
+=cut
+
+has feed_me => (is => 'rw', isa => 'Bool', lazy => 1, builder => sub { 1 });
+
+before weave_section => sub {
+    my ($self, $output, $input) = @_;
+
+    # skip this unless we're under dzil *and* have the right stash
+    return unless $input && $input->{zilla};
+    my $stash = $input->{zilla}->stash_named('%PodWeaver') // return;
+
+    $stash->merge_stashed_config($self);
+    return;
+};
+
 after weave_section => sub {
     my ($self, $output, $input) = @_;
+
+    return unless $self->feed_me;
 
     my $name = $input->{distmeta}->{name};
 
