@@ -1,7 +1,5 @@
 Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
-{{$NEXT}}
-
 0.067     2016-05-05 10:11:44 CDT-0500
 	* allow the pledge drive section of our Authors to be skipped.
 
