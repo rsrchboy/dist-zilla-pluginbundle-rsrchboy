@@ -102,6 +102,7 @@ on 'test' => sub {
   requires "IPC::Open3" => "0";
   requires "Test::CheckDeps" => "0.010";
   requires "Test::More" => "0.94";
+  requires "blib" => "1.01";
   requires "perl" => "v5.10.0";
 };
 
@@ -117,6 +118,7 @@ on 'configure' => sub {
 on 'develop' => sub {
   requires "Dist::Zilla::PluginBundle::RSRCHBOY" => "0";
   requires "Pod::Coverage::TrustPod" => "0";
+  requires "Pod::Wordlist" => "0";
   requires "Test::EOL" => "0";
   requires "Test::More" => "0.88";
   requires "Test::NoTabs" => "0";
