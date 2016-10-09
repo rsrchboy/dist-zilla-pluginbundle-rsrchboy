@@ -17,6 +17,10 @@ env:
   global:
     - SPLIT_BUILD=1
     - COVERAGE=1
+    - CACHE_NAME=$TRAVIS_PERL_VERSION
+cache:
+  directories:
+    - perl5/
 matrix:
   allow_failures:
     - perl: dev
