@@ -20,7 +20,7 @@ env:
     - CACHE_NAME=$TRAVIS_PERL_VERSION
 cache:
   directories:
-    - perl5/
+    - .perlbrew/
 matrix:
   allow_failures:
     - perl: dev
