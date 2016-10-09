@@ -6,6 +6,9 @@ addons:
       - aspell-en
 language: perl
 perl:
+  - "5.8"
+  - "5.10"
+  - "5.12"
   - "5.14"
   - "5.16"
   - "5.18"
@@ -15,14 +18,17 @@ perl:
   - "dev"
 env:
   global:
-    - SPLIT_BUILD=1
     - COVERAGE=1
-    - CACHE_NAME=$TRAVIS_PERL_VERSION
 cache:
   directories:
-    - .perlbrew/
+    - $HOME/perl5/perlbrew/perls/$TRAVIS_PERL_VERSION/bin/
+    - $HOME/perl5/perlbrew/perls/$TRAVIS_PERL_VERSION/lib/site_perl/
+before_cache:
+    - perlbrew list
+    - set | grep -a 'PERL.*='
 matrix:
   allow_failures:
     - perl: dev
 before_install:
+  - cpanp x
   - eval $(curl https://travis-perl.github.io/init) --auto
