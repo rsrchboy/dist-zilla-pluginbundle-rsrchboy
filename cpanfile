@@ -116,7 +116,6 @@ on 'configure' => sub {
 };
 
 on 'develop' => sub {
-  requires "Dist::Zilla::PluginBundle::RSRCHBOY" => "0";
   requires "Pod::Coverage::TrustPod" => "0";
   requires "Pod::Wordlist" => "0";
   requires "Test::EOL" => "0";

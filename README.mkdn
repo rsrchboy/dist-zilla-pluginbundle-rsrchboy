@@ -8,7 +8,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 # VERSION
 
-This document describes version 0.067 of Dist::Zilla::PluginBundle::RSRCHBOY - released May 05, 2016 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.068 of Dist::Zilla::PluginBundle::RSRCHBOY - released October 08, 2016 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 # SYNOPSIS
 
@@ -97,7 +97,7 @@ Please see those modules/websites for more information related to this module.
 # BUGS
 
 Please report any bugs or feature requests on the bugtracker website
-https://github.com/RsrchBoy/dist-zilla-pluginbundle-rsrchboy/issues
+[https://github.com/RsrchBoy/dist-zilla-pluginbundle-rsrchboy/issues](https://github.com/RsrchBoy/dist-zilla-pluginbundle-rsrchboy/issues)
 
 When submitting a bug or request, please include a test-file or a
 patch to an existing test-file that illustrates the bug or desired
@@ -105,7 +105,7 @@ feature.
 
 # AUTHOR
 
-Chris Weyl &lt;cweyl@alumni.drew.edu>
+Chris Weyl <cweyl@alumni.drew.edu>
 
 ## I'm a material boy in a material world
 
@@ -126,8 +126,8 @@ that stop you if you feel like it ;)
 
 # CONTRIBUTORS
 
-- Neil Bowers &lt;neil@bowers.com>
-- Sergey Romanov &lt;complefor@rambler.ru>
+- Neil Bowers <neil@bowers.com>
+- Sergey Romanov <complefor@rambler.ru>
 
 # COPYRIGHT AND LICENSE
 
