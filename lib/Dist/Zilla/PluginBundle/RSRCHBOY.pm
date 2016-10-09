@@ -54,7 +54,7 @@ has _copy_from_build => (
     builder => sub {
         my ($self) = @_;
 
-        my @copy = (qw{ LICENSE cpanfile });
+        my @copy = (qw{ LICENSE });
         push @copy, 'Makefile.PL'
             if $self->is_app;
 
