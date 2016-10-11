@@ -393,8 +393,13 @@ __END__
 =head1 DESCRIPTION
 
 This is RSRCHBOY's current L<Dist::Zilla> C<dist.ini> config for his packages.
-He's still figuring this all out, so it's probably wise to not depend on
-this being too terribly consistent/sane until the version gets to 1.
+He's still figuring this all out.  It's like vim, you never really know all
+the things.
+
+If you'd like to see what this does without digging into the guts, I recommend
+you install the most excellent L<Dist::Zilla::App::Command::dumpphases>
+package.  This will give you a new dzil command, allowing you to see a
+sensible dump of what plugins are going to be used, etc.
 
 =head1 OPTIONS
 
@@ -437,7 +442,7 @@ documentation of L<Dist::Zilla::Role::PluginBundle::Config::Slicer>.
 
 =head1 SEE ALSO
 
-Dist::Zilla::Role::PluginBundle::Easy
+Dist::Zilla::App::Command::dumpphases
 
 Dist::Zilla::Role::PluginBundle::PluginRemover
 
