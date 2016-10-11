@@ -276,6 +276,24 @@ sub configure {
         [ AutoPrereqs => $autoprereq_opts ],
         [ Prepender   => $prepender_opts  ],
 
+        # These are requirements that will be inserted on the generated dist,
+        # that indicate that for develop phase (e.g. author/release testing)
+        # certain additional packages are required for full exercise of xt/
+        [ Prereqs => AuthorBundleDevelopRequires => {
+            -phase        => 'develop',
+            -relationship => 'requires',
+
+            # TODO: drop when this is merged and released:
+            # https://github.com/marcel-maint/Dist-Zilla-Plugin-HasVersionTests/pull/2
+            'Test::HasVersion'        => 0,
+
+            # TODO: drop when this is merged and released:
+            # https://github.com/doherty/Dist-Zilla-Plugin-Test-MinimumVersion/pull/7
+            'Test::MinimumVersion'    => 0,
+
+            'Test::ConsistentVersion' => 0,
+        } ],
+
         $self->author_tests,
         $self->meta_provider_plugins,
         $self->release_plugins,
