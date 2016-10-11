@@ -136,8 +136,13 @@ sub release_plugins {
 
     push @plugins, 'Signature',
         if $self->sign;
-    push @plugins, [ Twitter => { hash_tags => '#perl #cpan' } ]
-        if $self->tweet;
+    push @plugins, [
+        Twitter => {
+            hash_tags => '#perl #cpan',
+            # TODO: remove the next line when resolved:
+            # https://github.com/dagolden/dist-zilla-plugin-twitter/issues/11
+            tweet_url => 'https://metacpan.org/release/{{$AUTHOR_UC}}/{{$DIST}}-{{$VERSION}}{{$TRIAL}}/',
+        } ] if $self->tweet;
     push @plugins, [ InstallRelease => { install_command => 'cpanm .' } ]
         if $self->install_on_release;
     push @plugins, [ 'GitHub::Update' => { metacpan  => 1 } ]
