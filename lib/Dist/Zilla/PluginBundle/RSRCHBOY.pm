@@ -203,6 +203,8 @@ sub meta_provider_plugins {
         qw{ MetaConfig MetaJSON MetaYAML },
         [ MetaNoIndex => { directory => [ qw{ corpus t } ] } ],
         'MetaProvides::Package',
+
+        'MetaData::BuiltWith',
     );
 
     if ($self->github) {
