@@ -37,16 +37,27 @@ sub _build_is_app     { $_[0]->payload->{cat_app} || $_[0]->payload->{app} }
 sub _build_is_private { $_[0]->payload->{private}                          }
 sub _build_rapid_dev  { $_[0]->payload->{rapid_dev}                        }
 
-my $_d = sub { my $key = shift; sub { shift->payload->{$key} } };
-has $_ => (is => 'lazy', isa => 'Bool')
-    for qw{ sign tweet github install_on_release };
-has "is_$_" => (is => 'lazy', isa => 'Bool', builder => $_d->($_))
-    for qw{ task };
+{
+    my $_builder_for = sub { my $key = shift; sub { shift->payload->{$key} // 1 } };
 
-sub _build_sign               { shift->payload->{sign}               // 1 }
-sub _build_tweet              { shift->payload->{tweet}              // 1 }
-sub _build_github             { shift->payload->{github}             // 1 }
-sub _build_install_on_release { shift->payload->{install_on_release} // 1 }
+    has $_ => (
+        traits  => ['Bool'],
+        is      => 'lazy',
+        isa     => 'Bool',
+        builder => $_builder_for->($_),
+        handles => { "no_$_" => 'not' },
+    )
+    for qw{ sign tweet github install_on_release }
+    ;
+}
+
+has is_task => (
+    traits  => ['Bool'],
+    is      => 'lazy',
+    isa     => 'Bool',
+    builder => sub { shift->payload->{task} },
+    handles => { is_not_task => 'not' },
+);
 
 has _copy_from_build => (
     is      => 'lazy',
