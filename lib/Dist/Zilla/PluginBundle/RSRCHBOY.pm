@@ -141,7 +141,7 @@ sub release_plugins {
             ],
         }],
 
-        !$self->tweet ? () : [
+        $self->no_tweet ? () : [
             Twitter => {
                 hash_tags => '#perl #cpan',
                 # TODO: remove the next line when resolved:
@@ -149,22 +149,15 @@ sub release_plugins {
                 tweet_url => 'https://metacpan.org/release/{{$AUTHOR_UC}}/{{$DIST}}-{{$VERSION}}{{$TRIAL}}/',
             },
         ],
-    );
 
-    push @plugins, 'UploadToCPAN'
-        unless $self->is_private;
+        $self->is_private            ? () : 'UploadToCPAN',
+        $self->no_sign               ? () : 'Signature',
+        $self->no_install_on_release ? () : [ InstallRelease   => { install_command => 'cpanm .' } ],
+        $self->no_github             ? () : [ 'GitHub::Update' => { metacpan        => 1         } ],
 
-    push @plugins, 'Signature',
-        if $self->sign;
-    push @plugins, [ InstallRelease => { install_command => 'cpanm .' } ]
-        if $self->install_on_release;
-    push @plugins, [ 'GitHub::Update' => { metacpan  => 1 } ]
-        if $self->github;
-
-    push @plugins,
         [ ArchiveRelease => { directory => 'releases' } ],
         'ConfirmRelease',
-        ;
+    );
 
     return @plugins;
 }
