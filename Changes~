@@ -1,9 +1,6 @@
 Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
-0.069     2016-10-10 21:13:58 CDT-0500
-	* Generate develop requires on certain test packages (e.g. inline
-	  author/release test requirements)
-	* Add a tweet_url template to better handle trial releases
+{{$NEXT}}
 
 0.068     2016-10-09 00:12:58 CDT-0500
 	* Stop copying back the cpanfile.
