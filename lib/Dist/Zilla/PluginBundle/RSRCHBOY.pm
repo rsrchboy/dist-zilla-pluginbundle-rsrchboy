@@ -73,6 +73,28 @@ has _copy_from_build => (
     },
 );
 
+has _allow_dirty => (
+    is      => 'ro',
+    isa     => 'ArrayRef',
+    lazy    => 1,
+    builder => sub {
+        my $self = shift @_;
+
+        return [
+            qw{
+                .gitignore
+                .travis.yml
+                Changes
+                README.mkdn
+                dist.ini
+                weaver.ini
+            },
+
+            $self->_copy_from_build->flatten,
+        ];
+    },
+);
+
 =method release_plugins
 
 Plugin configuration for public release.
@@ -198,26 +220,21 @@ Plugins that mess about with what goes into META.*.
 sub meta_provider_plugins {
     my ($self) = @_;
 
-    my @plugins = (
+    return (
         [ Authority => { authority => 'cpan:RSRCHBOY' } ],
         qw{ MetaConfig MetaJSON MetaYAML },
         [ MetaNoIndex => { directory => [ qw{ corpus t } ] } ],
         'MetaProvides::Package',
 
         'MetaData::BuiltWith',
+
+        $self->no_github ? () : [
+            GithubMeta => {
+                issues => 1,
+                $self->set_github_user ? (user => $self->github_user) : (),
+            },
+        ],
     );
-
-    if ($self->github) {
-
-        my $opts = { issues => 1 };
-
-        $opts->{user} = $self->github_user
-            if $self->set_github_user;
-
-        push @plugins, [ GithubMeta => $opts ]
-    }
-
-    return @plugins;
 }
 
 =method configure
@@ -298,6 +315,8 @@ sub configure {
             # https://github.com/doherty/Dist-Zilla-Plugin-Test-MinimumVersion/pull/7
             'Test::MinimumVersion'    => 0,
 
+            # TODO: drop when this is merged and released:
+            # TODO: file an issue / pr
             'Test::ConsistentVersion' => 0,
         } ],
 
