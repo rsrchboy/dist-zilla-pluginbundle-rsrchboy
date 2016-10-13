@@ -184,7 +184,6 @@ sub author_tests {
             NoSmartCommentsTests
             Test::Pod::LinkCheck
             RunExtraTests
-            CheckExtraTests
         },
         [ 'Test::MinimumVersion' => { max_target_perl => '5.008008' } ],
     );
