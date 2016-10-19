@@ -102,17 +102,6 @@ Plugin configuration for public release.
 sub release_plugins {
     my $self = shift @_;
 
-    my @allow_dirty = qw{
-        .gitignore
-        .travis.yml
-        Changes
-        README.mkdn
-        dist.ini
-        weaver.ini
-    };
-    push @allow_dirty, $self->_copy_from_build->flatten;
-
-
     my @plugins = (
         qw{
             TestRelease
@@ -135,8 +124,8 @@ sub release_plugins {
             branch        => 'master',
             remote_branch => 'master',
         } ],
-        [ 'Git::Check'      => { allow_dirty => [ @allow_dirty ] } ],
-        [ 'Git::Commit'     => { allow_dirty => [ @allow_dirty ] } ],
+        [ 'Git::Check'      => { allow_dirty => $self->_allow_dirty } ],
+        [ 'Git::Commit'     => { allow_dirty => $self->_allow_dirty } ],
 
         [ 'Test::CheckDeps' => { ':version' => '0.007', fatal => 1, level => 'suggests' } ],
         'CheckSelfDependency',
