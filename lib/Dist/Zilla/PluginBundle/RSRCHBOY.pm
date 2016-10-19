@@ -182,31 +182,6 @@ sub release_plugins {
     return @plugins;
 }
 
-=method author_tests
-
-=cut
-
-sub author_tests {
-    my ($self) = @_;
-
-    return (
-        [ 'Test::PodSpelling' => { stopwords => [ $self->stopwords ] } ],
-        qw{
-            ConsistentVersionTest
-            PodCoverageTests
-            PodSyntaxTests
-            Test::NoTabs
-            Test::EOL
-            HasVersionTests
-            Test::Compile
-            NoSmartCommentsTests
-            Test::Pod::LinkCheck
-            RunExtraTests
-        },
-        [ 'Test::MinimumVersion' => { max_target_perl => '5.008008' } ],
-    );
-}
-
 =method meta_provider_plugins
 
 Plugins that mess about with what goes into META.*.
@@ -314,7 +289,21 @@ sub configure {
             'Test::ConsistentVersion' => 0,
         } ],
 
-        $self->author_tests,
+        [ 'Test::PodSpelling' => { stopwords => [ $self->stopwords ] } ],
+        qw{
+            ConsistentVersionTest
+            PodCoverageTests
+            PodSyntaxTests
+            Test::NoTabs
+            Test::EOL
+            HasVersionTests
+            Test::Compile
+            NoSmartCommentsTests
+            Test::Pod::LinkCheck
+            RunExtraTests
+        },
+        [ 'Test::MinimumVersion' => { max_target_perl => '5.008008' } ],
+
         $self->meta_provider_plugins,
         $self->release_plugins,
 
