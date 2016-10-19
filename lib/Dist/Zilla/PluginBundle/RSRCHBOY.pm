@@ -3,7 +3,7 @@ package Dist::Zilla::PluginBundle::RSRCHBOY;
 # ABSTRACT: Zilla your distributions like RSRCHBOY!
 
 use utf8;
-use v5.10;
+use v5.24;
 
 use Moose;
 use namespace::autoclean;
@@ -124,8 +124,8 @@ sub release_plugins {
             branch        => 'master',
             remote_branch => 'master',
         } ],
-        [ 'Git::Check'      => { allow_dirty => $self->_allow_dirty } ],
-        [ 'Git::Commit'     => { allow_dirty => $self->_allow_dirty } ],
+        [ 'Git::Check'      => { allow_dirty => [ $self->_allow_dirty->@* ] } ],
+        [ 'Git::Commit'     => { allow_dirty => [ $self->_allow_dirty->@* ] } ],
 
         [ 'Test::CheckDeps' => { ':version' => '0.007', fatal => 1, level => 'suggests' } ],
         'CheckSelfDependency',
