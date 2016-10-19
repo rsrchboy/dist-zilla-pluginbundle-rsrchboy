@@ -182,32 +182,6 @@ sub release_plugins {
     return @plugins;
 }
 
-=method meta_provider_plugins
-
-Plugins that mess about with what goes into META.*.
-
-=cut
-
-sub meta_provider_plugins {
-    my ($self) = @_;
-
-    return (
-        [ Authority => { authority => 'cpan:RSRCHBOY' } ],
-        qw{ MetaConfig MetaJSON MetaYAML },
-        [ MetaNoIndex => { directory => [ qw{ corpus t } ] } ],
-        'MetaProvides::Package',
-
-        'MetaData::BuiltWith',
-
-        $self->no_github ? () : [
-            GithubMeta => {
-                issues => 1,
-                $self->set_github_user ? (user => $self->github_user) : (),
-            },
-        ],
-    );
-}
-
 =method configure
 
 Preps plugin lists / config; see L<Dist::Zilla::Role::PluginBundle::Easy>.
@@ -300,7 +274,20 @@ sub configure {
         },
         [ 'Test::MinimumVersion' => { max_target_perl => '5.008008' } ],
 
-        $self->meta_provider_plugins,
+        [ Authority => { authority => 'cpan:RSRCHBOY' } ],
+        qw{ MetaConfig MetaJSON MetaYAML },
+        [ MetaNoIndex => { directory => [ qw{ corpus t } ] } ],
+        'MetaProvides::Package',
+
+        'MetaData::BuiltWith',
+
+        $self->no_github ? () : [
+            GithubMeta => {
+                issues => 1,
+                $self->set_github_user ? (user => $self->github_user) : (),
+            },
+        ],
+
         $self->release_plugins,
 
         'License',
