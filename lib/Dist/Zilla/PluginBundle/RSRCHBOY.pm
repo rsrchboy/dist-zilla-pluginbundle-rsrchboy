@@ -227,21 +227,17 @@ sub configure {
         : [ PodWeaver => { config_plugin => '@RSRCHBOY' } ]
         ;
 
-    $self->add_plugins(
-        [ NextRelease => { format => '%-8V  %{yyyy-MM-dd HH:mm:ss ZZZZ}d' }],
-    );
-
-    $self->add_plugins([ 'Git::NextVersion' =>
-        #;first_version = 0.001       ; this is the default
-        #;version_regexp  = ^v(.+)$   ; this is the default
-        { version_regexp => '^(\d.\d+(_\d\d)?)(-TRIAL|)$' },
-    ]);
-
-    $self->add_plugins('ContributorsFromGit');
-
     $self->add_bundle('Git::CheckFor');
 
     $self->add_plugins(
+        [ NextRelease => { format => '%-8V  %{yyyy-MM-dd HH:mm:ss ZZZZ}d' }],
+        [ 'Git::NextVersion' =>
+            #;first_version = 0.001       ; this is the default
+            #;version_regexp  = ^v(.+)$   ; this is the default
+            { version_regexp => '^(\d.\d+(_\d\d)?)(-TRIAL|)$' },
+        ],
+
+        'ContributorsFromGit',
         [ GatherDir => { exclude_filename => $self->_copy_from_build } ],
         [
             PromptIfStale => {
