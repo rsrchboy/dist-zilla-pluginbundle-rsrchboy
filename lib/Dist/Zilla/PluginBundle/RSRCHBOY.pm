@@ -256,7 +256,7 @@ sub configure {
     $self->add_bundle('Git::CheckFor');
 
     $self->add_plugins(
-        [ GatherDir => { exclude_filename => $self->_copy_from_build } ],
+        [ 'Git::GatherDir' => { exclude_filename => $self->_copy_from_build } ],
         [
             PromptIfStale => {
                 phase   => 'build',
