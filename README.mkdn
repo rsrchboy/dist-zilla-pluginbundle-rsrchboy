@@ -8,7 +8,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 # VERSION
 
-This document describes version 0.069 of Dist::Zilla::PluginBundle::RSRCHBOY - released October 10, 2016 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.070 of Dist::Zilla::PluginBundle::RSRCHBOY - released February 27, 2017 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 # SYNOPSIS
 
@@ -18,8 +18,13 @@ This document describes version 0.069 of Dist::Zilla::PluginBundle::RSRCHBOY - r
 # DESCRIPTION
 
 This is RSRCHBOY's current [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla) `dist.ini` config for his packages.
-He's still figuring this all out, so it's probably wise to not depend on
-this being too terribly consistent/sane until the version gets to 1.
+He's still figuring this all out.  It's like vim, you never really know all
+the things.
+
+If you'd like to see what this does without digging into the guts, I recommend
+you install the most excellent [Dist::Zilla::App::Command::dumpphases](https://metacpan.org/pod/Dist::Zilla::App::Command::dumpphases)
+package.  This will give you a new dzil command, allowing you to see a
+sensible dump of what plugins are going to be used, etc.
 
 # METHODS
 
@@ -89,7 +94,7 @@ documentation of [Dist::Zilla::Role::PluginBundle::Config::Slicer](https://metac
 
 Please see those modules/websites for more information related to this module.
 
-- [Dist::Zilla::Role::PluginBundle::Easy](https://metacpan.org/pod/Dist::Zilla::Role::PluginBundle::Easy)
+- [Dist::Zilla::App::Command::dumpphases](https://metacpan.org/pod/Dist::Zilla::App::Command::dumpphases)
 - [Dist::Zilla::Role::PluginBundle::PluginRemover](https://metacpan.org/pod/Dist::Zilla::Role::PluginBundle::PluginRemover)
 - [Dist::Zilla::Role::PluginBundle::Config::Slicer](https://metacpan.org/pod/Dist::Zilla::Role::PluginBundle::Config::Slicer)
 - [Config::MVP::Slicer](https://metacpan.org/pod/Config::MVP::Slicer)
@@ -106,23 +111,6 @@ feature.
 # AUTHOR
 
 Chris Weyl <cweyl@alumni.drew.edu>
-
-## I'm a material boy in a material world
-
-<div>
-    <a href="https://gratipay.com/RsrchBoy/"><img src="http://img.shields.io/gratipay/RsrchBoy.svg" /></a>
-    <a href="http://bit.ly/rsrchboys-wishlist"><img src="http://wps.io/wp-content/uploads/2014/05/amazon_wishlist.resized.png" /></a>
-    <a href="https://flattr.com/submit/auto?user_id=RsrchBoy&url=https%3A%2F%2Fgithub.com%2FRsrchBoy%2Fdist-zilla-pluginbundle-rsrchboy&title=RsrchBoy's%20CPAN%20Dist-Zilla-PluginBundle-RSRCHBOY&tags=%22RsrchBoy's%20Dist-Zilla-PluginBundle-RSRCHBOY%20in%20the%20CPAN%22"><img src="http://api.flattr.com/button/flattr-badge-large.png" /></a>
-</div>
-
-Please note **I do not expect to be gittip'ed or flattr'ed for this work**,
-rather **it is simply a very pleasant surprise**. I largely create and release
-works like this because I need them or I find it enjoyable; however, don't let
-that stop you if you feel like it ;)
-
-[Flattr](https://flattr.com/submit/auto?user_id=RsrchBoy&url=https%3A%2F%2Fgithub.com%2FRsrchBoy%2Fdist-zilla-pluginbundle-rsrchboy&title=RsrchBoy&#x27;s%20CPAN%20Dist-Zilla-PluginBundle-RSRCHBOY&tags=%22RsrchBoy&#x27;s%20Dist-Zilla-PluginBundle-RSRCHBOY%20in%20the%20CPAN%22),
-[Gratipay](https://gratipay.com/RsrchBoy/), or indulge my
-[Amazon Wishlist](http://bit.ly/rsrchboys-wishlist)...  If and \*only\* if you so desire.
 
 # CONTRIBUTORS
 
