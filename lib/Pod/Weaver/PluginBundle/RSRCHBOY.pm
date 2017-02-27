@@ -50,7 +50,7 @@ sub mvp_bundle_config {
         _exp2('SeeAlso'),
         _exp2('Bugs'),
 
-        [ 'RSRCHBOY::Authors',     _exp('RSRCHBOY::Authors'),     { } ],
+        [ 'RSRCHBOY::Authors', _exp('RSRCHBOY::Authors'), { feed_me => 0 } ],
         _exp2('Contributors'),
         _exp2('Legal'),
 
