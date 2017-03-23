@@ -1,7 +1,5 @@
 Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
-{{$NEXT}}
-
 0.071     2017-03-23 12:46:12 CDT-0500
 	* Force feed_me to false as default in RSRCHBOY::Authors itself
 
