@@ -22,7 +22,7 @@ Boolean.  Set to false to disable our pledge-drive section :)
 
 =cut
 
-has feed_me => (is => 'rw', isa => 'Bool', lazy => 1, builder => sub { 1 });
+has feed_me => (is => 'rw', isa => 'Bool', lazy => 1, builder => sub { 0 });
 
 before weave_section => sub {
     my ($self, $output, $input) = @_;
