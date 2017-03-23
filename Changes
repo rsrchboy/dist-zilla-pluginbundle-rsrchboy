@@ -2,6 +2,9 @@ Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
 
+0.071     2017-03-23 12:46:12 CDT-0500
+	* Force feed_me to false as default in RSRCHBOY::Authors itself
+
 0.070     2017-02-27 16:01:27 CST-0600
 	* add: MetaData::BuiltWith
 	* Set feed_me => 0 as default (RSRCHBOY::Authors)
