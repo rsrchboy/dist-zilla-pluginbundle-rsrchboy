@@ -364,6 +364,7 @@ sub stopwords {
         AFAICT
         Formattable
         Gratipay
+        PayPal
         RSRCHBOY
         RSRCHBOY's
         codebase
