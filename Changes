@@ -1,7 +1,5 @@
 Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
-{{$NEXT}}
-
 0.072     2017-03-31 13:09:50 CDT-0500
 	* Add 'PayPal' to stopwords list
 
