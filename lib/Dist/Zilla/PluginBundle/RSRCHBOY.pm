@@ -362,11 +362,13 @@ sub stopwords {
     return qw{
         ABEND
         AFAICT
+        Formattable
         Gratipay
         RSRCHBOY
         RSRCHBOY's
         codebase
         coderef
+        formattable
         gpg
         implementers
         ini
@@ -375,8 +377,6 @@ sub stopwords {
         parameterization
         parameterized
         subclasses
-        Formattable
-        formattable
     };
 }
 
