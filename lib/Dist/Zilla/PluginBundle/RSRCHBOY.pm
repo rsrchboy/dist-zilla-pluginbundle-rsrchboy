@@ -31,11 +31,9 @@ has set_github_user => (is => 'lazy', isa => 'Str', builder => sub { 1 });
 
 has is_app     => (is => 'lazy', isa => 'Bool');
 has is_private => (is => 'lazy', isa => 'Bool');
-has rapid_dev  => (is => 'lazy', isa => 'Bool');
 
 sub _build_is_app     { $_[0]->payload->{cat_app} || $_[0]->payload->{app} }
 sub _build_is_private { $_[0]->payload->{private}                          }
-sub _build_rapid_dev  { $_[0]->payload->{rapid_dev}                        }
 
 {
     my $_builder_for = sub { my $key = shift; sub { shift->payload->{$key} // 1 } };
@@ -168,8 +166,6 @@ sub release_plugins {
 
 sub author_tests {
     my ($self) = @_;
-
-    return () if $self->rapid_dev;
 
     return (
         [ 'Test::PodSpelling' => { stopwords => [ $self->stopwords ] } ],
