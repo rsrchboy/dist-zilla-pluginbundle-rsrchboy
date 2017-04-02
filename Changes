@@ -2,6 +2,13 @@ Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
 
+0.073     2017-04-01 23:32:36 CDT-0500
+	* Drop "rapid_dev"
+	* ConsistentVersionTest -> 0.03
+	* Don't require ...::Stash::PAUSE::Encrypted
+	* Drop Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git
+	* Bump minimum Perl to v5.20
+
 0.072     2017-03-31 13:09:50 CDT-0500
 	* Add 'PayPal' to stopwords list
 
