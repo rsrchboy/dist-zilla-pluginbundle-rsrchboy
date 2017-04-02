@@ -18,7 +18,6 @@ with
     'Dist::Zilla::Role::PluginBundle::Easy',
     'Dist::Zilla::Role::PluginBundle::PluginRemover' => { -version => '0.102' },
     'Dist::Zilla::Role::PluginBundle::Config::Slicer',
-    'Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git',
     ;
 
 use Config::MVP::Slicer 0.302;
