@@ -1,5 +1,15 @@
+#
+# This file is part of Dist-Zilla-PluginBundle-RSRCHBOY
+#
+# This software is Copyright (c) 2013 by Chris Weyl.
+#
+# This is free software, licensed under:
+#
+#   The GNU Lesser General Public License, Version 2.1, February 1999
+#
 package Pod::Weaver::Section::RSRCHBOY::Authors;
-
+our $AUTHORITY = 'cpan:RSRCHBOY';
+$Pod::Weaver::Section::RSRCHBOY::Authors::VERSION = '0.073';
 # ABSTRACT: An AUTHORS section with materialistic pleasures
 
 use v5.10;
@@ -16,11 +26,6 @@ use URI::Escape::XS 'uri_escape';
 
 extends 'Pod::Weaver::Section::Authors';
 
-=attr feed_me
-
-Boolean.  Set to false to disable our pledge-drive section :)
-
-=cut
 
 has feed_me => (is => 'rw', isa => 'Bool', lazy => 1, builder => sub { 0 });
 
@@ -97,9 +102,23 @@ EOT
 
 __PACKAGE__->meta->make_immutable;
 !!42;
+
 __END__
 
-=for :stopwords Wishlist flattr flattr'ed gittip gittip'ed frak
+=pod
+
+=encoding UTF-8
+
+=for :stopwords Chris Weyl Bowers Neil Romanov Sergey Wishlist flattr flattr'ed gittip
+gittip'ed frak
+
+=head1 NAME
+
+Pod::Weaver::Section::RSRCHBOY::Authors - An AUTHORS section with materialistic pleasures
+
+=head1 VERSION
+
+This document describes version 0.073 of Pod::Weaver::Section::RSRCHBOY::Authors - released April 01, 2017 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 DESCRIPTION
 
@@ -108,5 +127,44 @@ appending information as to the means of sating the author's materialistic
 desires.
 
 What the frak; let's see what happens.
+
+=head1 ATTRIBUTES
+
+=head2 feed_me
+
+Boolean.  Set to false to disable our pledge-drive section :)
+
+=head1 SEE ALSO
+
+Please see those modules/websites for more information related to this module.
+
+=over 4
+
+=item *
+
+L<Dist::Zilla::PluginBundle::RSRCHBOY|Dist::Zilla::PluginBundle::RSRCHBOY>
+
+=back
+
+=head1 BUGS
+
+Please report any bugs or feature requests on the bugtracker website
+L<https://github.com/RsrchBoy/dist-zilla-pluginbundle-rsrchboy/issues>
+
+When submitting a bug or request, please include a test-file or a
+patch to an existing test-file that illustrates the bug or desired
+feature.
+
+=head1 AUTHOR
+
+Chris Weyl <cweyl@alumni.drew.edu>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2013 by Chris Weyl.
+
+This is free software, licensed under:
+
+  The GNU Lesser General Public License, Version 2.1, February 1999
 
 =cut

@@ -1,7 +1,5 @@
 Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
-{{$NEXT}}
-
 0.073     2017-04-01 23:32:36 CDT-0500
 	* Drop "rapid_dev"
 	* ConsistentVersionTest -> 0.03
