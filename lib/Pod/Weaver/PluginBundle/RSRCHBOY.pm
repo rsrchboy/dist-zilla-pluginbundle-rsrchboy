@@ -36,7 +36,12 @@ sub mvp_bundle_config {
         [ 'LAZY ATTRIBUTES',     _exp('RSRCHBOY::LazyAttributes'),     {         } ],
         [ 'REQUIRED METHODS',    _exp('Collect'), { command => 'required_method' } ],
 
-        [ 'ATTRIBUTES',       _exp('Collect'), { command => 'attr'       } ],
+        [ 'ATTRIBUTES', _exp('Collect'), { command => 'attr' }],
+
+        [ 'BEFORE METHOD MODIFIERS', _exp('Collect'), { command => 'before' } ],
+        [ 'AROUND METHOD MODIFIERS', _exp('Collect'), { command => 'around' } ],
+        [ 'AFTER METHOD MODIFIERS',  _exp('Collect'), { command => 'after'  } ],
+
         [ 'METHODS',          _exp('Collect'), { command => 'method'     } ],
         [ 'PRIVATE METHODS',  _exp('Collect'), { command => 'pvt_method' } ],
         [ 'FUNCTIONS',        _exp('Collect'), { command => 'func'       } ],
