@@ -7,60 +7,64 @@ use warnings;
 
 use Pod::Weaver::Config::Assembler;
 
-sub _exp { Pod::Weaver::Config::Assembler->expand_package($_[0]) }
-sub _exp2 { [ "\@RSRCHBOY/$_[0]", _exp($_[0]), {} ] }
-
-my $vformat = 'This document describes version %v of %m - released %{LLLL dd, yyyy}d as part of %r.';
-
-# this.... needs some work.
+use constant COLLECT => Pod::Weaver::Config::Assembler->expand_package('Collect');
+use constant GENERIC => Pod::Weaver::Config::Assembler->expand_package('Generic');
+use constant VFORMAT => 'This document describes version %v of %m - released %{LLLL dd, yyyy}d as part of %r.';
 
 sub mvp_bundle_config {
+
+    my $_exp  = sub { Pod::Weaver::Config::Assembler->expand_package($_[0]) };
+    my $_exp2 = sub { [ "\@RSRCHBOY/$_[0]", $_exp->($_[0]), {} ] };
+
+    my $_collect = sub { ( COLLECT, { command => $_[0] } ) };
+    my $_generic = sub { [ $_[0] => GENERIC, { } ] };
+
     return (
-        [ '@RSRCHBOY/StopWords', _exp('-StopWords'), {} ],
-        [ '@RSRCHBOY/CorePrep',  _exp('@CorePrep'),  {} ],
-        _exp2('Name'),
-        [ '@RSRCHBOY/Version', _exp('Version'), { format      => $vformat  } ],
-        [ '@RSRCHBOY/prelude', _exp('Region'),  { region_name => 'prelude' } ],
+        [ '@RSRCHBOY/StopWords', $_exp->('-StopWords'), {} ],
+        [ '@RSRCHBOY/CorePrep',  $_exp->('@CorePrep'),  {} ],
 
-        [ 'SYNOPSIS',    _exp('Generic'), {} ],
-        [ 'DESCRIPTION', _exp('Generic'), {} ],
-        [ 'OVERVIEW',    _exp('Generic'), {} ],
+        $_exp2->('Name'),
+        [ '@RSRCHBOY/Version', $_exp->('Version'), { format      => VFORMAT   } ],
+        [ '@RSRCHBOY/prelude', $_exp->('Region'),  { region_name => 'prelude' } ],
 
-        [ 'EXTENDS',    _exp('Collect'), { command => 'extends'    } ],
-        [ 'IMPLEMENTS', _exp('Collect'), { command => 'implements' } ],
-        [ 'CONSUMES',   _exp('Collect'), { command => 'consumes'   } ],
+        $_generic->('SYNOPSIS'),
+        $_generic->('DESCRIPTION'),
+        $_generic->('OVERVIEW'),
 
-        [ 'ROLE PARAMETERS', _exp('RSRCHBOY::RoleParameters'), {} ],
+        [ 'EXTENDS',    $_collect->('extends')    ],
+        [ 'IMPLEMENTS', $_collect->('implements') ],
+        [ 'CONSUMES',   $_collect->('consumes')   ],
 
-        [ 'REQUIRED ATTRIBUTES', _exp('RSRCHBOY::RequiredAttributes'), {         } ],
-        [ 'LAZY ATTRIBUTES',     _exp('RSRCHBOY::LazyAttributes'),     {         } ],
-        [ 'REQUIRED METHODS',    _exp('Collect'), { command => 'required_method' } ],
+        [ 'ROLE PARAMETERS', $_exp->('RSRCHBOY::RoleParameters'), {} ],
 
-        [ 'ATTRIBUTES', _exp('Collect'), { command => 'attr' }],
+        [ 'REQUIRED ATTRIBUTES', $_exp->('RSRCHBOY::RequiredAttributes'), { } ],
+        [ 'LAZY ATTRIBUTES',     $_exp->('RSRCHBOY::LazyAttributes'),     { } ],
+        [ 'REQUIRED METHODS',    $_collect->('required_method')               ],
+        [ 'ATTRIBUTES',          $_collect->('attr')                          ],
 
-        [ 'BEFORE METHOD MODIFIERS', _exp('Collect'), { command => 'before' } ],
-        [ 'AROUND METHOD MODIFIERS', _exp('Collect'), { command => 'around' } ],
-        [ 'AFTER METHOD MODIFIERS',  _exp('Collect'), { command => 'after'  } ],
+        [ 'BEFORE METHOD MODIFIERS', $_collect->('before') ],
+        [ 'AROUND METHOD MODIFIERS', $_collect->('around') ],
+        [ 'AFTER METHOD MODIFIERS',  $_collect->('after')  ],
 
-        [ 'METHODS',          _exp('Collect'), { command => 'method'     } ],
-        [ 'PRIVATE METHODS',  _exp('Collect'), { command => 'pvt_method' } ],
-        [ 'FUNCTIONS',        _exp('Collect'), { command => 'func'       } ],
-        [ 'TYPES',            _exp('Collect'), { command => 'type'       } ],
-        [ 'TEST FUNCTIONS',   _exp('Collect'), { command => 'test'       } ],
+        [ 'METHODS',          $_collect->('method')     ],
+        [ 'PRIVATE METHODS',  $_collect->('pvt_method') ],
+        [ 'FUNCTIONS',        $_collect->('func')       ],
+        [ 'TYPES',            $_collect->('type')       ],
+        [ 'TEST FUNCTIONS',   $_collect->('test')       ],
 
-        _exp2('Leftovers'),
+        $_exp2->('Leftovers'),
 
-        [ '@RSRCHBOY/postlude',  _exp('Region'),       { region_name => 'postlude' } ],
+        [ '@RSRCHBOY/postlude', $_exp->('Region'), { region_name => 'postlude' } ],
 
-        _exp2('SeeAlso'),
-        _exp2('Bugs'),
+        $_exp2->('SeeAlso'),
+        $_exp2->('Bugs'),
 
-        [ 'RSRCHBOY::Authors', _exp('RSRCHBOY::Authors'), { feed_me => 0 } ],
-        _exp2('Contributors'),
-        _exp2('Legal'),
+        [ 'RSRCHBOY::Authors', $_exp->('RSRCHBOY::Authors'), { feed_me => 0 } ],
+        $_exp2->('Contributors'),
+        $_exp2->('Legal'),
 
-        [ '@RSRCHBOY/List',      _exp('-Transformer'), { transformer => 'List' } ],
-        [ '@RSRCHBOY/SingleEncoding', _exp('-SingleEncoding'), {} ],
+        [ '@RSRCHBOY/List',      $_exp->('-Transformer'), { transformer => 'List' } ],
+        [ '@RSRCHBOY/SingleEncoding', $_exp->('-SingleEncoding'), {} ],
     );
 }
 
