@@ -79,47 +79,6 @@ or in C<dist.ini>:
 This is the L<Pod::Weaver> config I use for building my
 documentation.
 
-=head1 OVERVIEW
-
-This plugin bundle is B<ROUGHLY> equivalent to the following weaver.ini file:
-
-  [@CorePrep]
-
-  [Name]
-
-  [Region / prelude]
-
-  [Generic / SYNOPSIS]
-  [Generic / DESCRIPTION]
-  [Generic / OVERVIEW]
-
-  [Collect / ATTRIBUTES]
-  command = attr
-
-  [Collect / METHODS]
-  command = method
-
-  [Collect / FUNCTIONS]
-  command = func
-
-  [Collect / TEST_FUNCTIONS]
-  command = test
-
-  [Leftovers]
-
-  [Region / postlude]
-
-  [SeeAlso]
-  [SourceGitHub]
-  [Bugs]
-  [Authors]
-  [Legal]
-
-  [-Transformer]
-  transformer = List
-
-  [-SingleEncoding]
-
 =for Pod::Coverage mvp_bundle_config
 
 =cut
