@@ -152,7 +152,8 @@ sub release_plugins {
         $self->no_install_on_release ? () : [ InstallRelease   => { install_command => 'cpanm .' } ],
         $self->no_github             ? () : [ 'GitHub::Update' => { metacpan        => 1         } ],
 
-        [ ArchiveRelease => { directory => 'releases' } ],
+        [ 'Run::AfterRelease' => { run => 'mkdir -p releases ; mv %s releases/' } ],
+
         'ConfirmRelease',
     );
 
