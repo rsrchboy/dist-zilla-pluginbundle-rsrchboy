@@ -1,6 +1,7 @@
 Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
+	* Add CopyrightYearFromGit
 
 0.074     2017-04-15 23:43:04 CDT-0500
 	* Add POD collectors for method modifiers

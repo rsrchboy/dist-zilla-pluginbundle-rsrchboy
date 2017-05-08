@@ -245,7 +245,10 @@ sub configure {
         { version_regexp => '^(\d.\d+(_\d\d)?)(-TRIAL|)$' },
     ]);
 
-    $self->add_plugins('ContributorsFromGit');
+    $self->add_plugins(qw{
+        CopyrightYearFromGit
+        ContributorsFromGit
+    });
 
     $self->add_bundle('Git::CheckFor');
 
