@@ -1,6 +1,8 @@
 Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
+	* RsrchBoy -> rsrchboy
+	* v5.20 is now our default minimum version for distributions.
 
 0.075     2017-05-08 22:15:56 CDT-0500
 	* Add CopyrightYearFromGit
