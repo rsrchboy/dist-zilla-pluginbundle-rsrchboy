@@ -181,7 +181,7 @@ sub author_tests {
             Test::Pod::LinkCheck
             RunExtraTests
         },
-        [ 'Test::MinimumVersion' => { max_target_perl => '5.008008' } ],
+        [ 'Test::MinimumVersion' => { max_target_perl => '5.020000' } ],
     );
 }
 
