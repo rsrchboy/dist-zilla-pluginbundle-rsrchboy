@@ -23,7 +23,7 @@ with
 use Config::MVP::Slicer 0.302;
 use Path::Class;
 
-has github_user     => (is => 'lazy', isa => 'Str', builder => sub { 'RsrchBoy' });
+has github_user     => (is => 'lazy', isa => 'Str', builder => sub { 'rsrchboy' });
 has set_github_user => (is => 'lazy', isa => 'Str', builder => sub { 1 }         );
 
 # FIXME this next section is kinda... ugly
