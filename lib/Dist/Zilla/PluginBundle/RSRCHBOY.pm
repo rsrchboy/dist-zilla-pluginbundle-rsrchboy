@@ -196,7 +196,7 @@ sub meta_provider_plugins {
 
     my @plugins = (
         [ Authority => { authority => 'cpan:RSRCHBOY' } ],
-        qw{ MetaConfig MetaJSON MetaYAML },
+        qw{ MetaConfig MetaJSON },
         [ MetaNoIndex => { directory => [ qw{ corpus t } ] } ],
         'MetaProvides::Package',
 
