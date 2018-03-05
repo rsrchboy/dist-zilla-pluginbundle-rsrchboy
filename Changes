@@ -1,7 +1,5 @@
 Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
-{{$NEXT}}
-
 0.077     2018-03-05 15:33:19 CST-0600
 	* Un-drop `MetaYML`, as it's apparently still useful
 
