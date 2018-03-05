@@ -1,4 +1,16 @@
+#
+# This file is part of Dist-Zilla-PluginBundle-RSRCHBOY
+#
+# This software is Copyright (c) 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011 by Chris Weyl.
+#
+# This is free software, licensed under:
+#
+#   The GNU Lesser General Public License, Version 2.1, February 1999
+#
 package Dist::Zilla::PluginBundle::RSRCHBOY;
+our $AUTHORITY = 'cpan:RSRCHBOY';
+# git description: 0.074-8-g42133a5
+$Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.076';
 
 # ABSTRACT: Zilla your distributions like RSRCHBOY!
 
@@ -70,11 +82,6 @@ has _copy_from_build => (
     },
 );
 
-=method release_plugins
-
-Plugin configuration for public release.
-
-=cut
 
 sub release_plugins {
     my $self = shift @_;
@@ -160,9 +167,6 @@ sub release_plugins {
     return @plugins;
 }
 
-=method author_tests
-
-=cut
 
 sub author_tests {
     my ($self) = @_;
@@ -185,11 +189,6 @@ sub author_tests {
     );
 }
 
-=method meta_provider_plugins
-
-Plugins that mess about with what goes into META.*.
-
-=cut
 
 sub meta_provider_plugins {
     my ($self) = @_;
@@ -216,11 +215,6 @@ sub meta_provider_plugins {
     return @plugins;
 }
 
-=method configure
-
-Preps plugin lists / config; see L<Dist::Zilla::Role::PluginBundle::Easy>.
-
-=cut
 
 sub configure {
     my $self = shift @_;
@@ -324,11 +318,6 @@ sub configure {
     return;
 }
 
-=method stopwords
-
-A list of words our POD spell checker should ignore.
-
-=cut
 
 sub stopwords {
 
@@ -359,7 +348,19 @@ __PACKAGE__->meta->make_immutable;
 
 __END__
 
-=for Pod::Coverage configure
+=pod
+
+=encoding UTF-8
+
+=for :stopwords Chris Weyl Bowers Neil Romanov Sergey
+
+=head1 NAME
+
+Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
+
+=head1 VERSION
+
+This document describes version 0.076 of Dist::Zilla::PluginBundle::RSRCHBOY - released March 05, 2018 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 
@@ -376,6 +377,28 @@ If you'd like to see what this does without digging into the guts, I recommend
 you install the most excellent L<Dist::Zilla::App::Command::dumpphases>
 package.  This will give you a new dzil command, allowing you to see a
 sensible dump of what plugins are going to be used, etc.
+
+=head1 METHODS
+
+=head2 release_plugins
+
+Plugin configuration for public release.
+
+=head2 author_tests
+
+=head2 meta_provider_plugins
+
+Plugins that mess about with what goes into META.*.
+
+=head2 configure
+
+Preps plugin lists / config; see L<Dist::Zilla::Role::PluginBundle::Easy>.
+
+=head2 stopwords
+
+A list of words our POD spell checker should ignore.
+
+=for Pod::Coverage configure
 
 =head1 OPTIONS
 
@@ -418,12 +441,63 @@ documentation of L<Dist::Zilla::Role::PluginBundle::Config::Slicer>.
 
 =head1 SEE ALSO
 
-Dist::Zilla::App::Command::dumpphases
+Please see those modules/websites for more information related to this module.
 
-Dist::Zilla::Role::PluginBundle::PluginRemover
+=over 4
 
-Dist::Zilla::Role::PluginBundle::Config::Slicer
+=item *
 
-Config::MVP::Slicer
+L<Dist::Zilla::App::Command::dumpphases|Dist::Zilla::App::Command::dumpphases>
+
+=item *
+
+L<Dist::Zilla::Role::PluginBundle::PluginRemover|Dist::Zilla::Role::PluginBundle::PluginRemover>
+
+=item *
+
+L<Dist::Zilla::Role::PluginBundle::Config::Slicer|Dist::Zilla::Role::PluginBundle::Config::Slicer>
+
+=item *
+
+L<Config::MVP::Slicer|Config::MVP::Slicer>
+
+=back
+
+=head1 BUGS
+
+Please report any bugs or feature requests on the bugtracker website
+L<https://github.com/rsrchboy/dist-zilla-pluginbundle-rsrchboy/issues>
+
+When submitting a bug or request, please include a test-file or a
+patch to an existing test-file that illustrates the bug or desired
+feature.
+
+=head1 AUTHOR
+
+Chris Weyl <cweyl@alumni.drew.edu>
+
+=head1 CONTRIBUTORS
+
+=for stopwords Neil Bowers Sergey Romanov
+
+=over 4
+
+=item *
+
+Neil Bowers <neil@bowers.com>
+
+=item *
+
+Sergey Romanov <complefor@rambler.ru>
+
+=back
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011 by Chris Weyl.
+
+This is free software, licensed under:
+
+  The GNU Lesser General Public License, Version 2.1, February 1999
 
 =cut
