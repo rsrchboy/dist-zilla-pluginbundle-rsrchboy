@@ -1,0 +1,5 @@
+include:
+  - 'https://gitlab.com/rsrchboy/perl-ci/raw/master/dzil-ci.yml'
+
+variables:
+  DIST: Dist-Zilla-PluginBundle-RSRCHBOY
