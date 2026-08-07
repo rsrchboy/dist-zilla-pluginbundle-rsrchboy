@@ -1,4 +1,4 @@
-#!/usr/bin/env perl
+#!perl
 #
 # This file is part of Dist-Zilla-PluginBundle-RSRCHBOY
 #
@@ -9,8 +9,9 @@
 #   The GNU Lesser General Public License, Version 2.1, February 1999
 #
 
-use Test::More tests => 1;
+use Test::More;
 
-BEGIN { use_ok 'Dist::Zilla::PluginBundle::RSRCHBOY' }
-
-diag("Testing Dist::Zilla::PluginBundle::RSRCHBOY $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION, Perl $], $^X");
+eval "use Test::HasVersion";
+plan skip_all => "Test::HasVersion required for testing version numbers"
+  if $@;
+all_pm_version_ok();
