@@ -34,19 +34,37 @@ has is_private => (is => 'lazy', isa => 'Bool');
 sub _build_is_app     { $_[0]->payload->{cat_app} || $_[0]->payload->{app} }
 sub _build_is_private { $_[0]->payload->{private}                          }
 
-{
-    my $_builder_for = sub { my $key = shift; sub { shift->payload->{$key} // 1 } };
+has sign => (
+    traits  => ['Bool'],
+    is      => 'lazy',
+    isa     => 'Bool',
+    builder => sub { shift->payload->{sign} // 0 },
+    handles => { "no_sign" => 'not' },
+);
 
-    has $_ => (
-        traits  => ['Bool'],
-        is      => 'lazy',
-        isa     => 'Bool',
-        builder => $_builder_for->($_),
-        handles => { "no_$_" => 'not' },
-    )
-    for qw{ sign tweet github install_on_release }
-    ;
-}
+has tweet => (
+    traits  => ['Bool'],
+    is      => 'lazy',
+    isa     => 'Bool',
+    builder => sub { shift->payload->{tweet} // 0 },
+    handles => { "no_tweet" => 'not' },
+);
+
+has github => (
+    traits  => ['Bool'],
+    is      => 'lazy',
+    isa     => 'Bool',
+    builder => sub { shift->payload->{github} // 1 },
+    handles => { "no_github" => 'not' },
+);
+
+has install_on_release => (
+    traits  => ['Bool'],
+    is      => 'lazy',
+    isa     => 'Bool',
+    builder => sub { shift->payload->{install_on_release} // 1 },
+    handles => { "no_install_on_release" => 'not' },
+);
 
 has is_task => (
     traits  => ['Bool'],
