@@ -140,7 +140,7 @@ sub release_plugins {
 
         [ 'Git::Tag' => { tag_format  => '%v', signed => $self->sign } ],
 
-        $ENV{TRAVIS} ? () : (
+        $ENV{CI} ? () : (
             [ 'Git::CommitBuild' => 'Git::CommitBuild::Build' => { } ],
             [ 'Git::CommitBuild' => 'Git::CommitBuild::Release' => {
                 release_branch       => 'release/cpan',
