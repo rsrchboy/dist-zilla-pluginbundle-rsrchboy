@@ -3,7 +3,7 @@ package Dist::Zilla::PluginBundle::RSRCHBOY;
 # ABSTRACT: Zilla your distributions like RSRCHBOY!
 
 use utf8;
-use v5.18;
+use v5.38;
 
 use Moose;
 use namespace::autoclean;
