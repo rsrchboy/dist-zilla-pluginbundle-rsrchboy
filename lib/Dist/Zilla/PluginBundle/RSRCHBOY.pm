@@ -396,14 +396,14 @@ sensible dump of what plugins are going to be used, etc.
 
 =head1 OPTIONS
 
-=head2 sign (boolean; default: true)
+=head2 sign (boolean; default: false)
 
 On release, use your gpg key to sign the version tag created (if you're using
 git) and also generate a SIGNATURE file.
 
 See also L<Dist::Zilla::Plugin::Signature>.
 
-=head2 tweet (boolean; default: true)
+=head2 tweet (boolean; default: false)
 
 If set to a true value, we'll use L<Dist::Zilla::Plugin::Twitter> to tweet
 when a release occurs.
