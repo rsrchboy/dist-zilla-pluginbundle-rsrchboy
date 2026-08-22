@@ -1,6 +1,5 @@
-[![Build Status](https://travis-ci.org/rsrchboy/dist-zilla-pluginbundle-rsrchboy.svg?branch=master)](https://travis-ci.org/rsrchboy/dist-zilla-pluginbundle-rsrchboy)
+[![Actions Status](https://github.com/rsrchboy/dist-zilla-pluginbundle-rsrchboy/actions/workflows/dzil-matrix.yaml/badge.svg)](https://github.com/rsrchboy/dist-zilla-pluginbundle-rsrchboy/actions)
 [![Kwalitee status](https://cpants.cpanauthors.org/dist/Dist-Zilla-PluginBundle-RSRCHBOY.png)](https://cpants.cpanauthors.org/dist/Dist-Zilla-PluginBundle-RSRCHBOY)
-[![Coverage Status](https://coveralls.io/repos/rsrchboy/dist-zilla-pluginbundle-rsrchboy/badge.svg?branch=master)](https://coveralls.io/r/rsrchboy/dist-zilla-pluginbundle-rsrchboy?branch=master)
 
 # NAME
 

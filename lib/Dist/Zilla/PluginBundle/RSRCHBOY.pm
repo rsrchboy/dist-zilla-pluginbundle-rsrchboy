@@ -330,7 +330,10 @@ sub configure {
         }],
         [ CopyFilesFromBuild => { copy => $self->_copy_from_build } ],
 
-        [ 'GitHubREADME::Badge' => { badges => [ qw{ cpants coveralls } ] } ],
+        [ 'GitHubREADME::Badge' => { badges => [ qw{
+            github_actions/dzil-matrix.yaml
+            cpants
+        } ] } ],
 
         ($self->is_task ? 'TaskWeaver' : $podweaver),
     );
