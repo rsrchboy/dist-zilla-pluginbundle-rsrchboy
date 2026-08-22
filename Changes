@@ -2,6 +2,11 @@ Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
 {{$NEXT}}
 
+0.080     2026-08-22 14:53:27 CDT-0500
+	* Drop travis references
+	* Adjust badges
+	* Fix documentation errors
+
 0.079     2026-08-08 20:22:14 CDT-0500
 	* Use the more generic "CI" to test if we're running under CI
 	* Bump minimum version to v5.38
