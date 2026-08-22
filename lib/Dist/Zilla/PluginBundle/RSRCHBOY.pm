@@ -99,7 +99,6 @@ sub release_plugins {
 
     my @allow_dirty = qw{
         .gitignore
-        .travis.yml
         Changes
         README.mkdn
         dist.ini
@@ -135,7 +134,6 @@ sub release_plugins {
 
         [ 'Test::CheckDeps' => { ':version' => '0.007', fatal => 1, level => 'suggests' } ],
         'CheckSelfDependency',
-        'Travis::ConfigForReleaseBranch',
         'SchwartzRatio',
 
         [ 'Git::Tag' => { tag_format  => '%v', signed => $self->sign } ],
@@ -282,10 +280,8 @@ sub configure {
             },
         ],
 
-        # this will be added by another plugin to the build
-        [ PruneCruft => { except => '\.travis\.yml' } ],
-
         qw{
+            PruneCruft
             Git::Describe
             ExecDir
             ShareDir
@@ -334,7 +330,7 @@ sub configure {
         }],
         [ CopyFilesFromBuild => { copy => $self->_copy_from_build } ],
 
-        [ 'GitHubREADME::Badge' => { badges => [ qw{ travis cpants coveralls } ] } ],
+        [ 'GitHubREADME::Badge' => { badges => [ qw{ cpants coveralls } ] } ],
 
         ($self->is_task ? 'TaskWeaver' : $podweaver),
     );
