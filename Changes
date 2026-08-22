@@ -1,7 +1,5 @@
 Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
-{{$NEXT}}
-
 0.080     2026-08-22 14:53:27 CDT-0500
 	* Drop travis references
 	* Adjust badges
