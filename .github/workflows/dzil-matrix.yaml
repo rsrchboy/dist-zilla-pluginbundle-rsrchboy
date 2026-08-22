@@ -2,7 +2,9 @@ name: "dzil matrix"
 on:
   workflow_dispatch: ~
   push:
-    branches: "*"
+    branches:
+      - "**"
+      - "!release/cpan"
     tags-ignore: "*"
   pull_request: ~
 
